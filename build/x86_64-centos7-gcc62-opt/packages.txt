@@ -1,0 +1,2 @@
+# Regular package(s) built in WorkDir - 21.0.77
+CalcEfficiency MyNewPackage-00-00-01

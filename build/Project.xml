@@ -1,0 +1,53 @@
+<!-- Auto-generated file, please do not edit -->
+<Project name="WorkDir" >
+   <SubProject name="AsgTools" >
+   </SubProject>
+   <SubProject name="AthenaBaseComps" >
+   </SubProject>
+   <SubProject name="GoodRunsLists" >
+   </SubProject>
+   <SubProject name="TrigConfInterfaces" >
+   </SubProject>
+   <SubProject name="TrigConfxAOD" >
+   </SubProject>
+   <SubProject name="TrigDecisionTool" >
+   </SubProject>
+   <SubProject name="xAODTracking" >
+   </SubProject>
+   <SubProject name="xAODTrigger" >
+   </SubProject>
+   <SubProject name="xAODTrigMuon" >
+   </SubProject>
+   <SubProject name="TrkExInterfaces" >
+   </SubProject>
+   <SubProject name="TrkVertexFitterInterfaces" >
+   </SubProject>
+   <SubProject name="GaudiKernel" >
+   </SubProject>
+   <SubProject name="xAODEventInfo" >
+   </SubProject>
+   <SubProject name="xAODMuon" >
+   </SubProject>
+   <SubProject name="TrkParameters" >
+   </SubProject>
+   <SubProject name="TrkVKalVrtFitter" >
+   </SubProject>
+   <SubProject name="CalcEfficiency" >
+      <Dependency name="AsgTools" />
+      <Dependency name="AthenaBaseComps" />
+      <Dependency name="GoodRunsLists" />
+      <Dependency name="TrigConfInterfaces" />
+      <Dependency name="TrigConfxAOD" />
+      <Dependency name="TrigDecisionTool" />
+      <Dependency name="xAODTracking" />
+      <Dependency name="xAODTrigger" />
+      <Dependency name="xAODTrigMuon" />
+      <Dependency name="TrkExInterfaces" />
+      <Dependency name="TrkVertexFitterInterfaces" />
+      <Dependency name="GaudiKernel" />
+      <Dependency name="xAODEventInfo" />
+      <Dependency name="xAODMuon" />
+      <Dependency name="TrkParameters" />
+      <Dependency name="TrkVKalVrtFitter" />
+   </SubProject>
+</Project>

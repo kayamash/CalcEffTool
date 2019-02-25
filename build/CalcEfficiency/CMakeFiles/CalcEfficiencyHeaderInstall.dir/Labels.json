@@ -1,0 +1,19 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/kayamash/working/CalcEffTool/build/x86_64-centos7-gcc62-opt/include/CalcEfficiency"
+		},
+		{
+			"file" : "/home/kayamash/working/CalcEffTool/build/x86_64-centos7-gcc62-opt/include/CalcEfficiency.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"CalcEfficiency"
+		],
+		"name" : "CalcEfficiencyHeaderInstall"
+	}
+}

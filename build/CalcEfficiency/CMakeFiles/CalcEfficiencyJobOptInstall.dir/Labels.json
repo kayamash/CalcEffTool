@@ -1,0 +1,22 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/kayamash/working/CalcEffTool/build/x86_64-centos7-gcc62-opt/jobOptions/CalcEfficiency/CalcEffAlg_options.py"
+		},
+		{
+			"file" : "/home/kayamash/working/CalcEffTool/CalcEfficiency/run/CalcEffAlg_options.py"
+		},
+		{
+			"file" : "/home/kayamash/working/CalcEffTool/build/x86_64-centos7-gcc62-opt/jobOptions/CalcEfficiency/CalcEffAlg_options.py.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"CalcEfficiency"
+		],
+		"name" : "CalcEfficiencyJobOptInstall"
+	}
+}
