@@ -39,7 +39,8 @@ class TagAndProbe {
 	TagAndProbe();
 	~TagAndProbe();
     
-    enum L1Item{ NOTHING, L1_MU4, L1_MU6, L1_MU10, L1_MU11, L1_MU20, L1_MU21 };
+    //enum L1Item{ NOTHING, L1_MU4, L1_MU6, L1_MU10, L1_MU11, L1_MU20, L1_MU21 };
+    enum L1Item{ NOTHING, L1_MU4, L1_MU6, L1_MU10, L1_MU11, L1_MU15, L1_MU20 };
     enum TapType{ L1, L2, EF, ALL };
     
 

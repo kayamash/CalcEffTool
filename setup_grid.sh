@@ -13,6 +13,7 @@ setupATLAS
 #setupATLAS
 lsetup emi  
 lsetup panda
+lsetup rucio
 #voms-proxy-init -voms atlas:/atlas/jp -valid 96:00
 
 #asetup AtlasProduction 20.7.7.5 here
