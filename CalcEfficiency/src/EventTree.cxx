@@ -69,6 +69,7 @@ int EventTree::initialize( TString outfile = "test.root" ) {
   tag_EF_eta        = -99999.;
   tag_EF_phi        = -99999.;
   probe_pt          = -99999.;
+  probe_MSpt          = -99999.;//kayamash
   probe_eta         = -99999.;
   probe_exteta      = -99999.;
   probe_extinneta   = -99999.;
@@ -290,6 +291,7 @@ int EventTree::initialize( TString outfile = "test.root" ) {
   m_tree->Branch( "tag_EF_eta",         &tag_EF_eta );
   m_tree->Branch( "tag_EF_phi",         &tag_EF_phi );
   m_tree->Branch( "probe_pt",           &probe_pt );
+  m_tree->Branch( "probe_MSpt",           &probe_MSpt );//kayamash
   m_tree->Branch( "probe_eta",          &probe_eta );
   m_tree->Branch( "probe_exteta",       &probe_exteta );
   m_tree->Branch( "probe_extinneta",    &probe_extinneta );
@@ -515,6 +517,7 @@ EventTree::EventTree(TFile *file, TString name )
   tag_EF_eta        = -99999.;
   tag_EF_phi        = -99999.;
   probe_pt          = -99999.;
+  probe_MSpt          = -99999.;//kayamash
   probe_eta         = -99999.;
   probe_exteta      = -99999.;
   probe_extinneta   = -99999.;
@@ -731,6 +734,7 @@ EventTree::EventTree(TFile *file, TString name )
   m_tree->SetBranchAddress( "tag_EF_eta",   &tag_EF_eta );
   m_tree->SetBranchAddress( "tag_EF_phi",   &tag_EF_phi );
   m_tree->SetBranchAddress( "probe_pt",     &probe_pt );
+  m_tree->SetBranchAddress( "probe_MSpt",     &probe_MSpt );//kayamash
   m_tree->SetBranchAddress( "probe_eta",    &probe_eta );
   m_tree->SetBranchAddress( "probe_exteta",       &probe_exteta );
   m_tree->SetBranchAddress( "probe_extinneta",    &probe_extinneta );
@@ -1089,6 +1093,7 @@ int EventTree::filltree( TagAndProbe& tap, int eventNumber, int runNumber, int l
     tag_EF_eta        = tap.tagEFEta()[i];
     tag_EF_phi        = tap.tagEFPhi()[i];
     probe_pt          = tap.probePt()[i];
+    probe_MSpt          = tap.probeMSPt()[i];//kayamash
     probe_eta         = tap.probeEta()[i];
     probe_exteta      = tap.probeExtEta()[i];
     probe_extinneta   = tap.probeExtInnEta()[i];

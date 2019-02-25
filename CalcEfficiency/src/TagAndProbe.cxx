@@ -8,6 +8,7 @@
 #include "xAODTrigMuon/L2CombinedMuon.h"
 #include "xAODTrigMuon/L2CombinedMuonContainer.h"
 #include "xAODTrigger/MuonRoIContainer.h"
+#include "xAODTracking/TrackParticleContainer.h"
 
 #include "CalcEfficiency/TagAndProbe.h"
 #include "CalcEfficiency/ParticleSelecterTool.h"
@@ -574,6 +575,7 @@ void TagAndProbe::clear() {
   m_tagEFEta.clear();
   m_tagEFPhi.clear();
   m_probePt.clear();
+  m_probeMSPt.clear();//kayamash
   m_probeEta.clear();
   m_probeExtEta.clear();
   m_probeExtInnEta.clear();
@@ -1032,6 +1034,7 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
     const xAOD::TrackParticle* tagtrk = tag->trackParticle( xAOD::Muon::InnerDetectorTrackParticle );	
     const xAOD::Muon* probe = m_TPpairs[iTP].second;
     const xAOD::TrackParticle* probetrk = probe->trackParticle( xAOD::Muon::InnerDetectorTrackParticle );	
+    const xAOD::TrackParticle* probeMS = probe->trackParticle( xAOD::Muon::muonSpectrometerTrackParticleLink );//kayamash
     vector< const xAOD::TrackParticle* > tppair;
     if( tagtrk ) tppair.push_back( tagtrk );
     if( probetrk ) tppair.push_back( probetrk );
@@ -1054,6 +1057,7 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
     const double tagExtInnPhi = ( tagtrk )? extTagInn.second:tagPhi;
 
     double probePt      = probe->pt();
+    double probeMSPt      = probeMS->pt();//kayamash
     double probeEta     = probe->eta();
     double probePhi     = probe->phi();
     double probed0      = ( probetrk )? probetrk->d0():-99999.;
@@ -1557,6 +1561,7 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
     m_tagEFEta.push_back( tagEFEta );
     m_tagEFPhi.push_back( tagEFPhi );
     m_probePt.push_back( probePt );
+    m_probeMSPt.push_back( probeMSPt );
     m_probeEta.push_back( probeEta );
     m_probeExtEta.push_back( probeExtEta );
     m_probeExtInnEta.push_back( probeExtInnEta );

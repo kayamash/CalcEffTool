@@ -69,6 +69,7 @@ class EventTree {
     double tag_EF_eta;
     double tag_EF_phi;
     double probe_pt;
+    double probe_MSpt;//kayamash
     double probe_eta;
     double probe_exteta;
     double probe_extinneta;

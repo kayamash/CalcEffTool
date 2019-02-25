@@ -105,6 +105,7 @@ class TagAndProbe {
     vector< double > tagEFEta(){ return m_tagEFEta; } 
     vector< double > tagEFPhi(){ return m_tagEFPhi; } 
     vector< double > probePt(){ return m_probePt; } 
+    vector< double > probeMSPt(){ return m_probeMSPt; } //kayamash
     vector< double > probeEta(){ return m_probeEta; }
     vector< double > probeExtEta(){ return m_probeExtEta; }
     vector< double > probeExtInnEta(){ return m_probeExtInnEta; }
@@ -366,6 +367,7 @@ class TagAndProbe {
     vector< double > m_tagEFEta; //!
     vector< double > m_tagEFPhi; //!
     vector< double > m_probePt; //!
+    vector< double > m_probeMSPt; //!kayamash
     vector< double > m_probeEta; //!
     vector< double > m_probeExtEta; //!
     vector< double > m_probeExtInnEta; //!
