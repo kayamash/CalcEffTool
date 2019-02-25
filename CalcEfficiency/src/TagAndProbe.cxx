@@ -1034,7 +1034,7 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
     const xAOD::TrackParticle* tagtrk = tag->trackParticle( xAOD::Muon::InnerDetectorTrackParticle );	
     const xAOD::Muon* probe = m_TPpairs[iTP].second;
     const xAOD::TrackParticle* probetrk = probe->trackParticle( xAOD::Muon::InnerDetectorTrackParticle );	
-    const xAOD::TrackParticle* probeMS = probe->trackParticle( xAOD::Muon::muonSpectrometerTrackParticleLink );//kayamash
+    const xAOD::TrackParticle* probeMS = probe->trackParticle( xAOD::Muon::MuonSpectrometerTrackParticle );//kayamash
     vector< const xAOD::TrackParticle* > tppair;
     if( tagtrk ) tppair.push_back( tagtrk );
     if( probetrk ) tppair.push_back( probetrk );
