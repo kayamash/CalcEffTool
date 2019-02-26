@@ -1196,7 +1196,7 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
       double dRL1     = probeL1dR;
       double dRCB     = probeEFdR;
       double dRFTF    = probeEFdR;
-      double dRFTF_2  = probeEFdR;
+      //double dRFTF_2  = probeEFdR;
       double dREF     = ( m_trigMesMSonly[imes]==0 )? probeEFdR:probeL1dR;
       //cout << "BEFORE: " << dRL1 << ", " << dRCB << ", " << dREF << " (Pt=" << probePt << ")" << endl;
       double DUMMYparam[4]  = { -99999., -99999., -99999., -99999. };
@@ -1241,7 +1241,7 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
       
       double CBparam[4]     = { -99999., -99999., -99999., -99999. };
       double FTFparam[4]    = { -99999., -99999., -99999., -99999. };
-      double FTFparam_2[4]  = { -99999., -99999., -99999., -99999. };
+      //double FTFparam_2[4]  = { -99999., -99999., -99999., -99999. };
       double EFparam[4]     = { -99999., -99999., -99999., -99999. };
       /*
       int L1num   = matchL1( m_trigMesL1[imes], probe, rois, &dRL1, tagL1num, L1param );
@@ -1250,7 +1250,7 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
       int CBpass  = matchCB( probe, fc, &dRCB, CBparam );
       int EFpass  = matchEF( m_trigMesHLT[imes], probe, fc, &dREF, EFparam );
       */
-      int EFTAGpass=-1, L1num=-1, SApass=-1, CBpass=-1, FTFpass=-1, FTFpass_2=-1, EFpass=-1;
+      int EFTAGpass=-1, L1num=-1, SApass=-1, CBpass=-1, FTFpass=-1, EFpass=-1;
       if( m_trigMesAddTagReq[imes]!="none" ) {
         Trig::FeatureContainer fctag = m_trigDecTool->features( m_trigMesAddTagReq[imes], TrigDefs::alsoDeactivateTEs );
         EFTAGpass = matchEFFS( m_trigMesAddTagReq[imes], tag, fctag, &dREFTAG, EFTAGparam, DUMMYparam );
@@ -1835,7 +1835,7 @@ int TagAndProbe::matchSA( const Trig::FeatureContainer& fc, int L1num, double* p
         //cout << "MyCheck: saRoi=" << l2saRoINum << " L1Roi=" << L1num << " idte=" << l2saTE -> getId() << " nameTE=" << Trig::getTEName( *l2saTE ) . c_str() << endl;
         if( l2saRoINum != L1num ) continue; 
         pair< double, double > extsa = m_ext.extTrackMuComb( l2sa );
-        const int nTP = l2sa->nTrackPositions();
+        //const int nTP = l2sa->nTrackPositions();
         const double l2saPt     = l2sa->pt();
         const double l2saEtaIP  = l2sa->eta();
         const double l2saPhiIP  = l2sa->phi();
@@ -2069,7 +2069,7 @@ int TagAndProbe::matchSA( const Trig::FeatureContainer& fc, int L1num, double* p
         const int l2saRoINum  = l2sa->roiNumber();
         if( l2saRoINum != L1num ) continue; 
         pair< double, double > extsa = m_ext.extTrackMuComb( l2sa );
-        const int nTP = l2sa->nTrackPositions();
+        //const int nTP = l2sa->nTrackPositions();
         const double l2saPt     = l2sa->pt();
         const double l2saEtaIP  = l2sa->eta();
         const double l2saPhiIP  = l2sa->phi();
@@ -2351,8 +2351,8 @@ int TagAndProbe::matchCB( const xAOD::Muon* muon, const Trig::FeatureContainer& 
       const double l2cbEta  = l2cb->eta();
       const double l2cbPhi  = l2cb->phi();
       const double l2cbCharge = l2cb->charge();
-      const double l2cbError  = l2cb->errorFlag();
-      const double l2cbMatch  = l2cb->matchFlag();
+      //const double l2cbError  = l2cb->errorFlag();
+      //const double l2cbMatch  = l2cb->matchFlag();
       const double l2cbdRmu = m_utils.deltaR( muEta, muPhi, l2cbEta, l2cbPhi);
       //const double l2cbdRex  = m_utils.deltaR( exmuEta, exmuPhi, l2cbEta, l2cbPhi);
       //cout << "CB matching : " << muPt << ":" << l2cbPt << "( Q=" << l2cbCharge << ") ==> " << l2cbError << ":" << l2cbMatch << ":" << l2cbTE->getActiveState() << ":" << l2cbdRmu << endl;

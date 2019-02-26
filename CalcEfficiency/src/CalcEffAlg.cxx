@@ -250,7 +250,7 @@ StatusCode CalcEffAlg::execute() {
   //==  Trigger Tools
   //==============================================================
   vector< string > passlist;
-  bool passany = false;
+  //bool passany = false;
   auto cgs = m_trigDecTool->getChainGroup( "HLT.*mu.*|L1_.*MU.*|HLT_noalg_L1.*MU.*" );
   //auto cgs = m_trigDecTool->getChainGroup( "HLT.*" );
   for ( auto &trig : cgs->getListOfTriggers() ) {
@@ -313,7 +313,7 @@ StatusCode CalcEffAlg::FillRateHist(const xAOD::MuonContainer* muons, const xAOD
     return StatusCode::SUCCESS;
   }
 
-  uint32_t runNumber = eventInfo->runNumber();
+  //uint32_t runNumber = eventInfo->runNumber();
   unsigned long long eventNumber = eventInfo->eventNumber();
 
   for( unsigned int iChain = 0; iChain < m_trigL1.size(); ++iChain){
@@ -457,7 +457,7 @@ StatusCode CalcEffAlg::FillRateHist(const xAOD::MuonContainer* muons, const xAOD
 
     // offline
     double tmp_offlineMatchedRoiEta = -9999.;
-    double tmp_offlinePtCutMatchedRoiEta = -9999.;
+    //double tmp_offlinePtCutMatchedRoiEta = -9999.;
     xAOD::MuonContainer::const_iterator mu_itr = muons->begin();
     xAOD::MuonContainer::const_iterator mu_end  = muons->end();
     for ( ; mu_itr!=mu_end; ++mu_itr ) {
@@ -567,8 +567,8 @@ double CalcEffAlg :: offlineMatching ( const xAOD::Muon *muon, const xAOD::MuonR
     ATH_MSG_DEBUG("L2SA cont size = " << cont->size());
     for( const auto& l2sa : *cont ) {
       l2saRoINum  = l2sa->roiNumber();
-      double l2saPt  = l2sa->pt();
-      double l2saRoIEta  = l2sa->roiEta();
+      //double l2saPt  = l2sa->pt();
+      //double l2saRoIEta  = l2sa->roiEta();
       if ( l2saRoINum == matchedRoINumber && isActiveTE ){
         isPassedSA = 1;
         goto RoIMatchingAndSAPassed;
@@ -586,7 +586,7 @@ RoIMatchingAndSAPassed:
   // CB
   ATH_MSG_DEBUG("CB matching in offlineMatching()");
   int isPassedCB = -1;
-  int l2cbRoINum = -1;
+  //int l2cbRoINum = -1;
   std::string trigCBName = "";
   getCBTEName( trigHLT, trigCBName );
   Trig::FeatureContainer fcL2CB = m_trigDecTool->features( trigHLT, TrigDefs::alsoDeactivateTEs );
@@ -638,8 +638,8 @@ RoIMatchingAndCBPassed:
   double efPt     = -99999;
   double efEta    = -99999;
   double efPhi    = -99999;
-  double efCharge = -99999;
-  double efdRmu   = 0.02;
+  //double efCharge = -99999;
+  //double efdRmu   = 0.02;
   for ( auto& fEF : fEFs ) {
     const HLT::TriggerElement* efTE = ( fEF.te() );
     const xAOD::MuonContainer* cont = fEF.cptr();
