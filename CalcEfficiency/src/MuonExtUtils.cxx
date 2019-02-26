@@ -269,7 +269,7 @@ pair<double, double> MuonExtUtils::extTrackMuComb( const xAOD::L2StandAloneMuon*
 
   //Superpoints
   int inner  = (feature->sAddress() == -1) ? xAOD::L2MuonParameters::Chamber::EndcapInner : xAOD::L2MuonParameters::Chamber::BarrelInner;
-  //int middle = (feature->sAddress() == -1) ? xAOD::L2MuonParameters::Chamber::EndcapMiddle : xAOD::L2MuonParameters::Chamber::BarrelMiddle;
+  int middle = (feature->sAddress() == -1) ? xAOD::L2MuonParameters::Chamber::EndcapMiddle : xAOD::L2MuonParameters::Chamber::BarrelMiddle;
   
   double sp1_z = feature->superPointZ(inner);
   double sp1_R = feature->superPointR(inner);
@@ -310,7 +310,7 @@ pair<double, double> MuonExtUtils::extTrackMuComb( const xAOD::L2StandAloneMuon*
   //Protection against failing extrapolation
   double extr_eta;
   double extr_phi;
-  //double extr_pt;
+  double extr_pt;
   if (!muonPerigee) { //G4 probably failed, getting LUT extrapolated values
      extr_eta    = feature->eta();
      extr_phi    = feature->phi();
