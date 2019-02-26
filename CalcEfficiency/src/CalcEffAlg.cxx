@@ -194,12 +194,12 @@ StatusCode CalcEffAlg::initialize() {
     m_h_countEvent.push_back(new TH1D(Form("countEvent_%s_%s",       m_trigEvent[i].data(), m_trigHLT[i].data()), "countEvent;Run number;Counts",    100, -3000000000,  3000000000));
     m_h_countL1.push_back(new TH1F(Form("countL1_%s_%s",             m_trigEvent[i].data(), m_trigHLT[i].data()), "countL1;#eta_{RoI};Counts",       100, -3, 3));
     m_h_countSA.push_back(new TH1F(Form("countSA_%s_%s",             m_trigEvent[i].data(), m_trigHLT[i].data()), "countSA;#eta_{RoI};Counts",       100, -3, 3));
-    m_h_countSA4GeV.push_back(new TH1F(Form("countSA_%s_%s",             m_trigEvent[i].data(), m_trigHLT[i].data()), "countSA;#eta_{RoI};Counts",       100, -3, 3));
-    m_h_countSA8GeV.push_back(new TH1F(Form("countSA_%s_%s",             m_trigEvent[i].data(), m_trigHLT[i].data()), "countSA;#eta_{RoI};Counts",       100, -3, 3));
-    m_h_countSA12GeV.push_back(new TH1F(Form("countSA_%s_%s",             m_trigEvent[i].data(), m_trigHLT[i].data()), "countSA;#eta_{RoI};Counts",       100, -3, 3));
-    m_h_countSA16GeV.push_back(new TH1F(Form("countSA_%s_%s",             m_trigEvent[i].data(), m_trigHLT[i].data()), "countSA;#eta_{RoI};Counts",       100, -3, 3));
-    m_h_countSA20GeV.push_back(new TH1F(Form("countSA_%s_%s",             m_trigEvent[i].data(), m_trigHLT[i].data()), "countSA;#eta_{RoI};Counts",       100, -3, 3));
-    m_h_countSA24GeV.push_back(new TH1F(Form("countSA_%s_%s",             m_trigEvent[i].data(), m_trigHLT[i].data()), "countSA;#eta_{RoI};Counts",       100, -3, 3));
+    m_h_countSA4GeV.push_back(new TH1F(Form("countSA4_%s_%s",             m_trigEvent[i].data(), m_trigHLT[i].data()), "countSA;#eta_{RoI};Counts",       100, -3, 3));
+    m_h_countSA8GeV.push_back(new TH1F(Form("countSA8_%s_%s",             m_trigEvent[i].data(), m_trigHLT[i].data()), "countSA;#eta_{RoI};Counts",       100, -3, 3));
+    m_h_countSA12GeV.push_back(new TH1F(Form("countSA12_%s_%s",             m_trigEvent[i].data(), m_trigHLT[i].data()), "countSA;#eta_{RoI};Counts",       100, -3, 3));
+    m_h_countSA16GeV.push_back(new TH1F(Form("countSA16_%s_%s",             m_trigEvent[i].data(), m_trigHLT[i].data()), "countSA;#eta_{RoI};Counts",       100, -3, 3));
+    m_h_countSA20GeV.push_back(new TH1F(Form("countSA20_%s_%s",             m_trigEvent[i].data(), m_trigHLT[i].data()), "countSA;#eta_{RoI};Counts",       100, -3, 3));
+    m_h_countSA24GeV.push_back(new TH1F(Form("countSA24_%s_%s",             m_trigEvent[i].data(), m_trigHLT[i].data()), "countSA;#eta_{RoI};Counts",       100, -3, 3));
     m_h_countCB.push_back(new TH1F(Form("countCB_%s_%s",             m_trigEvent[i].data(), m_trigHLT[i].data()), "countCB;#eta_{RoI};Counts",       100, -3, 3));
     m_h_countEF.push_back(new TH1F(Form("countEF_%s_%s",             m_trigEvent[i].data(), m_trigHLT[i].data()), "countEF;#eta_{RoI};Counts",       100, -3, 3));
     m_h_countOff.push_back(new TH1F(Form("countOff_%s_%s",           m_trigEvent[i].data(), m_trigHLT[i].data()), "countOff;#eta_{RoI};Counts",      100, -3, 3));
