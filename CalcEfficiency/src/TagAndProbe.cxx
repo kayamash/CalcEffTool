@@ -1034,13 +1034,13 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
     const xAOD::TrackParticle* tagtrk = tag->trackParticle( xAOD::Muon::InnerDetectorTrackParticle );	
     const xAOD::Muon* probe = m_TPpairs[iTP].second;
     const xAOD::TrackParticle* probetrk = probe->trackParticle( xAOD::Muon::InnerDetectorTrackParticle );	
-    const xAOD::TrackParticle* probeMS = probe->trackParticle( xAOD::Muon::MuonSpectrometerTrackParticle );//kayamash
+    
     vector< const xAOD::TrackParticle* > tppair;
     if( tagtrk ) tppair.push_back( tagtrk );
     if( probetrk ) tppair.push_back( probetrk );
     if( !tagtrk && !probetrk ) continue;
     const xAOD::Vertex* pv = ( tagtrk )? tagtrk->vertex():probetrk->vertex();
-  
+
     double tagPt        = tag->pt();
     double tagEta       = tag->eta();
     double tagPhi       = tag->phi();
@@ -1057,7 +1057,13 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
     const double tagExtInnPhi = ( tagtrk )? extTagInn.second:tagPhi;
 
     double probePt      = probe->pt();
-    double probeMSPt      = probeMS->pt();//kayamash
+    //kayamash
+    const ElementLink< xAOD::TrackParticleContainer > mslink = probe->offline()->muonSpectrometerTrackParticleLink();
+    if(link.isValid()){
+      const xAOD::TrackParticle *mstrk = *mslink;
+      double probeMSPt      = probeMS->pt()/1000.;//kayamash
+    }
+    //kayamash
     double probeEta     = probe->eta();
     double probePhi     = probe->phi();
     double probed0      = ( probetrk )? probetrk->d0():-99999.;
