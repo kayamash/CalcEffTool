@@ -1058,10 +1058,10 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
 
     double probePt      = probe->pt();
     //kayamash
-    const ElementLink< xAOD::TrackParticleContainer > mslink = probe->offline()->muonSpectrometerTrackParticleLink();
+    const ElementLink< xAOD::TrackParticleContainer > mslink = probe->muonSpectrometerTrackParticleLink();
     if(link.isValid()){
       const xAOD::TrackParticle *mstrk = *mslink;
-      double probeMSPt      = probeMS->pt()/1000.;//kayamash
+      double probeMSPt      = mstrk->pt()/1000.;//kayamash
     }
     //kayamash
     double probeEta     = probe->eta();
