@@ -20,7 +20,7 @@ fi
 
 if [ "$1" = "" ] ; then
   if [ "$USE_BSUB" = "1" ] ; then
-    bsub -q $BSUB_QUE -o log.out athena.py CalcEffAlg_options.py
+    bsub -q $BSUB_QUE -o /home/kayamash/CalcEffToollog/data18_349327/log_div00.out athena.py CalcEffAlg_options.py
   else
     athena.py CalcEffAlg_options.py &> log_1101_01 &
   fi

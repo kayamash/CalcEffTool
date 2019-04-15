@@ -1,8 +1,8 @@
 if 'LocalInputFileList' in locals():
     print "LocalInputFileList is already set"
 else:
-    LocalInputFileList="/home/kayamash/list/mc16_13TeV.list"
-LocalInputFileList="data16.list"
+    LocalInputFileList="/home/kayamash/CalcEffToollist/data18_349327/local_div00.list"
+#LocalInputFileList="data16.list"
 #LocalInputFileList="local_valid_r9026.list"
 #LocalInputFileList="r9311.list"
 #LocalInputFileList="r9539_Zmumu.list"
@@ -107,7 +107,9 @@ rec.doEgamma=False
 #ServiceMgr.MessageSvc.debugLimit = 99999999
 
 # GRL
-ToolSvc += CfgMgr.GoodRunsListSelectionTool("MyGRLTool",GoodRunsListVec=["current_grl.xml"])
+#ToolSvc += CfgMgr.GoodRunsListSelectionTool("MyGRLTool",GoodRunsListVec=["current_grl.xml"])
+#ToolSvc += CfgMgr.GoodRunsListSelectionTool("MyGRLTool",GoodRunsListVec=["data15_13TeV.periodAllYear_HEAD_Unknown_PHYS_StandardGRL_All_Good_25ns.xml"])
+ToolSvc += CfgMgr.GoodRunsListSelectionTool("MyGRLTool",GoodRunsListVec=["data18_13TeV.periodAllYear_HEAD_Unknown_PHYS_StandardGRL_All_Good_25ns.xml"])
 
 include("RecExCommon/RecExCommon_topOptions.py")
 
@@ -115,11 +117,11 @@ from CalcEfficiency.CalcEfficiencyConf import *
 
 job += CalcEffAlg( message = "2",
                    OutputLevel = DEBUG,
-                   OutputFile = "/gpfs/fs6001/kayamash/Mywork/data16sample.root",
-                   TapMethod = "Jpsitap",
+                   OutputFile = "/gpfs/fs6001/kayamash/Mywork/data18_349327/output_div00.root",
+                   TapMethod = "Ztap",
                    Extrapolate = True,
                    GRL = False,
-                   DataType = "data16"
+                   DataType = "data17"
                  )
                    #GRL = True
                    #OutputLevel = ERROR,
