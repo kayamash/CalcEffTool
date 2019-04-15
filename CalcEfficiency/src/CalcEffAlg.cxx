@@ -403,12 +403,12 @@ StatusCode CalcEffAlg::FillRateHist(const xAOD::MuonContainer* muons, const xAOD
         m_h_countCB[iChain]->Fill(l2saRoIEta);
         // only pass L2MuonSA
         if(isActiveTE) m_h_countSA[iChain]->Fill(l2saRoIEta);
-        if(isActiveTE == 1 && l2saPt > 4.0) m_h_countSA4GeV[iChain]->Fill(l2saRoIEta);
-        if(isActiveTE == 1 && l2saPt > 8.0) m_h_countSA8GeV[iChain]->Fill(l2saRoIEta);
-        if(isActiveTE == 1 && l2saPt > 12.0) m_h_countSA12GeV[iChain]->Fill(l2saRoIEta);
-        if(isActiveTE == 1 && l2saPt > 16.0) m_h_countSA16GeV[iChain]->Fill(l2saRoIEta);
-        if(isActiveTE == 1 && l2saPt > 20.0) m_h_countSA20GeV[iChain]->Fill(l2saRoIEta);
-        if(isActiveTE == 1 && l2saPt > 24.0) m_h_countSA24GeV[iChain]->Fill(l2saRoIEta);
+        if(isActiveTE == 1 && std::fabs(l2saPt) > 4.0) m_h_countSA4GeV[iChain]->Fill(l2saRoIEta);
+        if(isActiveTE == 1 && std::fabs(l2saPt) > 8.0) m_h_countSA8GeV[iChain]->Fill(l2saRoIEta);
+        if(isActiveTE == 1 && std::fabs(l2saPt) > 12.0) m_h_countSA12GeV[iChain]->Fill(l2saRoIEta);
+        if(isActiveTE == 1 && std::fabs(l2saPt) > 16.0) m_h_countSA16GeV[iChain]->Fill(l2saRoIEta);
+        if(isActiveTE == 1 && std::fabs(l2saPt) > 20.0) m_h_countSA20GeV[iChain]->Fill(l2saRoIEta);
+        if(isActiveTE == 1 && std::fabs(l2saPt) > 24.0) m_h_countSA24GeV[iChain]->Fill(l2saRoIEta);
       }
     }
 

@@ -30,10 +30,10 @@ class EventTree {
 	int initialize( TString outfile );
 	//int initialize( TFile* outfile, TTree* outtree );
 	int clear();
-	int filltree( TagAndProbe& tap, int eventNumber, int runNumber, int lumiBlock, float averageInteractionsPerCrossing );
+	int filltree( TagAndProbe& tap, unsigned long long int eventNumber, int runNumber, int lumiBlock, float averageInteractionsPerCrossing );
 	int finalize();
 
-    int EventNumber;
+    unsigned long long int EventNumber;
     int RunNumber;
     int LumiBlock;
     float AverageInteractionsPerCrossing;
@@ -69,7 +69,7 @@ class EventTree {
     double tag_EF_eta;
     double tag_EF_phi;
     double probe_pt;
-    double probe_MSpt;//kayamash
+    //double probe_MSpt;//kayamash
     double probe_eta;
     double probe_exteta;
     double probe_extinneta;
@@ -80,6 +80,23 @@ class EventTree {
     double probe_z0;
     double probe_charge;
     //SegmentMaxNumber is defined in Tagandprobe.h .
+    //tsakai insert
+    double tag_segment_n;
+    double tag_segment_x[SegmentMaxNumber];
+    double tag_segment_y[SegmentMaxNumber];
+    double tag_segment_z[SegmentMaxNumber];
+    double tag_segment_px[SegmentMaxNumber];
+    double tag_segment_py[SegmentMaxNumber];
+    double tag_segment_pz[SegmentMaxNumber];
+    double tag_segment_chiSquared[SegmentMaxNumber];
+    double tag_segment_numberDoF[SegmentMaxNumber];
+    double tag_segment_sector[SegmentMaxNumber];
+    double tag_segment_chamberIndex[SegmentMaxNumber];
+    double tag_segment_etaIndex[SegmentMaxNumber];
+    double tag_segment_nPrecisionHits[SegmentMaxNumber];
+    double tag_segment_nPhiLayers[SegmentMaxNumber];
+    double tag_segment_nTrigEtaLayers[SegmentMaxNumber];
+    //tsakai end
     double probe_segment_n;
     double probe_segment_x[SegmentMaxNumber];
     double probe_segment_y[SegmentMaxNumber];
@@ -202,6 +219,12 @@ class EventTree {
     vector < double >* probe_mesSA_superPointChi2_CSC;
     vector < double >* probe_mesSA_superPointChi2_BEE;
     vector < double >* probe_mesSA_superPointChi2_BME;
+    //tsakai insert
+    vector < double >* probe_mesSA_BarrelRadius;
+    vector < double >* probe_mesSA_BarrelSagitta;
+    vector < double >* probe_mesSA_etamap;
+    vector < double >* probe_mesSA_phimap;
+    //tsakai end
     //RPC hits
     vector < vector < float > >* probe_mesSA_rpcHitX;
     vector < vector < float > >* probe_mesSA_rpcHitY;
@@ -218,6 +241,10 @@ class EventTree {
     vector < vector < float > >* probe_mesSA_mdtHitZ;
     vector < vector < float > >* probe_mesSA_mdtHitPhi;
     vector < vector < float > >* probe_mesSA_mdtHitResidual;
+    //tsakai insert
+    vector < vector < float > >* probe_mesSA_mdtHitSpace;
+    vector < vector < float > >* probe_mesSA_mdtHitSigma;
+    //tsakai end
 
 
     vector < vector < float > >* probe_mesSA_roadAw;

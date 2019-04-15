@@ -575,7 +575,7 @@ void TagAndProbe::clear() {
   m_tagEFEta.clear();
   m_tagEFPhi.clear();
   m_probePt.clear();
-  m_probeMSPt.clear();//kayamash
+  //m_probeMSPt.clear();//kayamash
   m_probeEta.clear();
   m_probeExtEta.clear();
   m_probeExtInnEta.clear();
@@ -585,7 +585,23 @@ void TagAndProbe::clear() {
   m_probed0.clear();
   m_probez0.clear();
   m_probeCharge.clear();
-  //
+  //tsakai insert
+  m_tagSegmentN.clear();
+  m_tagSegmentX.clear();
+  m_tagSegmentY.clear();
+  m_tagSegmentZ.clear();
+  m_tagSegmentPx.clear();
+  m_tagSegmentPy.clear();
+  m_tagSegmentPz.clear();
+  m_tagSegmentChiSquared.clear();
+  m_tagSegmentNumberDoF.clear();
+  m_tagSegmentSector.clear();
+  m_tagSegmentChamberIndex.clear();
+  m_tagSegmentEtaIndex.clear();
+  m_tagSegmentNPrecisionHits.clear();
+  m_tagSegmentNPhiLayers.clear();
+  m_tagSegmentNTrigEtaLayers.clear();
+  //tsakai end
   m_probeSegmentN.clear();
   m_probeSegmentX.clear();
   m_probeSegmentY.clear();
@@ -717,7 +733,17 @@ void TagAndProbe::clear() {
   m_probeSAmdtHitZ.clear();
   m_probeSAmdtHitPhi.clear();
   m_probeSAmdtHitResidual.clear();
+  //tsakai insert
+  m_probeSAmdtHitSpace.clear();
+  m_probeSAmdtHitSigma.clear();
 
+  m_probeSABarrelRadius.clear();
+  m_probeSABarrelSagitta.clear();
+
+  m_probeSAetamap.clear();
+  m_probeSAphimap.clear();
+  //tsakai end
+  
   m_probeSAroadAw.clear();
   m_probeSAroadBw.clear();
   m_probeSAzMin.clear();
@@ -760,8 +786,17 @@ int TagAndProbe::setProbes( const xAOD::MuonContainer* muons,
   for ( ; mu_itr1!=mu_end; ++mu_itr1 ) {
     int quality = m_pst.getQualityOfTrack( (*mu_itr1) );///Look at Particleselectertool.cxx about getQualityOfTrack.
     //cout << "quality: " << quality << endl;
-    if( quality<0 ) continue;
-    // second muon loop
+    if( quality<0 ) continue; 
+    cout<<"kayamashComment"<<endl;//kayamash
+    float dRmumu_min = 999;//kayamash
+    xAOD::MuonContainer::const_iterator mu_itr_tmp = muons->begin();//kayamash
+    for ( ; mu_itr_tmp!=mu_end; ++mu_itr_tmp ) {//kayamash
+      if( mu_itr_tmp == mu_itr1 ) continue;//kayamash
+      float dr = (*mu_itr1)->p4().DeltaR((*mu_itr_tmp)->p4());//kayamash
+      if(dr < dRmumu_min) dRmumu_min = dr;//kayamash
+    }//kayamash
+    if(dRmumu_min < 0.2) continue;//kayamash
+     // second muon loop
     xAOD::MuonContainer::const_iterator mu_itr2 = mu_itr1;
     for ( mu_itr2++; mu_itr2!=mu_end; ++mu_itr2 ) {
       int quality2 = m_pst.getQualityOfTrack( (*mu_itr2) );
@@ -805,8 +840,8 @@ int TagAndProbe::setProbes( const xAOD::MuonContainer* muons,
             // if first muon is tag
             double dR1L1 = tmpdR1L1Tag;
             //double dR1L1 = m_tapMatchingdRL1Tag[iproc];
-            double L1param1[3] = { -99999., -99999., -99999. };
-            int L1num1   = matchL1( m_trigTagL1[iproc], (*mu_itr1), rois, &dR1L1, -1, L1param1 );
+            double L1param1[5] = { -99999., -99999., -99999., -99999., -99999.};//kayamash
+            int L1num1   = matchL1( m_trigTagL1[iproc], (*mu_itr1), rois, &dR1L1, -1, L1param1);//kayamsh
             if( m_trigTagL1[iproc]==NOTHING ) L1num1 = -1;
             if( L1num1>=0 || L1num1==-1 ) {
               // cout << "Passed Tag1" << endl;
@@ -838,8 +873,8 @@ int TagAndProbe::setProbes( const xAOD::MuonContainer* muons,
             // if second muon is tag
             double dR2L1 = tmpdR2L1Tag;
             //double dR2L1 = m_tapMatchingdRL1Tag[iproc];
-            double L1param2[3] = { -99999., -99999., -99999. };
-            int L1num2   = matchL1( m_trigTagL1[iproc], (*mu_itr2), rois, &dR2L1, -1, L1param2 );
+            double L1param2[5] = { -99999., -99999., -99999., -99999., -99999.};//kayamash
+            int L1num2   = matchL1( m_trigTagL1[iproc], (*mu_itr2), rois, &dR2L1, -1, L1param2);//kayamash
             if( m_trigTagL1[iproc]==NOTHING ) L1num2 = -1;
             if( L1num2>=0 || L1num2==-1 ) {
               // cout << "Passed Tag2" << endl;
@@ -876,10 +911,10 @@ int TagAndProbe::setProbes( const xAOD::MuonContainer* muons,
             //double dR1L1 = m_tapMatchingdRL1Tag[iproc];
             double dR1CB = m_tapMatchingdREFTag[iproc];
             double dR1EF = m_tapMatchingdREFTag[iproc];
-            double L1param1[4] = { -99999., -99999., -99999., -99999. };
+            double L1param1[5] = { -99999., -99999., -99999., -99999., -99999.};//kayamash
             //double SAparam1[17] = { -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999.};
             //
-            const int sizeofSAparam1 = 65;
+            const int sizeofSAparam1 = 73;//tsakai
             double SAparam1[sizeofSAparam1];
             //fill SAparam1[*] with -99999.
             for(int i_SAparam1 = 0 ; i_SAparam1 < sizeofSAparam1 ; i_SAparam1++){
@@ -898,8 +933,8 @@ int TagAndProbe::setProbes( const xAOD::MuonContainer* muons,
             //
             double CBparam1[4] = { -99999., -99999., -99999., -99999. };
             double EFparam1[4] = { -99999., -99999., -99999., -99999. };
-            int L1num1   = matchL1( m_trigTagL1[iproc], (*mu_itr1), rois, &dR1L1, -1, L1param1 );
-            int SApass1  = matchSA( fc, L1num1, SAparam1, vec_SAparam_X1, vec_SAparam_Y1, vec_SAparam_Z1, vec_SAparam_string1, m_trigTagSATEName[iproc], vec_SAparam_road1, vec_SAparam_mdtInt1, vec_SAparam_mdtFloat1);
+            int L1num1   = matchL1( m_trigTagL1[iproc], (*mu_itr1), rois, &dR1L1, -1, L1param1);//kayamash
+            int SApass1  = matchSA( fc, L1num1, SAparam1, vec_SAparam_X1, vec_SAparam_Y1, vec_SAparam_Z1, vec_SAparam_string1, m_trigTagSATEName[iproc], vec_SAparam_road1, vec_SAparam_mdtInt1, vec_SAparam_mdtFloat1, L1param1);//kayamash
             //int CBpass1  = matchCB( fc, L1num1, CBparam1 );
             int CBpass1  = matchCB( (*mu_itr1), fc, &dR1CB, CBparam1, m_trigTagCBTEName[iproc] );
             int EFpass1  = matchEF( m_trigTagHLT[iproc], (*mu_itr1), fc, &dR1EF, EFparam1 );
@@ -938,10 +973,10 @@ int TagAndProbe::setProbes( const xAOD::MuonContainer* muons,
             //double dR2L1 = m_tapMatchingdRL1Tag[iproc];
             double dR2CB = m_tapMatchingdREFTag[iproc];
             double dR2EF = m_tapMatchingdREFTag[iproc];
-            double L1param2[4] = { -99999., -99999., -99999., -99999. };
+            double L1param2[5] = { -99999., -99999., -99999., -99999., -99999.};//kayamash
             //double SAparam2[17] = { -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999. };
             //
-            const int sizeofSAparam2 = 69;
+            const int sizeofSAparam2 = 73;//tsakai
             double SAparam2[sizeofSAparam2];
             //fill SAparam1[*] with -99999.
             for(int i_SAparam2 = 0 ; i_SAparam2 < sizeofSAparam2 ; i_SAparam2++){
@@ -961,8 +996,8 @@ int TagAndProbe::setProbes( const xAOD::MuonContainer* muons,
             //
             double CBparam2[4] = { -99999., -99999., -99999., -99999. };
             double EFparam2[4] = { -99999., -99999., -99999., -99999. };
-            int L1num2   = matchL1( m_trigTagL1[iproc], (*mu_itr2), rois, &dR2L1, -1, L1param2 );
-            int SApass2  = matchSA( fc, L1num2, SAparam2, vec_SAparam_X2, vec_SAparam_Y2, vec_SAparam_Z2, vec_SAparam_string2, m_trigTagSATEName[iproc], vec_SAparam_road2, vec_SAparam_mdtInt2, vec_SAparam_mdtFloat2 );
+            int L1num2   = matchL1( m_trigTagL1[iproc], (*mu_itr2), rois, &dR2L1, -1, L1param2);//kayamash
+            int SApass2  = matchSA( fc, L1num2, SAparam2, vec_SAparam_X2, vec_SAparam_Y2, vec_SAparam_Z2, vec_SAparam_string2, m_trigTagSATEName[iproc], vec_SAparam_road2, vec_SAparam_mdtInt2, vec_SAparam_mdtFloat2, L1param2);//kayamash
             //int CBpass2  = matchCB( fc, L1num2, CBparam2 );
             int CBpass2  = matchCB( (*mu_itr2), fc, &dR2CB, CBparam2, m_trigTagCBTEName[iproc] );
             int EFpass2  = matchEF( m_trigTagHLT[iproc], (*mu_itr2), fc, &dR2EF, EFparam2 );
@@ -1058,18 +1093,86 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
 
     double probePt      = probe->pt();
     //kayamash
-    const ElementLink< xAOD::TrackParticleContainer > mslink = probe->muonSpectrometerTrackParticleLink();
-    double probeMSPt = 0;
-    if(!link == 1){
-      const xAOD::TrackParticle *mstrk = *mslink;
-      probeMSPt      = mstrk->pt()/1000.;//kayamash
-    }
+    //const ElementLink< xAOD::TrackParticleContainer > mslink = probe->muonSpectrometerTrackParticleLink();
+    //double probeMSPt = 0;
+    //if(!link == 1){
+      //const xAOD::TrackParticle *mstrk = *mslink;
+      //probeMSPt      = mstrk->pt()/1000.;//kayamash
+    //}
     //kayamash
     double probeEta     = probe->eta();
     double probePhi     = probe->phi();
     double probed0      = ( probetrk )? probetrk->d0():-99999.;
     double probez0      = ( probetrk )? probetrk->z0():-99999.;
     double probeCharge  = probe->charge();
+    //tsakai insert
+    double tagSegmentN = tag->nMuonSegments(); //nMuonSegments() returns number of muonSegments linked to by this muon.
+    double tagSegmentX[SegmentMaxNumber]; //SegmentMaxNumber is defined in Utils.h .
+    double tagSegmentY[SegmentMaxNumber];
+    double tagSegmentZ[SegmentMaxNumber];
+    double tagSegmentPx[SegmentMaxNumber];
+    double tagSegmentPy[SegmentMaxNumber];
+    double tagSegmentPz[SegmentMaxNumber];
+    double tagSegmentChiSquared[SegmentMaxNumber];
+    double tagSegmentNumberDoF[SegmentMaxNumber];
+    double tagSegmentSector[SegmentMaxNumber];
+    double tagSegmentChamberIndex[SegmentMaxNumber];
+    double tagSegmentEtaIndex[SegmentMaxNumber];
+    double tagSegmentNPrecisionHits[SegmentMaxNumber];
+    double tagSegmentNPhiLayers[SegmentMaxNumber];
+    double tagSegmentNTrigEtaLayers[SegmentMaxNumber];
+
+    const xAOD::MuonSegment* segment_container_pointer1[SegmentMaxNumber] = { 0 };
+    for( int iSegment=0 ; iSegment < SegmentMaxNumber ; ++iSegment ){
+      if( tagSegmentN == 0 && iSegment == 0 ){
+        tagSegmentX[iSegment]              = -88888.;
+        tagSegmentY[iSegment]              = -88888.;
+        tagSegmentZ[iSegment]              = -88888.;
+        tagSegmentPx[iSegment]             = -88888.;
+        tagSegmentPy[iSegment]             = -88888.;
+        tagSegmentPz[iSegment]             = -88888.;
+        tagSegmentChiSquared[iSegment]     = -88888.;
+        tagSegmentNumberDoF[iSegment]      = -88888.;
+        tagSegmentSector[iSegment]         = -88888.;
+        tagSegmentChamberIndex[iSegment]   = -88888.;
+        tagSegmentEtaIndex[iSegment]       = -88888.;
+        tagSegmentNPrecisionHits[iSegment] = -88888.;
+        tagSegmentNPhiLayers[iSegment]     = -88888.;
+        tagSegmentNTrigEtaLayers[iSegment] = -88888.;
+      }else if( tagSegmentN != 0 && 0 <= iSegment && iSegment < tagSegmentN ){
+        segment_container_pointer1[iSegment]  = tag -> muonSegment(iSegment); //muonSegment( size_t i ) returns a pointer to the specified muonSegment. Param i is index of the Muonsegment requested. If i is not in range ( 0 <= i < nMuonSegments() ) an exception will be thrown.
+        tagSegmentX[iSegment]              = ( segment_container_pointer1[iSegment] -> x() );
+        tagSegmentY[iSegment]              = ( segment_container_pointer1[iSegment] -> y() );
+        tagSegmentZ[iSegment]              = ( segment_container_pointer1[iSegment] -> z() );
+        tagSegmentPx[iSegment]             = ( segment_container_pointer1[iSegment] -> px() );
+        tagSegmentPy[iSegment]             = ( segment_container_pointer1[iSegment] -> py() );
+        tagSegmentPz[iSegment]             = ( segment_container_pointer1[iSegment] -> pz() );
+        tagSegmentChiSquared[iSegment]     = ( segment_container_pointer1[iSegment] -> chiSquared() );
+        tagSegmentNumberDoF[iSegment]      = ( segment_container_pointer1[iSegment] -> numberDoF() );
+        tagSegmentSector[iSegment]         = ( segment_container_pointer1[iSegment] -> sector() );
+        tagSegmentChamberIndex[iSegment]   = ( segment_container_pointer1[iSegment] -> chamberIndex() );
+        tagSegmentEtaIndex[iSegment]       = ( segment_container_pointer1[iSegment] -> etaIndex() );
+        tagSegmentNPrecisionHits[iSegment] = ( segment_container_pointer1[iSegment] -> nPrecisionHits() );
+        tagSegmentNPhiLayers[iSegment]     = ( segment_container_pointer1[iSegment] -> nPhiLayers() );
+        tagSegmentNTrigEtaLayers[iSegment] = ( segment_container_pointer1[iSegment] -> nTrigEtaLayers() );
+      }else if( ( tagSegmentN == 0 && iSegment != 0 ) || ( tagSegmentN != 0 && 0 < iSegment && tagSegmentN <= iSegment ) ){
+        tagSegmentX[iSegment]              = -77777.;
+        tagSegmentY[iSegment]              = -77777.;
+        tagSegmentZ[iSegment]              = -77777.;
+        tagSegmentPx[iSegment]             = -77777.;
+        tagSegmentPy[iSegment]             = -77777.;
+        tagSegmentPz[iSegment]             = -77777.;
+        tagSegmentChiSquared[iSegment]     = -77777.;
+        tagSegmentNumberDoF[iSegment]      = -77777.;
+        tagSegmentSector[iSegment]         = -77777.;
+        tagSegmentChamberIndex[iSegment]   = -77777.;
+        tagSegmentEtaIndex[iSegment]       = -77777.;
+        tagSegmentNPrecisionHits[iSegment] = -77777.;
+        tagSegmentNPhiLayers[iSegment]     = -77777.;
+        tagSegmentNTrigEtaLayers[iSegment] = -77777.;
+      }
+    }
+    //tsakai end
     //
     double probeSegmentN = probe->nMuonSegments(); //nMuonSegments() returns number of muonSegments linked to by this muon.
     double probeSegmentX[SegmentMaxNumber]; //SegmentMaxNumber is defined in Utils.h .
@@ -1087,7 +1190,7 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
     double probeSegmentNPhiLayers[SegmentMaxNumber];
     double probeSegmentNTrigEtaLayers[SegmentMaxNumber];
 
-    const xAOD::MuonSegment* segment_container_pointer[SegmentMaxNumber] = { 0 };
+    const xAOD::MuonSegment* segment_container_pointer2[SegmentMaxNumber] = { 0 };//tsakai
     for( int iSegment=0 ; iSegment < SegmentMaxNumber ; ++iSegment ){
       if( probeSegmentN == 0 && iSegment == 0 ){
         probeSegmentX[iSegment]              = -88888.;
@@ -1105,21 +1208,21 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
         probeSegmentNPhiLayers[iSegment]     = -88888.;
         probeSegmentNTrigEtaLayers[iSegment] = -88888.;
       }else if( probeSegmentN != 0 && 0 <= iSegment && iSegment < probeSegmentN ){
-        segment_container_pointer[iSegment]  = probe -> muonSegment(iSegment); //muonSegment( size_t i ) returns a pointer to the specified muonSegment. Param i is index of the Muonsegment requested. If i is not in range ( 0 <= i < nMuonSegments() ) an exception will be thrown.
-        probeSegmentX[iSegment]              = ( segment_container_pointer[iSegment] -> x() );
-        probeSegmentY[iSegment]              = ( segment_container_pointer[iSegment] -> y() );
-        probeSegmentZ[iSegment]              = ( segment_container_pointer[iSegment] -> z() );
-        probeSegmentPx[iSegment]             = ( segment_container_pointer[iSegment] -> px() );
-        probeSegmentPy[iSegment]             = ( segment_container_pointer[iSegment] -> py() );
-        probeSegmentPz[iSegment]             = ( segment_container_pointer[iSegment] -> pz() );
-        probeSegmentChiSquared[iSegment]     = ( segment_container_pointer[iSegment] -> chiSquared() );
-        probeSegmentNumberDoF[iSegment]      = ( segment_container_pointer[iSegment] -> numberDoF() );
-        probeSegmentSector[iSegment]         = ( segment_container_pointer[iSegment] -> sector() );
-        probeSegmentChamberIndex[iSegment]   = ( segment_container_pointer[iSegment] -> chamberIndex() );
-        probeSegmentEtaIndex[iSegment]       = ( segment_container_pointer[iSegment] -> etaIndex() );
-        probeSegmentNPrecisionHits[iSegment] = ( segment_container_pointer[iSegment] -> nPrecisionHits() );
-        probeSegmentNPhiLayers[iSegment]     = ( segment_container_pointer[iSegment] -> nPhiLayers() );
-        probeSegmentNTrigEtaLayers[iSegment] = ( segment_container_pointer[iSegment] -> nTrigEtaLayers() );
+        segment_container_pointer2[iSegment]  = probe -> muonSegment(iSegment); //muonSegment( size_t i ) returns a pointer to the specified muonSegment. Param i is index of the Muonsegment requested. If i is not in range ( 0 <= i < nMuonSegments() ) an exception will be thrown.
+        probeSegmentX[iSegment]              = ( segment_container_pointer2[iSegment] -> x() );
+        probeSegmentY[iSegment]              = ( segment_container_pointer2[iSegment] -> y() );
+        probeSegmentZ[iSegment]              = ( segment_container_pointer2[iSegment] -> z() );
+        probeSegmentPx[iSegment]             = ( segment_container_pointer2[iSegment] -> px() );
+        probeSegmentPy[iSegment]             = ( segment_container_pointer2[iSegment] -> py() );
+        probeSegmentPz[iSegment]             = ( segment_container_pointer2[iSegment] -> pz() );
+        probeSegmentChiSquared[iSegment]     = ( segment_container_pointer2[iSegment] -> chiSquared() );
+        probeSegmentNumberDoF[iSegment]      = ( segment_container_pointer2[iSegment] -> numberDoF() );
+        probeSegmentSector[iSegment]         = ( segment_container_pointer2[iSegment] -> sector() );
+        probeSegmentChamberIndex[iSegment]   = ( segment_container_pointer2[iSegment] -> chamberIndex() );
+        probeSegmentEtaIndex[iSegment]       = ( segment_container_pointer2[iSegment] -> etaIndex() );
+        probeSegmentNPrecisionHits[iSegment] = ( segment_container_pointer2[iSegment] -> nPrecisionHits() );
+        probeSegmentNPhiLayers[iSegment]     = ( segment_container_pointer2[iSegment] -> nPhiLayers() );
+        probeSegmentNTrigEtaLayers[iSegment] = ( segment_container_pointer2[iSegment] -> nTrigEtaLayers() );
       }else if( ( probeSegmentN == 0 && iSegment != 0 ) || ( probeSegmentN != 0 && 0 < iSegment && probeSegmentN <= iSegment ) ){
         probeSegmentX[iSegment]              = -77777.;
         probeSegmentY[iSegment]              = -77777.;
@@ -1170,6 +1273,10 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
     vector< double > vSAetams, vSAphims, vSAetabe, vSAphibe; 
     //
     vector< double > vSAtgcPt, vSAptBarrelRadius, vSAptBarrelSagitta, vSAptEndcapAlpha, vSAptEndcapBeta, vSAptEndcapRadius, vSAptCSC, vSAsAddress;
+    //tsakai insert
+    vector< double > vSABarrelRadius, vSABarrelSagitta;
+    vector< double > vSAetamap, vSAphimap;
+    //tsakai end
     vector < float > vSAroiEta, vSAroiPhi;
     vector < int > vSAisRpcFailure, vSAisTgcFailure;
     //superPointR
@@ -1190,7 +1297,7 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
     vector < vector < string > > vSArpcHitStationName;
 
     vector < vector < int > > vSAmdtHitIsOutlier, vSAmdtHitChamber;
-    vector < vector < float > > vSAmdtHitR, vSAmdtHitZ, vSAmdtHitPhi, vSAmdtHitResidual;
+    vector < vector < float > > vSAmdtHitR, vSAmdtHitZ, vSAmdtHitPhi, vSAmdtHitResidual,vSAmdtHitSpace, vSAmdtHitSigma;//tsakai
 
     vector < vector < float > > vSAroadAw, vSAroadBw, vSAzMin, vSAzMax, vSArMin, vSArMax, vSAetaMin, vSAetaMax;
     //
@@ -1208,7 +1315,7 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
       //cout << "BEFORE: " << dRL1 << ", " << dRCB << ", " << dREF << " (Pt=" << probePt << ")" << endl;
       double DUMMYparam[4]  = { -99999., -99999., -99999., -99999. };
       double EFTAGparam[4]  = { -99999., -99999., -99999., -99999. };
-      double L1param[3]     = { -99999., -99999., -99999. };
+      double L1param[5]     = { -99999., -99999., -99999., -99999., -99999.};//kayamash
       //double SAparam[17]     = { -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999. };
 
       //add "For Loop" by yfukuhara on 2017/11/23.
@@ -1221,7 +1328,7 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
       //SAparam[45] ~ SAparam[54] -> SAsuperPointIntercept* ( * = BI, BM, BO, EI, EM, EO, EE, CSC, BEE, BME )
       //SAparam[55] ~ SAparam[64] -> SAsuperPointChi2* ( * = BI, BM, BO, EI, EM, EO, EE, CSC, BEE, BME )
       //***********************************************************************
-      const int sizeofSAparam = 69;
+      const int sizeofSAparam = 73;
       double SAparam[sizeofSAparam];
       //fill SAparam[*] with -99999.
       for(int i_SAparam = 0 ; i_SAparam < sizeofSAparam ; i_SAparam++){
@@ -1241,7 +1348,7 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
       vector < vector < float > > vec_SAparam_mdtFloat;
 
       vector < int > vec_SAparam_mdtHitIsOutlier, vec_SAparam_mdtHitChamber;
-      vector < float > vec_SAparam_mdtHitR, vec_SAparam_mdtHitZ, vec_SAparam_mdtHitPhi, vec_SAparam_mdtHitResidual;
+      vector < float > vec_SAparam_mdtHitR, vec_SAparam_mdtHitZ, vec_SAparam_mdtHitPhi, vec_SAparam_mdtHitResidual,vec_SAparammdtHitSpace, vec_SAparammdtHitSigma;
 
       vector < vector < float > > vec_SAparam_road;
       //
@@ -1266,7 +1373,7 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
       else {EFTAGpass = 0;}
 
       if( m_trigMesNoL1[imes]==1 ) {
-        if( m_trigMesL1[imes] != NOTHING ) L1num = matchL1( m_trigMesL1[imes], probe, rois, &dRL1, tagL1num, L1param );
+        if( m_trigMesL1[imes] != NOTHING ) L1num = matchL1( m_trigMesL1[imes], probe, rois, &dRL1, tagL1num, L1param);//kayamash
         else L1num = EFTAGpass;
         SApass    = EFTAGpass;
         CBpass    = EFTAGpass;
@@ -1274,8 +1381,8 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
         EFpass    = matchEFFS( m_trigMesName[imes], probe, fc, &dREF, EFparam, EFTAGparam );
       }
       else {
-        L1num     = matchL1( m_trigMesL1[imes], probe, rois, &dRL1, tagL1num, L1param );
-        SApass    = matchSA( fc, L1num, SAparam, vec_SAparam_X, vec_SAparam_Y, vec_SAparam_Z, vec_SAparam_string, m_trigMesSATEName[imes], vec_SAparam_road, vec_SAparam_mdtInt, vec_SAparam_mdtFloat );
+        L1num     = matchL1( m_trigMesL1[imes], probe, rois, &dRL1, tagL1num, L1param);//kayamash
+        SApass    = matchSA( fc, L1num, SAparam, vec_SAparam_X, vec_SAparam_Y, vec_SAparam_Z, vec_SAparam_string, m_trigMesSATEName[imes], vec_SAparam_road, vec_SAparam_mdtInt, vec_SAparam_mdtFloat, L1param);//kayamash
         //cout << "CHAIN: " <<  m_trigMesHLT[imes] << ", MUON pT: " << probe->pt() << endl;
         //CBpass  = matchCB( fc, L1num, CBparam );
         CBpass    = matchCB( probe, fc, &dRCB, CBparam, m_trigMesCBTEName[imes] );
@@ -1384,7 +1491,13 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
       vSAroiPhi.push_back( SAparam[66]);
       vSAisRpcFailure.push_back( SAparam[67]);
       vSAisTgcFailure.push_back( SAparam[68]);
+      //tsakai insert
+      vSABarrelRadius.push_back( SAparam[69] );
+      vSABarrelSagitta.push_back( SAparam[70] );
 
+      vSAetamap.push_back( SAparam[71] );
+      vSAphimap.push_back( SAparam[72] );
+      //tsakai end
       //vSArpcHitX is vector < vector < float > >, vec_saparam is vector < vector < float > >.
       //vSArpcHitX.push_back( vec_SAparam[0] );
       //vSArpcHitY.push_back( vec_SAparam[1] );
@@ -1450,6 +1563,10 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
         vSAmdtHitZ.push_back(vec_SAparam_mdtFloat[1]);
         vSAmdtHitPhi.push_back(vec_SAparam_mdtFloat[2]);
         vSAmdtHitResidual.push_back(vec_SAparam_mdtFloat[3]);
+        //tsakai insert
+        vSAmdtHitSpace.push_back(vec_SAparam_mdtFloat[4]);
+        vSAmdtHitSigma.push_back(vec_SAparam_mdtFloat[5]);
+        //tsakai end
       } else {
         vSAmdtHitIsOutlier.push_back(tmp_int);
         vSAmdtHitChamber.push_back(tmp_int);
@@ -1457,6 +1574,10 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
         vSAmdtHitZ.push_back(tmp_float);
         vSAmdtHitPhi.push_back(tmp_float);
         vSAmdtHitResidual.push_back(tmp_float);
+        //tsakai insert
+        vSAmdtHitSpace.push_back(tmp_float);
+        vSAmdtHitSigma.push_back(tmp_float);
+        //tsakai end
       }
       //convert (X,Y,Z) to (R,Eta,Phi)
       std::vector < TVector3 > vec3_SAparam;
@@ -1568,7 +1689,7 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
     m_tagEFEta.push_back( tagEFEta );
     m_tagEFPhi.push_back( tagEFPhi );
     m_probePt.push_back( probePt );
-    m_probeMSPt.push_back( probeMSPt );
+    //m_probeMSPt.push_back( probeMSPt );//kayamash
     m_probeEta.push_back( probeEta );
     m_probeExtEta.push_back( probeExtEta );
     m_probeExtInnEta.push_back( probeExtInnEta );
@@ -1578,7 +1699,41 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
     m_probed0.push_back( probed0 );
     m_probez0.push_back( probez0 );
     m_probeCharge.push_back( probeCharge );
-    //
+    //tsakai insert
+    m_tagSegmentN.push_back( tagSegmentN );
+    //m_tagSegmentX.resize( SegmentMaxNumber );
+    m_tagSegmentX.resize( SegmentMaxNumber );
+    m_tagSegmentY.resize( SegmentMaxNumber );
+    m_tagSegmentZ.resize( SegmentMaxNumber );
+    m_tagSegmentPx.resize( SegmentMaxNumber );
+    m_tagSegmentPy.resize( SegmentMaxNumber );
+    m_tagSegmentPz.resize( SegmentMaxNumber );
+    m_tagSegmentChiSquared.resize( SegmentMaxNumber );
+    m_tagSegmentNumberDoF.resize( SegmentMaxNumber );
+    m_tagSegmentSector.resize( SegmentMaxNumber );
+    m_tagSegmentChamberIndex.resize( SegmentMaxNumber );
+    m_tagSegmentEtaIndex.resize( SegmentMaxNumber );
+    m_tagSegmentNPrecisionHits.resize( SegmentMaxNumber );
+    m_tagSegmentNPhiLayers.resize( SegmentMaxNumber );
+    m_tagSegmentNTrigEtaLayers.resize( SegmentMaxNumber );
+    for( int iSegment = 0; iSegment < SegmentMaxNumber; iSegment++ ){
+      //m_tagSegmentX[k].resize(10);
+      m_tagSegmentX[iSegment].push_back( tagSegmentX[iSegment] );
+      m_tagSegmentY[iSegment].push_back( tagSegmentY[iSegment] );
+      m_tagSegmentZ[iSegment].push_back( tagSegmentZ[iSegment] );
+      m_tagSegmentPx[iSegment].push_back( tagSegmentPx[iSegment] );
+      m_tagSegmentPy[iSegment].push_back( tagSegmentPy[iSegment] );
+      m_tagSegmentPz[iSegment].push_back( tagSegmentPz[iSegment] );
+      m_tagSegmentChiSquared[iSegment].push_back( tagSegmentChiSquared[iSegment] );
+      m_tagSegmentNumberDoF[iSegment].push_back( tagSegmentNumberDoF[iSegment] );
+      m_tagSegmentSector[iSegment].push_back( tagSegmentSector[iSegment] );
+      m_tagSegmentChamberIndex[iSegment].push_back( tagSegmentChamberIndex[iSegment] );
+      m_tagSegmentEtaIndex[iSegment].push_back( tagSegmentEtaIndex[iSegment] );
+      m_tagSegmentNPrecisionHits[iSegment].push_back( tagSegmentNPrecisionHits[iSegment] );
+      m_tagSegmentNPhiLayers[iSegment].push_back( tagSegmentNPhiLayers[iSegment] );
+      m_tagSegmentNTrigEtaLayers[iSegment].push_back( tagSegmentNTrigEtaLayers[iSegment] );
+    }
+    //tsakai end
     m_probeSegmentN.push_back( probeSegmentN );
     //m_probeSegmentX.resize( SegmentMaxNumber );
     m_probeSegmentX.resize( SegmentMaxNumber );
@@ -1747,6 +1902,14 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
     //for(int i = 0; i < 25; ++i){
     //  m_probeSArpcHitX.at(i) .push_back( vSArpcHitX[i] );
     //}
+    //tsakai insert
+    m_probeSAmdtHitSpace.push_back( vSAmdtHitSpace );
+    m_probeSAmdtHitSigma.push_back( vSAmdtHitSigma );
+    m_probeSABarrelRadius.push_back( vSABarrelRadius );
+    m_probeSABarrelSagitta.push_back( vSABarrelSagitta );
+    m_probeSAetamap.push_back( vSAetamap );
+    m_probeSAphimap.push_back( vSAphimap );
+    //tsakai end
     
     m_probePassedCB.push_back( vCBpass );
     m_probeCBdR.push_back( vCBdR );
@@ -1772,7 +1935,7 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
   return 0;
 }
 
-int TagAndProbe::matchL1( const L1Item& L1, const xAOD::Muon* muon, const xAOD::MuonRoIContainer* rois, double* reqdR, int reject, double* param ) {
+int TagAndProbe::matchL1( const L1Item& L1, const xAOD::Muon* muon, const xAOD::MuonRoIContainer* rois, double* reqdR, int reject, double* param) {//kayamash
 ///this function is used for Roi matching in L1. 
 ///return is matchedroinumber.
   int matchedRoINumber = -1;
@@ -1793,6 +1956,8 @@ int TagAndProbe::matchL1( const L1Item& L1, const xAOD::Muon* muon, const xAOD::
     const int roiPt       = (*rois_itr)->thrValue();
     const double roiEta   = (*rois_itr)->eta();
     const double roiPhi   = (*rois_itr)->phi();
+    const int roiSector   = (*rois_itr)->getSectorAddress();//kayamash
+    const int roiWord     = (*rois_itr)->roiWord();//kayamash
     if( L1 > roiThr ) continue;
     if( roiNum == reject ) continue;
     const double roidRof  = m_utils.deltaR( muEta, muPhi, roiEta, roiPhi);
@@ -1806,12 +1971,14 @@ int TagAndProbe::matchL1( const L1Item& L1, const xAOD::Muon* muon, const xAOD::
       param[0]  = roiPt;
       param[1]  = roiEta;
       param[2]  = roiPhi;
+      param[3]  = roiWord;//kayamash
+      param[4]  = roiSector;//kayamash
     }
   }
   return matchedRoINumber;
 }
 
-int TagAndProbe::matchSA( const Trig::FeatureContainer& fc, int L1num, double* param, std::vector< float >& vec_param_X, std::vector< float >& vec_param_Y, std::vector< float >& vec_param_Z, std::vector< string >& vec_param_string, std::string& mesSATEName, std::vector< std::vector < float> >& vec_param_road, vector < vector < int > >& vec_param_mdtInt, vector < vector < float > >& vec_param_mdtFloat ) 
+int TagAndProbe::matchSA( const Trig::FeatureContainer& fc, int L1num, double* param, std::vector< float >& vec_param_X, std::vector< float >& vec_param_Y, std::vector< float >& vec_param_Z, std::vector< string >& vec_param_string, std::string& mesSATEName, std::vector< std::vector < float> >& vec_param_road, vector < vector < int > >& vec_param_mdtInt, vector < vector < float > >& vec_param_mdtFloat, double* l1param)//kayamash 
 {
   ///this function is used for SA matching. 
   int isPassedSA = -1;
@@ -1839,8 +2006,20 @@ int TagAndProbe::matchSA( const Trig::FeatureContainer& fc, int L1num, double* p
       const xAOD::L2StandAloneMuonContainer* cont = fL2SA.cptr();
       for( const auto& l2sa : *cont ) {
         const int l2saRoINum  = l2sa->roiNumber();
+        const int l2saSecNum = l2sa->roiSector();//kayamash
+        int l1RoISectorAddress = (int)l1param[4];//kayamash
+        const int l1RoIWord = (int)l1param[3];//kayamash
+        l1RoISectorAddress = l1RoISectorAddress >> 1;//kayamash
+        ((int)l1param[4] >= 128) ? (l1RoISectorAddress = l1RoISectorAddress & 0x3f) : (l1RoISectorAddress = l1RoISectorAddress & 0x1f);//kayamash
+        cout<<"-------------------------------------------"<<endl;
+        cout<<" kayamashCheck: L2MuonSARoISector="<<l2saSecNum<<" L1RoISectorAddress="<<(int)l1param[4]<<" L1RoISector="<<l1RoISectorAddress<<endl;//kayamash
+        cout<<" kayamashCheck: L2MuonSARoIWord="<<l2sa->roiWord()<<" L1RoIWord="<<l1RoIWord<<endl;//kayamash
+        cout<<" kayamashCheck: L2MuonSARoIPhi="<<l2sa->phi()<<" L1RoIPhi="<<l1param[2]<<endl;//kayamash
+        cout<<" kayamashCheck: L2MuonSARoIEta="<<l2sa->eta()<<" L1RoIEta="<<l1param[1]<<endl;//kayamash
+        cout<<" kayamashCheck: L2MuonSARoIPt="<<l2sa->pt()<<" L1RoIPt="<<l1param[0]<<endl;//kayamash
+        cout<<"-------------------------------------------"<<endl;//kayamash
         //cout << "MyCheck: saRoi=" << l2saRoINum << " L1Roi=" << L1num << " idte=" << l2saTE -> getId() << " nameTE=" << Trig::getTEName( *l2saTE ) . c_str() << endl;
-        if( l2saRoINum != L1num ) continue; 
+        if( l2saRoINum != L1num || l1RoISectorAddress != l2saSecNum) continue; 
         pair< double, double > extsa = m_ext.extTrackMuComb( l2sa );
         const int nTP = l2sa->nTrackPositions();
         const double l2saPt     = l2sa->pt();
@@ -1859,7 +2038,13 @@ int TagAndProbe::matchSA( const Trig::FeatureContainer& fc, int L1num, double* p
         const double l2saPtEndcapRadius  = l2sa->ptEndcapRadius();
         const double l2saPtCSC = l2sa->ptCSC();
         const double l2saSAddress  = l2sa->sAddress();
+        //tsakai insert
+        const double l2saBarrelRadius  = l2sa->barrelRadius();
+        const double l2saBarrelSagitta  = l2sa->barrelSagitta();
 
+        const double l2saetamap  = l2sa->etaMap();
+        const double l2saphimap  = l2sa->phiMap();
+        //tsakai end
         const double l2saroiEta  = l2sa->roiEta();
         const double l2saroiPhi  = l2sa->roiPhi();
         const double l2saisRpcFailure  = l2sa->isRpcFailure();
@@ -1928,7 +2113,7 @@ int TagAndProbe::matchSA( const Trig::FeatureContainer& fc, int L1num, double* p
         const std::vector < string > l2saRpcHitStationName = l2sa->rpcHitStationName();
         //
         vector < int > l2samdtHitIsOutlier, l2samdtHitChamber;
-        vector < float > l2samdtHitR, l2samdtHitZ, l2samdtHitPhi, l2samdtHitResidual;
+        vector < float > l2samdtHitR, l2samdtHitZ, l2samdtHitPhi, l2samdtHitResidual,l2samdtHitSpace, l2samdtHitSigma;
         for ( uint32_t i =0; i < l2sa->nMdtHits(); i++){
           l2samdtHitIsOutlier.push_back(l2sa->mdtHitIsOutlier(i));
           l2samdtHitChamber.push_back(l2sa->mdtHitChamber(i));
@@ -1936,6 +2121,10 @@ int TagAndProbe::matchSA( const Trig::FeatureContainer& fc, int L1num, double* p
           l2samdtHitZ.push_back(l2sa->mdtHitZ(i));
           l2samdtHitPhi.push_back(l2sa->mdtHitPhi(i));
           l2samdtHitResidual.push_back(l2sa->mdtHitResidual(i));
+          //tsakai insert
+          l2samdtHitSpace.push_back(l2sa->mdtHitSpace(i));
+          l2samdtHitSigma.push_back(l2sa->mdtHitSigma(i));
+          //tsakai end
         }
         std::vector < float > l2saroadAw;
         std::vector < float > l2saroadBw;
@@ -2034,6 +2223,13 @@ int TagAndProbe::matchSA( const Trig::FeatureContainer& fc, int L1num, double* p
         param[66] = l2saroiPhi;
         param[67] = l2saisRpcFailure;
         param[68] = l2saisTgcFailure;
+        //tsakai insert
+        param[69]   = l2saBarrelRadius;
+        param[70]   = l2saBarrelSagitta;
+
+        param[71]   = l2saetamap;
+        param[72]   = l2saphimap;
+        //tsakai end
 
         //vec_param is vector < vector < float > >. l2saRpcHitX is vector < float >.
         vec_param_X = l2saRpcHitX;
@@ -2047,7 +2243,10 @@ int TagAndProbe::matchSA( const Trig::FeatureContainer& fc, int L1num, double* p
         vec_param_mdtFloat.push_back(l2samdtHitZ);
         vec_param_mdtFloat.push_back(l2samdtHitPhi);
         vec_param_mdtFloat.push_back(l2samdtHitResidual);
-
+        //tsakai insert
+        vec_param_mdtFloat.push_back(l2samdtHitSpace);
+        vec_param_mdtFloat.push_back(l2samdtHitSigma);
+        //tsakai end
 
         vec_param_road.push_back(l2saroadAw);
         vec_param_road.push_back(l2saroadBw);
@@ -2074,6 +2273,7 @@ int TagAndProbe::matchSA( const Trig::FeatureContainer& fc, int L1num, double* p
       const xAOD::L2StandAloneMuonContainer* cont = fL2SA.cptr();
       for( const auto& l2sa : *cont ) {
         const int l2saRoINum  = l2sa->roiNumber();
+        const int l2saSecNum = l2sa->roiSector();//kayamash
         if( l2saRoINum != L1num ) continue; 
         pair< double, double > extsa = m_ext.extTrackMuComb( l2sa );
         const int nTP = l2sa->nTrackPositions();
@@ -2093,7 +2293,13 @@ int TagAndProbe::matchSA( const Trig::FeatureContainer& fc, int L1num, double* p
         const double l2saPtEndcapRadius  = l2sa->ptEndcapRadius();
         const double l2saPtCSC = l2sa->ptCSC();
         const double l2saSAddress  = l2sa->sAddress();
+        //tsakai insert
+        const double l2saBarrelRadius  = l2sa->barrelRadius();
+        const double l2saBarrelSagitta  = l2sa->barrelSagitta();
 
+        const double l2saetamap  = l2sa->etaMap();
+        const double l2saphimap  = l2sa->phiMap();
+        //tsakai end
         const float l2saroiEta  = l2sa->roiEta();
         const float l2saroiPhi  = l2sa->roiPhi();
         const int l2saisRpcFailure  = l2sa->isRpcFailure();
@@ -2161,7 +2367,7 @@ int TagAndProbe::matchSA( const Trig::FeatureContainer& fc, int L1num, double* p
         const std::vector < string > l2saRpcHitStationName = l2sa->rpcHitStationName();
 
         vector < int > l2samdtHitIsOutlier, l2samdtHitChamber;
-        vector < float > l2samdtHitR, l2samdtHitZ, l2samdtHitPhi, l2samdtHitResidual;
+        vector < float > l2samdtHitR, l2samdtHitZ, l2samdtHitPhi, l2samdtHitResidual,l2samdtHitSpace,l2samdtHitSigma;
         for ( uint32_t i =0; i < l2sa->nMdtHits(); i++){
           l2samdtHitIsOutlier.push_back(l2sa->mdtHitIsOutlier(i));
           l2samdtHitChamber.push_back(l2sa->mdtHitChamber(i));
@@ -2169,6 +2375,28 @@ int TagAndProbe::matchSA( const Trig::FeatureContainer& fc, int L1num, double* p
           l2samdtHitZ.push_back(l2sa->mdtHitZ(i));
           l2samdtHitPhi.push_back(l2sa->mdtHitPhi(i));
           l2samdtHitResidual.push_back(l2sa->mdtHitResidual(i));
+          //tsakai insert
+          l2samdtHitSpace.push_back(l2sa->mdtHitSpace(i));
+          l2samdtHitSigma.push_back(l2sa->mdtHitSigma(i));
+        }
+        std::vector < float > l2saroadAw;
+        std::vector < float > l2saroadBw;
+        std::vector < float > l2sazMin;
+        std::vector < float > l2sazMax;
+        std::vector < float > l2sarMin;
+        std::vector < float > l2sarMax;
+        std::vector < float > l2saetaMin;
+        std::vector < float > l2saetaMax;
+        for ( int i = 0; i < 9; i++){
+          l2saroadAw.push_back(l2sa->roadAw(i,0));
+          l2saroadBw.push_back(l2sa->roadBw(i,0));
+          l2sazMin.push_back(l2sa->zMin(i,0));
+          l2sazMax.push_back(l2sa->zMax(i,0));
+          l2sarMin.push_back(l2sa->rMin(i,0));
+          l2sarMax.push_back(l2sa->rMax(i,0));
+          l2saetaMin.push_back(l2sa->etaMin(i,0));
+          l2saetaMax.push_back(l2sa->etaMax(i,0));
+        //tsakai end
         }
         //
         if( m_message>1 ) cout << "SA : " << l2saPt << endl;
@@ -2254,12 +2482,38 @@ int TagAndProbe::matchSA( const Trig::FeatureContainer& fc, int L1num, double* p
         param[66] = l2saroiPhi;
         param[67] = l2saisRpcFailure;
         param[68] = l2saisTgcFailure;
+        //tsakai insert
+        param[69]  = l2saBarrelRadius;
+        param[70]  = l2saBarrelSagitta;
+
+        param[71]  = l2saetamap;
+        param[72]  = l2saphimap;
+        //tsakai end
         // vec_param is vector < vector < float > >. l2saRpcHitX is vector < float >.
         vec_param_X = l2saRpcHitX;
         vec_param_Y = l2saRpcHitY;
         vec_param_Z = l2saRpcHitZ;
         vec_param_string = l2saRpcHitStationName;
-        //
+        //tsakai insert
+
+        vec_param_mdtInt.push_back(l2samdtHitIsOutlier);
+        vec_param_mdtInt.push_back(l2samdtHitChamber);
+        vec_param_mdtFloat.push_back(l2samdtHitR);
+        vec_param_mdtFloat.push_back(l2samdtHitZ);
+        vec_param_mdtFloat.push_back(l2samdtHitPhi);
+        vec_param_mdtFloat.push_back(l2samdtHitResidual);
+        vec_param_mdtFloat.push_back(l2samdtHitSpace);
+        vec_param_mdtFloat.push_back(l2samdtHitSigma);
+
+        vec_param_road.push_back(l2saroadAw);
+        vec_param_road.push_back(l2saroadBw);
+        vec_param_road.push_back(l2sazMin);
+        vec_param_road.push_back(l2sazMax);
+        vec_param_road.push_back(l2sarMin);
+        vec_param_road.push_back(l2sarMax);
+        vec_param_road.push_back(l2saetaMin);
+        vec_param_road.push_back(l2saetaMax);
+        //tsakai end 
         if( l2saTE->getActiveState() ) {
           isPassedSA = 1;
           goto RoIMatchingAndSAPassed;

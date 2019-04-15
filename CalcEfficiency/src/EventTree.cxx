@@ -69,7 +69,7 @@ int EventTree::initialize( TString outfile = "test.root" ) {
   tag_EF_eta        = -99999.;
   tag_EF_phi        = -99999.;
   probe_pt          = -99999.;
-  probe_MSpt          = -99999.;//kayamash
+  //probe_MSpt          = -99999.;//kayamash
   probe_eta         = -99999.;
   probe_exteta      = -99999.;
   probe_extinneta   = -99999.;
@@ -79,7 +79,26 @@ int EventTree::initialize( TString outfile = "test.root" ) {
   probe_d0          = -99999.;
   probe_z0          = -99999.;
   probe_charge      = -99999.;
-  //
+  //tsakai insert
+  tag_segment_n   = -99999.;
+  for(int i = 0 ; i < SegmentMaxNumber ; i++ ){
+    //SegmentMaxNumber is defined in Tagandprobe.h .
+    tag_segment_x[i]              = -99999.;
+    tag_segment_y[i]              = -99999.;
+    tag_segment_z[i]              = -99999.;
+    tag_segment_px[i]             = -99999.;
+    tag_segment_py[i]             = -99999.;
+    tag_segment_pz[i]             = -99999.;
+    tag_segment_chiSquared[i]     = -99999.;
+    tag_segment_numberDoF[i]      = -99999.;
+    tag_segment_sector[i]         = -99999.;
+    tag_segment_chamberIndex[i]   = -99999.;
+    tag_segment_etaIndex[i]       = -99999.;
+    tag_segment_nPrecisionHits[i] = -99999.;
+    tag_segment_nPhiLayers[i]     = -99999.;
+    tag_segment_nTrigEtaLayers[i] = -99999.;
+  }
+  //tsakai end
   probe_segment_n   = -99999.;
   for(int i = 0 ; i < SegmentMaxNumber ; i++ ){
     //SegmentMaxNumber is defined in Tagandprobe.h .
@@ -204,7 +223,12 @@ int EventTree::initialize( TString outfile = "test.root" ) {
   probe_mesSA_superPointChi2_CSC = new vector < double > ();
   probe_mesSA_superPointChi2_BEE = new vector < double > ();
   probe_mesSA_superPointChi2_BME = new vector < double > ();
-  //
+  //tsakai insert
+  probe_mesSA_BarrelRadius = new vector < double > ();
+  probe_mesSA_BarrelSagitta = new vector < double > ();
+  probe_mesSA_etamap = new vector < double > ();
+  probe_mesSA_phimap = new vector < double > ();
+  //tsakai end
   probe_mesSA_rpcHitX   = new vector < vector < float > > ();
   probe_mesSA_rpcHitY   = new vector < vector < float > > ();
   probe_mesSA_rpcHitZ   = new vector < vector < float > > ();
@@ -220,8 +244,10 @@ int EventTree::initialize( TString outfile = "test.root" ) {
   probe_mesSA_mdtHitZ         = new vector < vector < float > > ();
   probe_mesSA_mdtHitPhi       = new vector < vector < float > > ();
   probe_mesSA_mdtHitResidual  = new vector < vector < float > > ();
-
-
+  //tsakai insert
+  probe_mesSA_mdtHitSpace     = new vector < vector < float > > ();
+  probe_mesSA_mdtHitSigma     = new vector < vector < float > > ();
+  //tsakai end
   probe_mesSA_roadAw = new vector < vector < float > > ();
   probe_mesSA_roadBw = new vector < vector < float > > ();
   probe_mesSA_zMin   = new vector < vector < float > > ();
@@ -291,7 +317,7 @@ int EventTree::initialize( TString outfile = "test.root" ) {
   m_tree->Branch( "tag_EF_eta",         &tag_EF_eta );
   m_tree->Branch( "tag_EF_phi",         &tag_EF_phi );
   m_tree->Branch( "probe_pt",           &probe_pt );
-  m_tree->Branch( "probe_MSpt",           &probe_MSpt );//kayamash
+  //m_tree->Branch( "probe_MSpt",           &probe_MSpt );//kayamash
   m_tree->Branch( "probe_eta",          &probe_eta );
   m_tree->Branch( "probe_exteta",       &probe_exteta );
   m_tree->Branch( "probe_extinneta",    &probe_extinneta );
@@ -303,6 +329,23 @@ int EventTree::initialize( TString outfile = "test.root" ) {
   m_tree->Branch( "probe_charge",       &probe_charge );
   //
   const int Segment_Max_Number = SegmentMaxNumber;
+  //tsakai insert
+  m_tree->Branch( "tag_segment_n",    &tag_segment_n );
+  m_tree->Branch( "tag_segment_x",              tag_segment_x,              Form("tag_segment_x[%d]/D",Segment_Max_Number) );
+  m_tree->Branch( "tag_segment_y",              tag_segment_y,              Form("tag_segment_y[%d]/D",Segment_Max_Number) );
+  m_tree->Branch( "tag_segment_z",              tag_segment_z,              Form("tag_segment_z[%d]/D",Segment_Max_Number) );
+  m_tree->Branch( "tag_segment_px",             tag_segment_px,             Form("tag_segment_px[%d]/D",Segment_Max_Number) );
+  m_tree->Branch( "tag_segment_py",             tag_segment_py,             Form("tag_segment_py[%d]/D",Segment_Max_Number) );
+  m_tree->Branch( "tag_segment_pz",             tag_segment_pz,             Form("tag_segment_pz[%d]/D",Segment_Max_Number) );
+  m_tree->Branch( "tag_segment_chiSquared",     tag_segment_chiSquared,     Form("tag_segment_chiSquared[%d]/D",Segment_Max_Number) );
+  m_tree->Branch( "tag_segment_numberDoF",      tag_segment_numberDoF,      Form("tag_segment_numberDoF[%d]/D",Segment_Max_Number) );
+  m_tree->Branch( "tag_segment_sector",         tag_segment_sector,         Form("tag_segment_sector[%d]/D",Segment_Max_Number) );
+  m_tree->Branch( "tag_segment_chamberIndex",   tag_segment_chamberIndex,   Form("tag_segment_chamberIndex[%d]/D",Segment_Max_Number) );
+  m_tree->Branch( "tag_segment_etaIndex",       tag_segment_etaIndex,       Form("tag_segment_etaIndex[%d]/D",Segment_Max_Number) );
+  m_tree->Branch( "tag_segment_nPrecisionHits", tag_segment_nPrecisionHits, Form("tag_segment_nPrecisionHits[%d]/D",Segment_Max_Number) );
+  m_tree->Branch( "tag_segment_nPhiLayers",     tag_segment_nPhiLayers,     Form("tag_segment_nPhiLayers[%d]/D",Segment_Max_Number) );
+  m_tree->Branch( "tag_segment_nTrigEtaLayers", tag_segment_nTrigEtaLayers, Form("tag_segment_nTrigEtaLayers[%d]/D",Segment_Max_Number) );
+  //tsakai end
   m_tree->Branch( "probe_segment_n",    &probe_segment_n );
   m_tree->Branch( "probe_segment_x",              probe_segment_x,              Form("probe_segment_x[%d]/D",Segment_Max_Number) );
   m_tree->Branch( "probe_segment_y",              probe_segment_y,              Form("probe_segment_y[%d]/D",Segment_Max_Number) );
@@ -424,7 +467,12 @@ int EventTree::initialize( TString outfile = "test.root" ) {
   m_tree->Branch( "probe_mesSA_superPointChi2_CSC",  &probe_mesSA_superPointChi2_CSC );
   m_tree->Branch( "probe_mesSA_superPointChi2_BEE",  &probe_mesSA_superPointChi2_BEE );
   m_tree->Branch( "probe_mesSA_superPointChi2_BME",  &probe_mesSA_superPointChi2_BME );
-  // 
+  //tsakai insert
+  m_tree->Branch( "probe_mesSA_BarrelRadius",  &probe_mesSA_BarrelRadius );
+  m_tree->Branch( "probe_mesSA_BarrelSagitta",  &probe_mesSA_BarrelSagitta );
+  m_tree->Branch( "probe_mesSA_etamap",  &probe_mesSA_etamap );
+  m_tree->Branch( "probe_mesSA_phimap",  &probe_mesSA_phimap );
+  //tsakai end
   m_tree->Branch( "probe_mesSA_rpcHitX",  &probe_mesSA_rpcHitX );
   m_tree->Branch( "probe_mesSA_rpcHitY",  &probe_mesSA_rpcHitY );
   m_tree->Branch( "probe_mesSA_rpcHitZ",  &probe_mesSA_rpcHitZ );
@@ -440,6 +488,10 @@ int EventTree::initialize( TString outfile = "test.root" ) {
   m_tree->Branch( "probe_mesSA_mdtHitZ",         &probe_mesSA_mdtHitZ         );
   m_tree->Branch( "probe_mesSA_mdtHitPhi",       &probe_mesSA_mdtHitPhi       );
   m_tree->Branch( "probe_mesSA_mdtHitResidual",  &probe_mesSA_mdtHitResidual  );
+  //tsakai insert
+  m_tree->Branch( "probe_mesSA_mdtHitSpace",     &probe_mesSA_mdtHitSpace   );
+  m_tree->Branch( "probe_mesSA_mdtHitSigma",     &probe_mesSA_mdtHitSigma   );
+  //tsakai end
 
   //
   m_tree->Branch( "probe_mesSA_roadAw",  &probe_mesSA_roadAw );
@@ -517,7 +569,7 @@ EventTree::EventTree(TFile *file, TString name )
   tag_EF_eta        = -99999.;
   tag_EF_phi        = -99999.;
   probe_pt          = -99999.;
-  probe_MSpt          = -99999.;//kayamash
+  //probe_MSpt          = -99999.;//kayamash
   probe_eta         = -99999.;
   probe_exteta      = -99999.;
   probe_extinneta   = -99999.;
@@ -527,7 +579,25 @@ EventTree::EventTree(TFile *file, TString name )
   probe_d0          = -99999.;
   probe_z0          = -99999.;
   probe_charge      = -99999.;
-  //
+  //tsakai insert
+  tag_segment_n   = -99999.;
+  for(int i = 0; i < SegmentMaxNumber ; i++ ){
+    tag_segment_x[i]              = -99999.;
+    tag_segment_y[i]              = -99999.;
+    tag_segment_z[i]              = -99999.;
+    tag_segment_px[i]             = -99999.;
+    tag_segment_py[i]             = -99999.;
+    tag_segment_pz[i]             = -99999.;
+    tag_segment_chiSquared[i]     = -99999.;
+    tag_segment_numberDoF[i]      = -99999.;
+    tag_segment_sector[i]         = -99999.;
+    tag_segment_chamberIndex[i]   = -99999.;
+    tag_segment_etaIndex[i]       = -99999.;
+    tag_segment_nPrecisionHits[i] = -99999.;
+    tag_segment_nPhiLayers[i]     = -99999.;
+    tag_segment_nTrigEtaLayers[i] = -99999.;
+  }
+  //tsakai end
   probe_segment_n   = -99999.;
 
   for(int i = 0 ; i < SegmentMaxNumber ; i++ ){
@@ -652,7 +722,12 @@ EventTree::EventTree(TFile *file, TString name )
   probe_mesSA_superPointChi2_CSC = new vector < double > ();
   probe_mesSA_superPointChi2_BEE = new vector < double > ();
   probe_mesSA_superPointChi2_BME = new vector < double > ();
-  // 
+  //tsakai insert
+  probe_mesSA_BarrelRadius = new vector < double > ();
+  probe_mesSA_BarrelSagitta  = new vector < double > ();
+  probe_mesSA_etamap = new vector < double > ();
+  probe_mesSA_phimap  = new vector < double > ();
+  //tsakai end
   probe_mesSA_rpcHitX = new vector < vector < float > > ();
   probe_mesSA_rpcHitY = new vector < vector < float > > ();
   probe_mesSA_rpcHitZ = new vector < vector < float > > ();
@@ -668,7 +743,10 @@ EventTree::EventTree(TFile *file, TString name )
   probe_mesSA_mdtHitZ         = new vector < vector < float > > ();
   probe_mesSA_mdtHitPhi       = new vector < vector < float > > ();
   probe_mesSA_mdtHitResidual  = new vector < vector < float > > ();
-
+  //tsakai insert
+  probe_mesSA_mdtHitSpace     = new vector < vector < float > > ();
+  probe_mesSA_mdtHitSigma     = new vector < vector < float > > ();
+  //tsakai end
   probe_mesSA_roadAw = new vector < vector < float > > ();
   probe_mesSA_roadBw = new vector < vector < float > > ();
   probe_mesSA_zMin   = new vector < vector < float > > ();
@@ -734,7 +812,7 @@ EventTree::EventTree(TFile *file, TString name )
   m_tree->SetBranchAddress( "tag_EF_eta",   &tag_EF_eta );
   m_tree->SetBranchAddress( "tag_EF_phi",   &tag_EF_phi );
   m_tree->SetBranchAddress( "probe_pt",     &probe_pt );
-  m_tree->SetBranchAddress( "probe_MSpt",     &probe_MSpt );//kayamash
+  //m_tree->SetBranchAddress( "probe_MSpt",     &probe_MSpt );//kayamash
   m_tree->SetBranchAddress( "probe_eta",    &probe_eta );
   m_tree->SetBranchAddress( "probe_exteta",       &probe_exteta );
   m_tree->SetBranchAddress( "probe_extinneta",    &probe_extinneta );
@@ -744,7 +822,23 @@ EventTree::EventTree(TFile *file, TString name )
   m_tree->SetBranchAddress( "probe_d0",           &probe_d0 );
   m_tree->SetBranchAddress( "probe_z0",           &probe_z0 );
   m_tree->SetBranchAddress( "probe_charge",       &probe_charge );
-  //
+  //tsakai insert
+  m_tree->SetBranchAddress( "tag_segment_n",       &tag_segment_n );
+  m_tree->SetBranchAddress( "tag_segment_x",              tag_segment_x );
+  m_tree->SetBranchAddress( "tag_segment_y",              tag_segment_y );
+  m_tree->SetBranchAddress( "tag_segment_z",              tag_segment_z );
+  m_tree->SetBranchAddress( "tag_segment_px",             tag_segment_px );
+  m_tree->SetBranchAddress( "tag_segment_py",             tag_segment_py );
+  m_tree->SetBranchAddress( "tag_segment_pz",             tag_segment_pz );
+  m_tree->SetBranchAddress( "tag_segment_chiSquared",     tag_segment_chiSquared );
+  m_tree->SetBranchAddress( "tag_segment_numberDoF",      tag_segment_numberDoF );
+  m_tree->SetBranchAddress( "tag_segment_sector",         tag_segment_sector );
+  m_tree->SetBranchAddress( "tag_segment_chamberIndex",   tag_segment_chamberIndex );
+  m_tree->SetBranchAddress( "tag_segment_etaIndex",       tag_segment_etaIndex );
+  m_tree->SetBranchAddress( "tag_segment_nPrecisionHits", tag_segment_nPrecisionHits );
+  m_tree->SetBranchAddress( "tag_segment_nPhiLayers",     tag_segment_nPhiLayers );
+  m_tree->SetBranchAddress( "tag_segment_nTrigEtaLayers", tag_segment_nTrigEtaLayers );
+  //tsakai end
   m_tree->SetBranchAddress( "probe_segment_n",       &probe_segment_n );
   m_tree->SetBranchAddress( "probe_segment_x",              probe_segment_x );
   m_tree->SetBranchAddress( "probe_segment_y",              probe_segment_y );
@@ -865,7 +959,12 @@ EventTree::EventTree(TFile *file, TString name )
   m_tree->SetBranchAddress( "probe_mesSA_superPointChi2_CSC",  &probe_mesSA_superPointChi2_CSC );
   m_tree->SetBranchAddress( "probe_mesSA_superPointChi2_BEE",  &probe_mesSA_superPointChi2_BEE );
   m_tree->SetBranchAddress( "probe_mesSA_superPointChi2_BME",  &probe_mesSA_superPointChi2_BME );
-  //
+  //tsakai insert
+  m_tree->SetBranchAddress( "probe_mesSA_BarrelRadius",  &probe_mesSA_BarrelRadius );
+  m_tree->SetBranchAddress( "probe_mesSA_BarrelSagitta",  &probe_mesSA_BarrelSagitta );
+  m_tree->SetBranchAddress( "probe_mesSA_etamap",  &probe_mesSA_etamap );
+  m_tree->SetBranchAddress( "probe_mesSA_phimap",  &probe_mesSA_phimap );
+  //tsakai end
   m_tree->SetBranchAddress( "probe_mesSA_rpcHitX",  &probe_mesSA_rpcHitX );
   m_tree->SetBranchAddress( "probe_mesSA_rpcHitY",  &probe_mesSA_rpcHitY );
   m_tree->SetBranchAddress( "probe_mesSA_rpcHitZ",  &probe_mesSA_rpcHitZ );
@@ -907,7 +1006,7 @@ int EventTree::clear( ) {
 	return 1;
 }
 
-int EventTree::filltree( TagAndProbe& tap, int eventNumber, int runNumber, int lumiBlock, float averageInteractionsPerCrossing) {
+int EventTree::filltree( TagAndProbe& tap, unsigned long long int eventNumber, int runNumber, int lumiBlock, float averageInteractionsPerCrossing) {
 // fill the variable vectors
   
   vector < string > tmp_mes_name  = tap.mesName();
@@ -1015,7 +1114,12 @@ int EventTree::filltree( TagAndProbe& tap, int eventNumber, int runNumber, int l
     vector < vector < double > > tmp_probe_mesSA_superPointChi2_CSC = tap.probeSAsuperPointChi2CSC(); 
     vector < vector < double > > tmp_probe_mesSA_superPointChi2_BEE = tap.probeSAsuperPointChi2BEE(); 
     vector < vector < double > > tmp_probe_mesSA_superPointChi2_BME = tap.probeSAsuperPointChi2BME(); 
-    //
+    //tsakai insert
+    vector < vector < double > > tmp_probe_mesSA_BarrelRadius  = tap.probeSABarrelRadius();
+    vector < vector < double > > tmp_probe_mesSA_BarrelSagitta  = tap.probeSABarrelSagitta();
+    vector < vector < double > > tmp_probe_mesSA_etamap  = tap.probeSAetamap();
+    vector < vector < double > > tmp_probe_mesSA_phimap  = tap.probeSAphimap();
+    //tsakai end
     vector < vector <  vector < float > > >  tmp_probe_mesSA_rpcHitX   = tap.probeSArpcHitX(); 
     vector < vector <  vector < float > > >  tmp_probe_mesSA_rpcHitY   = tap.probeSArpcHitY(); 
     vector < vector <  vector < float > > >  tmp_probe_mesSA_rpcHitZ   = tap.probeSArpcHitZ(); 
@@ -1030,7 +1134,11 @@ int EventTree::filltree( TagAndProbe& tap, int eventNumber, int runNumber, int l
     vector < vector <  vector < float > > >  tmp_probe_mesSA_mdtHitR          = tap.probeSAmdtHitR(); 
     vector < vector <  vector < float > > >  tmp_probe_mesSA_mdtHitZ          = tap.probeSAmdtHitZ(); 
     vector < vector <  vector < float > > >  tmp_probe_mesSA_mdtHitPhi        = tap.probeSAmdtHitPhi(); 
-    vector < vector <  vector < float > > >  tmp_probe_mesSA_mdtHitResidual   = tap.probeSAmdtHitResidual(); 
+    vector < vector <  vector < float > > >  tmp_probe_mesSA_mdtHitResidual   = tap.probeSAmdtHitResidual();
+    //tsakai insert
+    vector < vector <  vector < float > > >  tmp_probe_mesSA_mdtHitSpace      = tap.probeSAmdtHitSpace(); 
+    vector < vector <  vector < float > > >  tmp_probe_mesSA_mdtHitSigma      = tap.probeSAmdtHitSigma(); 
+    //tsakai end 
 
     vector < vector <  vector < float > > >  tmp_probe_mesSA_roadAw   = tap.probeSAroadAw(); 
     vector < vector <  vector < float > > >  tmp_probe_mesSA_roadBw   = tap.probeSAroadBw(); 
@@ -1093,7 +1201,7 @@ int EventTree::filltree( TagAndProbe& tap, int eventNumber, int runNumber, int l
     tag_EF_eta        = tap.tagEFEta()[i];
     tag_EF_phi        = tap.tagEFPhi()[i];
     probe_pt          = tap.probePt()[i];
-    probe_MSpt          = tap.probeMSPt()[i];//kayamash
+    //probe_MSpt          = tap.probeMSPt()[i];//kayamash
     probe_eta         = tap.probeEta()[i];
     probe_exteta      = tap.probeExtEta()[i];
     probe_extinneta   = tap.probeExtInnEta()[i];
@@ -1103,7 +1211,25 @@ int EventTree::filltree( TagAndProbe& tap, int eventNumber, int runNumber, int l
     probe_d0          = tap.probed0()[i];
     probe_z0          = tap.probez0()[i];
     probe_charge      = tap.probeCharge()[i];
-    //
+    //tsakai insert
+    tag_segment_n   = tap.tagSegmentN()[i];
+    for(int nSeg = 0 ; nSeg < SegmentMaxNumber ; nSeg++ ){
+      tag_segment_x[nSeg]              = tap.tagSegmentX(nSeg)[i];
+      tag_segment_y[nSeg]              = tap.tagSegmentY(nSeg)[i];
+      tag_segment_z[nSeg]              = tap.tagSegmentZ(nSeg)[i];
+      tag_segment_px[nSeg]             = tap.tagSegmentPx(nSeg)[i];
+      tag_segment_py[nSeg]             = tap.tagSegmentPy(nSeg)[i];
+      tag_segment_pz[nSeg]             = tap.tagSegmentPz(nSeg)[i];
+      tag_segment_chiSquared[nSeg]     = tap.tagSegmentChiSquared(nSeg)[i];
+      tag_segment_numberDoF[nSeg]      = tap.tagSegmentNumberDoF(nSeg)[i];
+      tag_segment_sector[nSeg]         = tap.tagSegmentSector(nSeg)[i];
+      tag_segment_chamberIndex[nSeg]   = tap.tagSegmentChamberIndex(nSeg)[i];
+      tag_segment_etaIndex[nSeg]       = tap.tagSegmentEtaIndex(nSeg)[i];
+      tag_segment_nPrecisionHits[nSeg] = tap.tagSegmentNPrecisionHits(nSeg)[i];
+      tag_segment_nPhiLayers[nSeg]     = tap.tagSegmentNPhiLayers(nSeg)[i];
+      tag_segment_nTrigEtaLayers[nSeg] = tap.tagSegmentNTrigEtaLayers(nSeg)[i];
+    }
+    //tsakai end
     probe_segment_n   = tap.probeSegmentN()[i];
     for(int nSeg = 0 ; nSeg < SegmentMaxNumber ; nSeg++ ){
       probe_segment_x[nSeg]              = tap.probeSegmentX(nSeg)[i];
@@ -1237,7 +1363,12 @@ int EventTree::filltree( TagAndProbe& tap, int eventNumber, int runNumber, int l
     probe_mesSA_superPointChi2_CSC = &( tmp_probe_mesSA_superPointChi2_CSC[i] ); 
     probe_mesSA_superPointChi2_BEE = &( tmp_probe_mesSA_superPointChi2_BEE[i] ); 
     probe_mesSA_superPointChi2_BME = &( tmp_probe_mesSA_superPointChi2_BME[i] ); 
-    //
+    //tsakai insert
+    probe_mesSA_BarrelRadius = &( tmp_probe_mesSA_BarrelRadius[i] );
+    probe_mesSA_BarrelSagitta = &( tmp_probe_mesSA_BarrelSagitta[i] );
+    probe_mesSA_etamap = &( tmp_probe_mesSA_etamap[i] );
+    probe_mesSA_phimap = &( tmp_probe_mesSA_phimap[i] );
+    //tsakai end
     probe_mesSA_rpcHitX   = &( tmp_probe_mesSA_rpcHitX[i] );
     probe_mesSA_rpcHitY   = &( tmp_probe_mesSA_rpcHitY[i] );
     probe_mesSA_rpcHitZ   = &( tmp_probe_mesSA_rpcHitZ[i] );
@@ -1253,6 +1384,10 @@ int EventTree::filltree( TagAndProbe& tap, int eventNumber, int runNumber, int l
     probe_mesSA_mdtHitZ         = &( tmp_probe_mesSA_mdtHitZ[i] );
     probe_mesSA_mdtHitPhi       = &( tmp_probe_mesSA_mdtHitPhi[i] );
     probe_mesSA_mdtHitResidual  = &( tmp_probe_mesSA_mdtHitResidual[i] );
+    //tsakai insert
+    probe_mesSA_mdtHitSpace     = &( tmp_probe_mesSA_mdtHitSpace[i] );
+    probe_mesSA_mdtHitSigma     = &( tmp_probe_mesSA_mdtHitSigma[i] );
+    //tsakai end
 
     probe_mesSA_roadAw   = &( tmp_probe_mesSA_roadAw[i] );
     probe_mesSA_roadBw   = &( tmp_probe_mesSA_roadBw[i] );
