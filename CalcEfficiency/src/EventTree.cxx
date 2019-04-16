@@ -1076,8 +1076,8 @@ int EventTree::filltree( TagAndProbe& tap, unsigned long long int eventNumber, i
 
     vector < vector < float > > tmp_probe_mesSA_roiEta  = tap.probeSAroiEta();
     vector < vector < float > > tmp_probe_mesSA_roiPhi  = tap.probeSAroiPhi();
-    vector < vector < float > > tmp_probe_mesSA_roiNumber  = tap.probeSAroiNumber();//kayamash
-    vector < vector < float > > tmp_probe_mesSA_roiSector  = tap.probeSAroiSector();//kayamash
+    vector < vector < uint32_t > > tmp_probe_mesSA_roiNumber  = tap.probeSAroiNumber();//kayamash
+    vector < vector < uint32_t > > tmp_probe_mesSA_roiSector  = tap.probeSAroiSector();//kayamash
     vector < vector < int > > tmp_probe_mesSA_isRpcFailure  = tap.probeSAisRpcFailure();
     vector < vector < int > > tmp_probe_mesSA_isTgcFailure  = tap.probeSAisTgcFailure();
     //
