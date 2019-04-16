@@ -482,8 +482,8 @@ class TagAndProbe {
 
     vector< vector< float > > m_probeSAroiEta; //!
     vector< vector< float > > m_probeSAroiPhi; //!
-    vector< vector< uint32_t > > m_probe_mesSAroiNumber;//kayamash
-    vector< vector< uint32_t > > m_probe_mesSAroiSector;//kayamash
+    vector< vector< uint32_t > > m_probeSAroiNumber;//kayamash
+    vector< vector< uint32_t > > m_probeSAroiSector;//kayamash
     vector< vector< int > > m_probeSAisRpcFailure; //!
     vector< vector< int > > m_probeSAisTgcFailure; //!
     // 
