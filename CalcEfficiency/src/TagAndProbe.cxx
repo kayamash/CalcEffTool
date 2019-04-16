@@ -791,7 +791,6 @@ int TagAndProbe::setProbes( const xAOD::MuonContainer* muons,
     int quality = m_pst.getQualityOfTrack( (*mu_itr1) );///Look at Particleselectertool.cxx about getQualityOfTrack.
     //cout << "quality: " << quality << endl;
     if( quality<0 ) continue; 
-    cout<<"kayamashComment"<<endl;//kayamash
     float dRmumu_min = 999;//kayamash
     xAOD::MuonContainer::const_iterator mu_itr_tmp = muons->begin();//kayamash
     for ( ; mu_itr_tmp!=mu_end; ++mu_itr_tmp ) {//kayamash
