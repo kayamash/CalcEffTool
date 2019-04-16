@@ -191,8 +191,8 @@ class TagAndProbe {
 
     vector< vector< float > > probeSAroiEta(){ return m_probeSAroiEta; }
     vector< vector< float > > probeSAroiPhi(){ return m_probeSAroiPhi; }
-    vector< vector< float > > probeSAroiNumber(){ return m_probeSAroiNumber; }//kayamash
-    vector< vector< float > > probeSAroiSector(){ return m_probeSAroiSector; }//kayamash
+    vector< vector< uint32_t > > probeSAroiNumber(){ return m_probeSAroiNumber; }//kayamash
+    vector< vector< uint32_t > > probeSAroiSector(){ return m_probeSAroiSector; }//kayamash
     vector< vector< int > > probeSAisRpcFailure(){ return m_probeSAisRpcFailure; }
     vector< vector< int > > probeSAisTgcFailure(){ return m_probeSAisTgcFailure; }
     // 
