@@ -1801,7 +1801,7 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
     m_probeL1Eta.push_back( vL1eta );
     m_probeL1Phi.push_back( vL1phi );
     m_probeL1roiNumber.push_back( vL1roiNumber );//kayamash
-    m_probeL1roiASector.push_back( vL1roiSector );//kayamash
+    m_probeL1roiSector.push_back( vL1roiSector );//kayamash
     m_probePassedSA.push_back( vSApass );
     m_probeSAdR.push_back( vSAdR );
     m_probeSAtpdR.push_back( vSAtpdR );
@@ -1972,7 +1972,7 @@ int TagAndProbe::matchL1( const L1Item& L1, const xAOD::Muon* muon, const xAOD::
     const int roiPt       = (*rois_itr)->thrValue();
     const double roiEta   = (*rois_itr)->eta();
     const double roiPhi   = (*rois_itr)->phi();
-    const int roiSector   = (*rois_itr)->getSectorAddress();//kayamash
+    int roiSector   = (*rois_itr)->getSectorAddress();//kayamash
     const int roiWord     = (*rois_itr)->roiWord();//kayamash
     if( L1 > roiThr ) continue;
     if( roiNum == reject ) continue;
