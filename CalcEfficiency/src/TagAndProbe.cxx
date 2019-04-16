@@ -638,6 +638,8 @@ void TagAndProbe::clear() {
   m_probeL1Pt.clear();
   m_probeL1Eta.clear();
   m_probeL1Phi.clear();
+  m_probeL1roiNumber.clear();//kayamash
+  m_probeL1roiSector.clear();//kayamash
   m_probePassedSA.clear();
   m_probeSAdR.clear();
   m_probeSAtpdR.clear();
@@ -660,6 +662,8 @@ void TagAndProbe::clear() {
 
   m_probeSAroiEta.clear();
   m_probeSAroiPhi.clear();
+  m_probeSAroiNumber.clear();//kayamash
+  m_probeSAroiSector.clear();//kayamash
   m_probeSAisRpcFailure.clear();
   m_probeSAisTgcFailure.clear();
   //
@@ -1278,6 +1282,8 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
     vector< double > vSAetamap, vSAphimap;
     //tsakai end
     vector < float > vSAroiEta, vSAroiPhi;
+    vector < int > vL1roiNumber, vL1roiSector;//kayamash
+    vector < uint32_t > vSAroiNumber, vSAroiSector;//kayamash
     vector < int > vSAisRpcFailure, vSAisTgcFailure;
     //superPointR
     vector< double > vSAsuperPointRBI, vSAsuperPointRBM, vSAsuperPointRBO, vSAsuperPointREI, vSAsuperPointREM, vSAsuperPointREO, vSAsuperPointREE, vSAsuperPointRCSC, vSAsuperPointRBEE, vSAsuperPointRBME; 
@@ -1788,6 +1794,8 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
     m_probeL1tpdR.push_back( vL1tpdR );
     m_probeL1Eta.push_back( vL1eta );
     m_probeL1Phi.push_back( vL1phi );
+    m_probeL1roiNumber.push_back( vL1roiNumber );//kayamash
+    m_probeL1roiASector.push_back( vL1roiSector );//kayamash
     m_probePassedSA.push_back( vSApass );
     m_probeSAdR.push_back( vSAdR );
     m_probeSAtpdR.push_back( vSAtpdR );
@@ -1811,6 +1819,8 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
 
     m_probeSAroiEta.push_back( vSAroiEta );
     m_probeSAroiPhi.push_back( vSAroiPhi );
+    m_probeSAroiNumber.push_back( vSAroiNumber );//kayamash
+    m_probeSAroiSector.push_back( vSAroiSector );//kayamash
     m_probeSAisRpcFailure.push_back( vSAisRpcFailure );
     m_probeSAisTgcFailure.push_back( vSAisTgcFailure );
     //

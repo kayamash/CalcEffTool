@@ -143,6 +143,8 @@ int EventTree::initialize( TString outfile = "test.root" ) {
   probe_mesL1_pt    = new vector < double > ();
   probe_mesL1_eta   = new vector < double > ();
   probe_mesL1_phi   = new vector < double > ();
+  probe_mesL1_roiNumber   = new vector < int > ();//kayamash
+  probe_mesL1_roiSector   = new vector < int > ();//kayamash
   probe_mesSA_pass  = new vector < int > ();
   probe_mesSA_dR    = new vector < double > ();
   probe_mesSA_tpdR  = new vector < double > ();
@@ -165,6 +167,8 @@ int EventTree::initialize( TString outfile = "test.root" ) {
 
   probe_mesSA_roiEta = new vector < float > ();
   probe_mesSA_roiPhi = new vector < float > ();
+  probe_mesSA_roiNumber = new vector < uint32_t > ();//kayamash
+  probe_mesSA_roiSector = new vector < uint32_t > ();//kayamash
   probe_mesSA_isRpcFailure = new vector < int > ();
   probe_mesSA_isTgcFailure = new vector < int > ();
 
@@ -387,6 +391,8 @@ int EventTree::initialize( TString outfile = "test.root" ) {
   m_tree->Branch( "probe_mesL1_pt",     &probe_mesL1_pt );
   m_tree->Branch( "probe_mesL1_eta",    &probe_mesL1_eta );
   m_tree->Branch( "probe_mesL1_phi",    &probe_mesL1_phi );
+  m_tree->Branch( "probe_mesL1_roiNumber",    &probe_mesL1_roiNumber );//kayamash
+  m_tree->Branch( "probe_mesL1_roiSector",    &probe_mesL1_roiSector );//kayamash
   m_tree->Branch( "probe_mesSA_pass",   &probe_mesSA_pass );
   m_tree->Branch( "probe_mesSA_dR",     &probe_mesSA_dR );
   m_tree->Branch( "probe_mesSA_tpdR",   &probe_mesSA_tpdR );
@@ -410,6 +416,8 @@ int EventTree::initialize( TString outfile = "test.root" ) {
 
   m_tree->Branch( "probe_mesSA_roiEta",  &probe_mesSA_roiEta );
   m_tree->Branch( "probe_mesSA_roiPhi",  &probe_mesSA_roiPhi );
+  m_tree->Branch( "probe_mesSA_roiNumber",  &probe_mesSA_roiNumber );//kayamash
+  m_tree->Branch( "probe_mesSA_roiSector",  &probe_mesSA_roiSector );//kayamash
   m_tree->Branch( "probe_mesSA_isRpcFailure",  &probe_mesSA_isRpcFailure );
   m_tree->Branch( "probe_mesSA_isTgcFailure",  &probe_mesSA_isTgcFailure );
   //
@@ -642,6 +650,9 @@ EventTree::EventTree(TFile *file, TString name )
   probe_mesL1_pt    = new vector < double > ();
   probe_mesL1_eta   = new vector < double > ();
   probe_mesL1_phi   = new vector < double > ();
+  probe_mesL1_roiNumber   = new vector < int > ();//kayamash
+  probe_mesL1_roiSector   = new vector < int > ();//kayamash
+  probe_mesL1_phi   = new vector < double > ();
   probe_mesSA_pass  = new vector < int > ();
   probe_mesSA_dR    = new vector < double > ();
   probe_mesSA_tpdR  = new vector < double > ();
@@ -664,6 +675,8 @@ EventTree::EventTree(TFile *file, TString name )
 
   probe_mesSA_roiEta = new vector < float > ();
   probe_mesSA_roiPhi = new vector < float > ();
+  probe_mesSA_roiNumber = new vector < uint32_t > ();//kayamash
+  probe_mesSA_roiSector = new vector < uint32_t > ();//kayamash
   probe_mesSA_isRpcFailure = new vector < int > ();
   probe_mesSA_isTgcFailure = new vector < int > ();
 
@@ -880,6 +893,8 @@ EventTree::EventTree(TFile *file, TString name )
   m_tree->SetBranchAddress( "probe_mesL1_pt",     &probe_mesL1_pt );
   m_tree->SetBranchAddress( "probe_mesL1_eta",    &probe_mesL1_eta );
   m_tree->SetBranchAddress( "probe_mesL1_phi",    &probe_mesL1_phi );
+  m_tree->SetBranchAddress( "probe_mesL1_roiNumber",    &probe_mesL1_roiNumber );//kayamash
+  m_tree->SetBranchAddress( "probe_mesL1_roiSector",    &probe_mesL1_roiSector );//kayamash
   m_tree->SetBranchAddress( "probe_mesSA_pass",   &probe_mesSA_pass );
   m_tree->SetBranchAddress( "probe_mesSA_dR",     &probe_mesSA_dR );
   m_tree->SetBranchAddress( "probe_mesSA_tpdR",   &probe_mesSA_tpdR );
@@ -902,6 +917,8 @@ EventTree::EventTree(TFile *file, TString name )
 
   m_tree->SetBranchAddress( "probe_mesSA_roiEta",  &probe_mesSA_roiEta );
   m_tree->SetBranchAddress( "probe_mesSA_roiPhi",  &probe_mesSA_roiPhi );
+  m_tree->SetBranchAddress( "probe_mesSA_roiNumber",  &probe_mesSA_roiNumber );//kayamash
+  m_tree->SetBranchAddress( "probe_mesSA_roiSector",  &probe_mesSA_roiSector );//kayamash
   m_tree->SetBranchAddress( "probe_mesSA_isRpcFailure",  &probe_mesSA_isRpcFailure );
   m_tree->SetBranchAddress( "probe_mesSA_isTgcFailure",  &probe_mesSA_isTgcFailure );
   //
@@ -1035,6 +1052,8 @@ int EventTree::filltree( TagAndProbe& tap, unsigned long long int eventNumber, i
     vector < vector < double > > tmp_probe_mesL1_pt   = tap.probeL1Pt();
     vector < vector < double > > tmp_probe_mesL1_eta  = tap.probeL1Eta();
     vector < vector < double > > tmp_probe_mesL1_phi  = tap.probeL1Phi();
+    vector < vector < int > > tmp_probe_mesL1_roiNumber  = tap.probeL1roiNumber();//kayamash
+    vector < vector < int > > tmp_probe_mesL1_roiSector  = tap.probeL1roiSector();//kayamash
     vector < vector < int > > tmp_probe_mesSA_pass    = tap.probePassedSA();
     vector < vector < double > > tmp_probe_mesSA_dR   = tap.probeSAdR();
     vector < vector < double > > tmp_probe_mesSA_tpdR = tap.probeSAtpdR();
@@ -1057,6 +1076,8 @@ int EventTree::filltree( TagAndProbe& tap, unsigned long long int eventNumber, i
 
     vector < vector < float > > tmp_probe_mesSA_roiEta  = tap.probeSAroiEta();
     vector < vector < float > > tmp_probe_mesSA_roiPhi  = tap.probeSAroiPhi();
+    vector < vector < float > > tmp_probe_mesSA_roiNumber  = tap.probeSAroiNumber();//kayamash
+    vector < vector < float > > tmp_probe_mesSA_roiSector  = tap.probeSAroiSector();//kayamash
     vector < vector < int > > tmp_probe_mesSA_isRpcFailure  = tap.probeSAisRpcFailure();
     vector < vector < int > > tmp_probe_mesSA_isTgcFailure  = tap.probeSAisTgcFailure();
     //
@@ -1284,6 +1305,8 @@ int EventTree::filltree( TagAndProbe& tap, unsigned long long int eventNumber, i
     probe_mesL1_pt    = &( tmp_probe_mesL1_pt[i] );
     probe_mesL1_eta   = &( tmp_probe_mesL1_eta[i] );
     probe_mesL1_phi   = &( tmp_probe_mesL1_phi[i] );
+    probe_mesL1_roiNumber   = &( tmp_probe_mesL1_roiNumber[i] );//kayamash
+    probe_mesL1_roiSector   = &( tmp_probe_mesL1_roiSector[i] );//kayamash
     probe_mesSA_pass  = &( tmp_probe_mesSA_pass[i] );
     probe_mesSA_dR    = &( tmp_probe_mesSA_dR[i] );
     probe_mesSA_tpdR  = &( tmp_probe_mesSA_tpdR[i] );
@@ -1306,6 +1329,8 @@ int EventTree::filltree( TagAndProbe& tap, unsigned long long int eventNumber, i
 
     probe_mesSA_roiEta = &( tmp_probe_mesSA_roiEta[i] );
     probe_mesSA_roiPhi = &( tmp_probe_mesSA_roiPhi[i] );
+    probe_mesSA_roiNumber = &( tmp_probe_mesSA_roiNumber[i] );//kayamash
+    probe_mesSA_roiSector = &( tmp_probe_mesSA_roiSector[i] );//kayamash
     probe_mesSA_isRpcFailure = &( tmp_probe_mesSA_isRpcFailure[i] );
     probe_mesSA_isTgcFailure = &( tmp_probe_mesSA_isTgcFailure[i] );
     //

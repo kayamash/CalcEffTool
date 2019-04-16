@@ -138,6 +138,8 @@ class EventTree {
     vector < double >* probe_mesL1_pt;
     vector < double >* probe_mesL1_eta;
     vector < double >* probe_mesL1_phi;
+    vector < int >* probe_mesL1_roiNumber;//kayamash
+    vector < int >* probe_mesL1_roiSector;//kayamash
     vector < int >* probe_mesSA_pass;
     vector < double >* probe_mesSA_dR;
     vector < double >* probe_mesSA_tpdR;
@@ -161,6 +163,8 @@ class EventTree {
 
     vector < float >* probe_mesSA_roiEta;
     vector < float >* probe_mesSA_roiPhi;
+    vector < uint32_t >* probe_mesSA_roiNumber;//kayamash
+    vector < uint32_t >* probe_mesSA_roiSector;//kayamash
     vector < int >* probe_mesSA_isRpcFailure;
     vector < int >* probe_mesSA_isTgcFailure;
 

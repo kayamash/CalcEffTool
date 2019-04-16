@@ -167,6 +167,8 @@ class TagAndProbe {
     vector< vector< double > > probeL1Pt(){ return m_probeL1Pt; }
     vector< vector< double > > probeL1Eta(){ return m_probeL1Eta; }
     vector< vector< double > > probeL1Phi(){ return m_probeL1Phi; }
+    vector< vector< int > > probeL1roiNumber(){ return m_probeL1roiNumber; }//kayamash
+    vector< vector< int > > probeL1roiSector(){ return m_probeL1roiSector; }//kayamash
     vector< vector< int > > probePassedSA(){ return m_probePassedSA; }
     vector< vector< double > > probeSAdR(){ return m_probeSAdR; }
     vector< vector< double > > probeSAtpdR(){ return m_probeSAtpdR; }
@@ -189,6 +191,8 @@ class TagAndProbe {
 
     vector< vector< float > > probeSAroiEta(){ return m_probeSAroiEta; }
     vector< vector< float > > probeSAroiPhi(){ return m_probeSAroiPhi; }
+    vector< vector< float > > probeSAroiNumber(){ return m_probeSAroiNumber; }//kayamash
+    vector< vector< float > > probeSAroiSector(){ return m_probeSAroiSector; }//kayamash
     vector< vector< int > > probeSAisRpcFailure(){ return m_probeSAisRpcFailure; }
     vector< vector< int > > probeSAisTgcFailure(){ return m_probeSAisTgcFailure; }
     // 
@@ -454,6 +458,8 @@ class TagAndProbe {
     vector< vector< double > > m_probeL1tpdR; //!
     vector< vector< double > > m_probeL1Eta; //!
     vector< vector< double > > m_probeL1Phi; //!
+    vector< vector< int > > m_probeL1roiNumber;//kayamash
+    vector< vector< int > > m_probeL1roiSector;//kayamash
     vector< vector< int > > m_probePassedSA; //!
     vector< vector< double > > m_probeSAPt; //!
     vector< vector< double > > m_probeSAdR; //!
@@ -476,6 +482,8 @@ class TagAndProbe {
 
     vector< vector< float > > m_probeSAroiEta; //!
     vector< vector< float > > m_probeSAroiPhi; //!
+    vector< vector< uint32_t > > m_probe_mesSAroiNumber;//kayamash
+    vector< vector< uint32_t > > m_probe_mesSAroiSector;//kayamash
     vector< vector< int > > m_probeSAisRpcFailure; //!
     vector< vector< int > > m_probeSAisTgcFailure; //!
     // 
