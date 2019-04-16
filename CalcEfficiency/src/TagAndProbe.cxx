@@ -917,7 +917,7 @@ int TagAndProbe::setProbes( const xAOD::MuonContainer* muons,
             double L1param1[5] = { -99999., -99999., -99999., -99999., -99999.};//kayamash
             //double SAparam1[17] = { -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999.};
             //
-            const int sizeofSAparam1 = 73;//tsakai
+            const int sizeofSAparam1 = 75;//tsakai
             double SAparam1[sizeofSAparam1];
             //fill SAparam1[*] with -99999.
             for(int i_SAparam1 = 0 ; i_SAparam1 < sizeofSAparam1 ; i_SAparam1++){
@@ -979,7 +979,7 @@ int TagAndProbe::setProbes( const xAOD::MuonContainer* muons,
             double L1param2[5] = { -99999., -99999., -99999., -99999., -99999.};//kayamash
             //double SAparam2[17] = { -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999., -99999. };
             //
-            const int sizeofSAparam2 = 73;//tsakai
+            const int sizeofSAparam2 = 75;//tsakai
             double SAparam2[sizeofSAparam2];
             //fill SAparam1[*] with -99999.
             for(int i_SAparam2 = 0 ; i_SAparam2 < sizeofSAparam2 ; i_SAparam2++){
@@ -1333,7 +1333,7 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
       //SAparam[45] ~ SAparam[54] -> SAsuperPointIntercept* ( * = BI, BM, BO, EI, EM, EO, EE, CSC, BEE, BME )
       //SAparam[55] ~ SAparam[64] -> SAsuperPointChi2* ( * = BI, BM, BO, EI, EM, EO, EE, CSC, BEE, BME )
       //***********************************************************************
-      const int sizeofSAparam = 73;
+      const int sizeofSAparam = 75;
       double SAparam[sizeofSAparam];
       //fill SAparam[*] with -99999.
       for(int i_SAparam = 0 ; i_SAparam < sizeofSAparam ; i_SAparam++){
@@ -1417,6 +1417,8 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
       vL1tpdR.push_back(  m_utils.deltaR( tagL1Eta, tagL1Phi, L1param[1], L1param[2] ) );
       vL1eta.push_back( L1param[1] );
       vL1phi.push_back( L1param[2] );
+      vL1roiNumber.push_back( (int)L1param[3]);//kayamash
+      vL1roiSector.push_back( (int)L1param[4]);//kayamash
       vSApass.push_back( SApass );
       vSAdR.push_back( -99999. );
       vSAtpdR.push_back(  m_utils.deltaR( tagSAEta, tagSAPhi, SAparam[3], SAparam[4] ) );
@@ -1503,6 +1505,11 @@ int TagAndProbe::doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD
       vSAetamap.push_back( SAparam[71] );
       vSAphimap.push_back( SAparam[72] );
       //tsakai end
+      //kayamash insert
+      vSAroiNumber.push_back( (uint32_t)SAparam[73]);
+      vSAroiSector.push_back( (uint32_t)SAparam[74]);
+      //kayamash end
+
       //vSArpcHitX is vector < vector < float > >, vec_saparam is vector < vector < float > >.
       //vSArpcHitX.push_back( vec_SAparam[0] );
       //vSArpcHitY.push_back( vec_SAparam[1] );
@@ -1980,7 +1987,9 @@ int TagAndProbe::matchL1( const L1Item& L1, const xAOD::Muon* muon, const xAOD::
       param[0]  = roiPt;
       param[1]  = roiEta;
       param[2]  = roiPhi;
-      param[3]  = roiWord;//kayamash
+      param[3]  = matchedRoINumber;//kayamash
+      int tmp_roiSector = roiSector >> 1;//kayamash
+      (roiSector >= 128) ? (roiSector = tmp_roiSector & 0x3f) : (roiSector = tmp_roiSector & 0x1f);//kayamash
       param[4]  = roiSector;//kayamash
     }
   }
@@ -2016,13 +2025,9 @@ int TagAndProbe::matchSA( const Trig::FeatureContainer& fc, int L1num, double* p
       for( const auto& l2sa : *cont ) {
         const int l2saRoINum  = l2sa->roiNumber();
         const int l2saSecNum = l2sa->roiSector();//kayamash
-        int l1RoISectorAddress = (int)l1param[4];//kayamash
-        const int l1RoIWord = (int)l1param[3];//kayamash
-        l1RoISectorAddress = l1RoISectorAddress >> 1;//kayamash
-        ((int)l1param[4] >= 128) ? (l1RoISectorAddress = l1RoISectorAddress & 0x3f) : (l1RoISectorAddress = l1RoISectorAddress & 0x1f);//kayamash
+        const int l1RoISectorAddress = (int)l1param[4];//kayamash
         cout<<"-------------------------------------------"<<endl;
-        cout<<" kayamashCheck: L2MuonSARoISector="<<l2saSecNum<<" L1RoISectorAddress="<<(int)l1param[4]<<" L1RoISector="<<l1RoISectorAddress<<endl;//kayamash
-        cout<<" kayamashCheck: L2MuonSARoIWord="<<l2sa->roiWord()<<" L1RoIWord="<<l1RoIWord<<endl;//kayamash
+        cout<<" kayamashCheck: L2MuonSARoISector="<<l2saSecNum<<" L1RoISector="<<l1RoISectorAddress<<endl;//kayamash
         cout<<" kayamashCheck: L2MuonSARoIPhi="<<l2sa->phi()<<" L1RoIPhi="<<l1param[2]<<endl;//kayamash
         cout<<" kayamashCheck: L2MuonSARoIEta="<<l2sa->eta()<<" L1RoIEta="<<l1param[1]<<endl;//kayamash
         cout<<" kayamashCheck: L2MuonSARoIPt="<<l2sa->pt()<<" L1RoIPt="<<l1param[0]<<endl;//kayamash
@@ -2239,6 +2244,10 @@ int TagAndProbe::matchSA( const Trig::FeatureContainer& fc, int L1num, double* p
         param[71]   = l2saetamap;
         param[72]   = l2saphimap;
         //tsakai end
+        //kayamash insert
+        param[73]   = l2saRoINum;
+        param[74]   = l2saSecNum;
+        //kayamash end
 
         //vec_param is vector < vector < float > >. l2saRpcHitX is vector < float >.
         vec_param_X = l2saRpcHitX;
