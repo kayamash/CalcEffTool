@@ -16,7 +16,6 @@ $ git clone ssh://git@gitlab.cern.ch:7999/yyazawa/CalcEffTool.git
 $ cd CalcEffTool/
 #export ATLAS_LOCAL_ROOT_BASE=/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase
 #alias setupATLAS='source ${ATLAS_LOCAL_ROOT_BASE}/user/atlasLocalSetup.sh'
-$ setupATLAS
 $ source setup_grid.sh
 $ ./compile.sh
 ```
