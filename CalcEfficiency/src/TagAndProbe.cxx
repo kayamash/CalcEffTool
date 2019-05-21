@@ -2026,13 +2026,6 @@ int TagAndProbe::matchSA( const Trig::FeatureContainer& fc, int L1num, double* p
         const int l2saRoINum  = l2sa->roiNumber();
         const int l2saSecNum = l2sa->roiSector();//kayamash
         const int l1RoISectorAddress = (int)l1param[4];//kayamash
-        cout<<"-------------------------------------------"<<endl;
-        cout<<" kayamashCheck: L2MuonSARoISector="<<l2saSecNum<<" L1RoISector="<<l1RoISectorAddress<<endl;//kayamash
-        cout<<" kayamashCheck: L2MuonSARoIPhi="<<l2sa->phi()<<" L1RoIPhi="<<l1param[2]<<endl;//kayamash
-        cout<<" kayamashCheck: L2MuonSARoIEta="<<l2sa->eta()<<" L1RoIEta="<<l1param[1]<<endl;//kayamash
-        cout<<" kayamashCheck: L2MuonSARoIPt="<<l2sa->pt()<<" L1RoIPt="<<l1param[0]<<endl;//kayamash
-        cout<<"-------------------------------------------"<<endl;//kayamash
-        //cout << "MyCheck: saRoi=" << l2saRoINum << " L1Roi=" << L1num << " idte=" << l2saTE -> getId() << " nameTE=" << Trig::getTEName( *l2saTE ) . c_str() << endl;
         if( l2saRoINum != L1num || l1RoISectorAddress != l2saSecNum) continue; 
         pair< double, double > extsa = m_ext.extTrackMuComb( l2sa );
         const int nTP = l2sa->nTrackPositions();
