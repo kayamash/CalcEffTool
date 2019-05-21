@@ -22,7 +22,7 @@ $ ./compile.sh
 ```
 
 
-## How To Use
+## How To Use Local
 ------------------------------------
 ```sh
 $ cd run
@@ -45,3 +45,16 @@ It changes trigger from "HLT_mu20_2mu0noL1_JpsimumuFS" to "HLT_mu20_2mu2noL1_Jps
 If you want to measure L1 MU20 and MU21 triggers in data17, you must write it as MU15 and MU20 in addMesChain function respectively(not MU20 and MU21), because current L1 trigger state was not reflected yet.
 
 Different method to check the active state of trigger element was used in data17, so this option should be made empty for data16.
+
+## How To Create List
+------------------------------------
+$./yy_newmakelist.sh -d AOD -o (list_name) -g (GRL)
+This requires lsetup rucio
+
+## How To Use Grid
+------------------------------------
+$./sub_pathena.sh (list_name) (output_name)
+
+
+
+
