@@ -39,8 +39,8 @@ class TagAndProbe {
 	TagAndProbe();
 	~TagAndProbe();
     
-    enum L1Item{ NOTHING, L1_MU4, L1_MU6, L1_MU10, L1_MU11, L1_MU20, L1_MU21 };
-    //enum L1Item{ NOTHING, L1_MU4, L1_MU6, L1_MU10, L1_MU11, L1_MU15, L1_MU20 };
+    enum L1Item{ NOTHING, L1_MU4, L1_MU6, L1_MU10, L1_MU11, L1_MU20, L1_MU21 };//for data17
+    //enum L1Item{ NOTHING, L1_MU4, L1_MU6, L1_MU10, L1_MU11, L1_MU15, L1_MU20 };//for data16
     enum TapType{ L1, L2, EF, ALL };
     
 
@@ -58,8 +58,8 @@ class TagAndProbe {
                    const xAOD::MuonRoIContainer* rois ); //!
     int doProbeMatching( const xAOD::MuonRoIContainer* rois, const xAOD::TrackParticleContainer* ftfs ); //!
 
-    int matchL1( const L1Item& L1, const xAOD::Muon* muon, const xAOD::MuonRoIContainer* rois, double* reqdR, int reject, double* param ); //!
-    int matchSA( const Trig::FeatureContainer& fc, int L1num, double* param, std::vector < float >& vec_param_x, std::vector < float >& vec_param_Y, std::vector < float >& vec_param_Z, std::vector< string >& vec_param_string, std::string& mesSATEName, std::vector< std::vector < float > >& vec_param_road, vector < vector < int > >& vec_param_mdtInt, vector < vector < float > >& vec_param_mdtFloat ); //!
+    int matchL1( const L1Item& L1, const xAOD::Muon* muon, const xAOD::MuonRoIContainer* rois, double* reqdR, int reject, double* param); //!
+    int matchSA( const Trig::FeatureContainer& fc, int L1num, double* param, std::vector < float >& vec_param_x, std::vector < float >& vec_param_Y, std::vector < float >& vec_param_Z, std::vector< string >& vec_param_string, std::string& mesSATEName, std::vector< std::vector < float > >& vec_param_road, vector < vector < int > >& vec_param_mdtInt, vector < vector < float > >& vec_param_mdtFloat, double* l1param); //!//kayamash
     //int matchCB( const Trig::FeatureContainer& fc, int L1num, double* param ); //!
     //int matchCB( const xAOD::Muon* muon, const Trig::FeatureContainer& fc, double* reqdR, double* param ); //!
     int matchCB( const xAOD::Muon* muon, const Trig::FeatureContainer& fc, double* reqdR, double* param, std::string& cbTEName );
@@ -106,7 +106,7 @@ class TagAndProbe {
     vector< double > tagEFEta(){ return m_tagEFEta; } 
     vector< double > tagEFPhi(){ return m_tagEFPhi; } 
     vector< double > probePt(){ return m_probePt; } 
-    vector< double > probeMSPt(){ return m_probeMSPt; } //kayamash
+    //vector< double > probeMSPt(){ return m_probeMSPt; } //kayamash
     vector< double > probeEta(){ return m_probeEta; }
     vector< double > probeExtEta(){ return m_probeExtEta; }
     vector< double > probeExtInnEta(){ return m_probeExtInnEta; }
@@ -116,7 +116,23 @@ class TagAndProbe {
     vector< double > probed0(){ return m_probed0; } 
     vector< double > probez0(){ return m_probez0; } 
     vector< double > probeCharge(){ return m_probeCharge; }
-    //
+    //tsakai insert
+    vector< double > tagSegmentN(){ return m_tagSegmentN; }
+    vector< double > tagSegmentX(int segment_number){ return m_tagSegmentX[segment_number]; }
+    vector< double > tagSegmentY(int segment_number){ return m_tagSegmentY[segment_number]; }
+    vector< double > tagSegmentZ(int segment_number){ return m_tagSegmentZ[segment_number]; }
+    vector< double > tagSegmentPx(int segment_number){ return m_tagSegmentPx[segment_number]; }
+    vector< double > tagSegmentPy(int segment_number){ return m_tagSegmentPy[segment_number]; }
+    vector< double > tagSegmentPz(int segment_number){ return m_tagSegmentPz[segment_number]; }
+    vector< double > tagSegmentChiSquared(int segment_number){ return m_tagSegmentChiSquared[segment_number]; }
+    vector< double > tagSegmentNumberDoF(int segment_number){ return m_tagSegmentNumberDoF[segment_number]; }
+    vector< double > tagSegmentSector(int segment_number){ return m_tagSegmentSector[segment_number]; }
+    vector< double > tagSegmentChamberIndex(int segment_number){ return m_tagSegmentChamberIndex[segment_number]; }
+    vector< double > tagSegmentEtaIndex(int segment_number){ return m_tagSegmentEtaIndex[segment_number]; }
+    vector< double > tagSegmentNPrecisionHits(int segment_number){ return m_tagSegmentNPrecisionHits[segment_number]; }
+    vector< double > tagSegmentNPhiLayers(int segment_number){ return m_tagSegmentNPhiLayers[segment_number]; }
+    vector< double > tagSegmentNTrigEtaLayers(int segment_number){ return m_tagSegmentNTrigEtaLayers[segment_number]; }
+    //tsakai end
     vector< double > probeSegmentN(){ return m_probeSegmentN; }
     vector< double > probeSegmentX(int segment_number){ return m_probeSegmentX[segment_number]; }
     vector< double > probeSegmentY(int segment_number){ return m_probeSegmentY[segment_number]; }
@@ -151,6 +167,8 @@ class TagAndProbe {
     vector< vector< double > > probeL1Pt(){ return m_probeL1Pt; }
     vector< vector< double > > probeL1Eta(){ return m_probeL1Eta; }
     vector< vector< double > > probeL1Phi(){ return m_probeL1Phi; }
+    vector< vector< int > > probeL1roiNumber(){ return m_probeL1roiNumber; }//kayamash
+    vector< vector< int > > probeL1roiSector(){ return m_probeL1roiSector; }//kayamash
     vector< vector< int > > probePassedSA(){ return m_probePassedSA; }
     vector< vector< double > > probeSAdR(){ return m_probeSAdR; }
     vector< vector< double > > probeSAtpdR(){ return m_probeSAtpdR; }
@@ -173,6 +191,8 @@ class TagAndProbe {
 
     vector< vector< float > > probeSAroiEta(){ return m_probeSAroiEta; }
     vector< vector< float > > probeSAroiPhi(){ return m_probeSAroiPhi; }
+    vector< vector< uint32_t > > probeSAroiNumber(){ return m_probeSAroiNumber; }//kayamash
+    vector< vector< uint32_t > > probeSAroiSector(){ return m_probeSAroiSector; }//kayamash
     vector< vector< int > > probeSAisRpcFailure(){ return m_probeSAisRpcFailure; }
     vector< vector< int > > probeSAisTgcFailure(){ return m_probeSAisTgcFailure; }
     // 
@@ -230,7 +250,12 @@ class TagAndProbe {
     vector< vector< double > > probeSAsuperPointChi2CSC(){ return m_probeSAsuperPointChi2CSC; }
     vector< vector< double > > probeSAsuperPointChi2BEE(){ return m_probeSAsuperPointChi2BEE; }
     vector< vector< double > > probeSAsuperPointChi2BME(){ return m_probeSAsuperPointChi2BME; } 
-    //
+    //tsakai insert
+    vector< vector< double > > probeSABarrelRadius(){ return m_probeSABarrelRadius; }
+    vector< vector< double > > probeSABarrelSagitta(){ return m_probeSABarrelSagitta; }
+    vector< vector< double > > probeSAetamap(){ return m_probeSAetamap; }
+    vector< vector< double > > probeSAphimap(){ return m_probeSAphimap; }
+    //tsakai end
     vector< vector< vector < float > > > probeSArpcHitX(){ return m_probeSArpcHitX; } 
     vector< vector< vector < float > > > probeSArpcHitY(){ return m_probeSArpcHitY; } 
     vector< vector< vector < float > > > probeSArpcHitZ(){ return m_probeSArpcHitZ; } 
@@ -245,7 +270,11 @@ class TagAndProbe {
     vector< vector< vector < float > > > probeSAmdtHitR(){ return m_probeSAmdtHitR; } 
     vector< vector< vector < float > > > probeSAmdtHitZ(){ return m_probeSAmdtHitZ; } 
     vector< vector< vector < float > > > probeSAmdtHitPhi(){ return m_probeSAmdtHitPhi; } 
-    vector< vector< vector < float > > > probeSAmdtHitResidual(){ return m_probeSAmdtHitResidual; } 
+    vector< vector< vector < float > > > probeSAmdtHitResidual(){ return m_probeSAmdtHitResidual; }
+    //tsakai insert
+    vector< vector< vector < float > > > probeSAmdtHitSpace(){ return m_probeSAmdtHitSpace; } 
+    vector< vector< vector < float > > > probeSAmdtHitSigma(){ return m_probeSAmdtHitSigma; } 
+    //tsakai end
 
     vector< vector< vector < float > > > probeSAroadAw(){ return m_probeSAroadAw; } 
     vector< vector< vector < float > > > probeSAroadBw(){ return m_probeSAroadBw; } 
@@ -368,7 +397,7 @@ class TagAndProbe {
     vector< double > m_tagEFEta; //!
     vector< double > m_tagEFPhi; //!
     vector< double > m_probePt; //!
-    vector< double > m_probeMSPt; //!kayamash
+    //vector< double > m_probeMSPt; //!kayamash
     vector< double > m_probeEta; //!
     vector< double > m_probeExtEta; //!
     vector< double > m_probeExtInnEta; //!
@@ -378,7 +407,23 @@ class TagAndProbe {
     vector< double > m_probed0; //!
     vector< double > m_probez0; //!
     vector< double > m_probeCharge; //!
-    //
+    //tsakai insert
+    vector< double > m_tagSegmentN; //!
+    vector< vector < double > > m_tagSegmentX; //!
+    vector< vector < double > > m_tagSegmentY; //!
+    vector< vector < double > > m_tagSegmentZ; //!
+    vector< vector < double > > m_tagSegmentPx; //!
+    vector< vector < double > > m_tagSegmentPy; //!
+    vector< vector < double > > m_tagSegmentPz; //!
+    vector< vector < double > > m_tagSegmentChiSquared; //!
+    vector< vector < double > > m_tagSegmentNumberDoF; //!
+    vector< vector < double > > m_tagSegmentSector; //!
+    vector< vector < double > > m_tagSegmentChamberIndex; //!
+    vector< vector < double > > m_tagSegmentEtaIndex; //!
+    vector< vector < double > > m_tagSegmentNPrecisionHits; //!
+    vector< vector < double > > m_tagSegmentNPhiLayers; //!
+    vector< vector < double > > m_tagSegmentNTrigEtaLayers; //!
+    //tsakai end
     vector< double > m_probeSegmentN; //!
     vector< vector < double > > m_probeSegmentX; //!
     vector< vector < double > > m_probeSegmentY; //!
@@ -413,6 +458,8 @@ class TagAndProbe {
     vector< vector< double > > m_probeL1tpdR; //!
     vector< vector< double > > m_probeL1Eta; //!
     vector< vector< double > > m_probeL1Phi; //!
+    vector< vector< int > > m_probeL1roiNumber;//kayamash
+    vector< vector< int > > m_probeL1roiSector;//kayamash
     vector< vector< int > > m_probePassedSA; //!
     vector< vector< double > > m_probeSAPt; //!
     vector< vector< double > > m_probeSAdR; //!
@@ -435,6 +482,8 @@ class TagAndProbe {
 
     vector< vector< float > > m_probeSAroiEta; //!
     vector< vector< float > > m_probeSAroiPhi; //!
+    vector< vector< uint32_t > > m_probeSAroiNumber;//kayamash
+    vector< vector< uint32_t > > m_probeSAroiSector;//kayamash
     vector< vector< int > > m_probeSAisRpcFailure; //!
     vector< vector< int > > m_probeSAisTgcFailure; //!
     // 
@@ -492,7 +541,12 @@ class TagAndProbe {
     vector< vector< double > > m_probeSAsuperPointChi2CSC; //!
     vector< vector< double > > m_probeSAsuperPointChi2BEE; //!
     vector< vector< double > > m_probeSAsuperPointChi2BME; //!
-    //
+    //tsakai insert
+    vector< vector< double > > m_probeSABarrelSagitta; //!
+    vector< vector< double > > m_probeSABarrelRadius; //!
+    vector< vector< double > > m_probeSAetamap; //!
+    vector< vector< double > > m_probeSAphimap; //!
+    //tsakai end
     vector< vector< vector < float > > > m_probeSArpcHitX; //! 
     vector< vector< vector < float > > > m_probeSArpcHitY; //! 
     vector< vector< vector < float > > > m_probeSArpcHitZ; //! 
@@ -508,7 +562,11 @@ class TagAndProbe {
     vector< vector< vector < float > > > m_probeSAmdtHitR; //! 
     vector< vector< vector < float > > > m_probeSAmdtHitZ; //! 
     vector< vector< vector < float > > > m_probeSAmdtHitPhi; //! 
-    vector< vector< vector < float > > > m_probeSAmdtHitResidual; //! 
+    vector< vector< vector < float > > > m_probeSAmdtHitResidual; //!
+    //tsakai insert
+    vector< vector< vector < float > > > m_probeSAmdtHitSpace; //! 
+    vector< vector< vector < float > > > m_probeSAmdtHitSigma; //! 
+    //tsakai end 
 
     vector< vector< vector < float > > > m_probeSAroadAw; //! 
     vector< vector< vector < float > > > m_probeSAroadBw; //! 

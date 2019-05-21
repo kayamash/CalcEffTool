@@ -1,6 +1,7 @@
 #!/bin/bash
-branch="master"
+branch="dev_kayamash"
 #file="CalcEfficiency"
+#add="git add CalcEfficiency"
 add="git add -A"
 message="add new parameter"
 push="git push origin "

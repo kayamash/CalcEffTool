@@ -117,12 +117,6 @@ class CalcEffAlg:public AthAlgorithm
     vector< TH1D* > m_h_countEvent;
     vector< TH1F* > m_h_countL1;
     vector< TH1F* > m_h_countSA;
-    vector< TH1F* > m_h_countSA4GeV;
-    vector< TH1F* > m_h_countSA8GeV;
-    vector< TH1F* > m_h_countSA12GeV;
-    vector< TH1F* > m_h_countSA16GeV;
-    vector< TH1F* > m_h_countSA20GeV;
-    vector< TH1F* > m_h_countSA24GeV;
     vector< TH1F* > m_h_countCB;
     vector< TH1F* > m_h_countEF;
     vector< TH1F* > m_h_countOff;
