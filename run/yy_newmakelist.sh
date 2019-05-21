@@ -49,15 +49,15 @@ else
   if [ $DATATYPE = "AOD" ]; then
     echo "search for data16_13TeV.00$DSID*physics_Main*merge*.${DATATYPE}.*m$TAG"
     #rucio list-dids "data15_13TeV.00$DSID*physics_Main*merge*.${DATATYPE}.*m$TAG" >> tmp.tmplist
-    rucio list-dids "data16_13TeV.00$DSID*physics_Main*merge*.${DATATYPE}.*m$TAG" >> tmp.tmplist
-    #rucio list-dids "data17_13TeV.00$DSID*physics_Main*merge*.${DATATYPE}.*m$TAG" | grep -v "_lb" > tmp.tmplist
-    rucio list-dids "data18_13TeV.00$DSID*physics_Main*merge*.${DATATYPE}.*m$TAG" | grep -v "_lb" > tmp.tmplist
+    #rucio list-dids "data16_13TeV.00$DSID*physics_Main*merge*.${DATATYPE}.*m$TAG" >> tmp.tmplist
+    rucio list-dids "data17_13TeV.00$DSID*physics_Main*merge*.${DATATYPE}.*m$TAG" | grep -v "_lb" > tmp.tmplist
+    #rucio list-dids "data18_13TeV.00$DSID*physics_Main*merge*.${DATATYPE}.*m$TAG" | grep -v "_lb" > tmp.tmplist
     #cat tmp.tmplist
   else
     echo "search for data15(16)_13TeV.00$DSID*physics_Main*merge*.${DATATYPE}.*p$TAG"
-    rucio list-dids "data15_13TeV.00$DSID*physics_Main*merge*.${DATATYPE}.*p$TAG" >> tmp.tmplist
-    rucio list-dids "data16_13TeV.00$DSID*physics_Main*merge*.${DATATYPE}.*p$TAG" >> tmp.tmplist
-    rucio list-dids "data17_13TeV.00$DSID*physics_Main*deriv*.${DATATYPE}.*p$TAG" | grep -v "*.lb*" >> tmp.tmplist
+    #rucio list-dids "data15_13TeV.00$DSID*physics_Main*merge*.${DATATYPE}.*p$TAG" >> tmp.tmplist
+    #rucio list-dids "data16_13TeV.00$DSID*physics_Main*merge*.${DATATYPE}.*p$TAG" >> tmp.tmplist
+    rucio list-dids "data17_13TeV.00$DSID*physics_Main*merge*.${DATATYPE}.*p$TAG" | grep -v "*.lb*" >> tmp.tmplist
   fi
   #sed -i -e '/_tid/d' tmp.tmplist
   sed -n '/data15_13TeV/p' tmp.tmplist >> tmp2.tmplist

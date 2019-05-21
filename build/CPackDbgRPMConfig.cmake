@@ -8,10 +8,10 @@
 set( CPACK_CMAKE_GENERATOR "Unix Makefiles" )
 set( CPACK_GENERATOR "RPM" )
 set( CPACK_INSTALL_CMAKE_PROJECTS "" )
-set( CPACK_PACKAGE_DESCRIPTION_FILE "/home/kayamash/working/CalcEffTool/build/README.txt" )
-set( CPACK_RESOURCE_FILE_README "/home/kayamash/working/CalcEffTool/build/README.txt" )
+set( CPACK_PACKAGE_DESCRIPTION_FILE "/home/kayamash/working/CalcEffTool_kayamash/CalcEffTool/build/README.txt" )
+set( CPACK_RESOURCE_FILE_README "/home/kayamash/working/CalcEffTool_kayamash/CalcEffTool/build/README.txt" )
 set( CPACK_SET_DESTDIR "OFF" )
-set( CPACK_OUTPUT_CONFIG_FILE "/home/kayamash/working/CalcEffTool/build/CPackConfig.cmake" )
+set( CPACK_OUTPUT_CONFIG_FILE "/home/kayamash/working/CalcEffTool_kayamash/CalcEffTool/build/CPackConfig.cmake" )
 
 # Set the package name, version, and other minor information:
 set( CPACK_PACKAGE_NAME "WorkDir" )
@@ -36,7 +36,7 @@ set( CPACK_INSTALL_PREFIX
 
 # Set up how the debug files should be installed for the RPM build:
 set( CPACK_INSTALL_COMMANDS
-   "/home/kayamash/working/CalcEffTool/build/CMakeFiles/cpack_dbg_install.sh" )
+   "/home/kayamash/working/CalcEffTool_kayamash/CalcEffTool/build/CMakeFiles/cpack_dbg_install.sh" )
 
 # Set the RPM specific variables:
 set( CPACK_RPM_PACKAGE_NAME "${CPACK_PACKAGE_FILE_NAME}" )

@@ -5,8 +5,8 @@
 #
 
 # Set some basic properties for the build:
-set( CTEST_SOURCE_DIRECTORY /home/kayamash/working/CalcEffTool )
-set( CTEST_BINARY_DIRECTORY /home/kayamash/working/CalcEffTool/build )
+set( CTEST_SOURCE_DIRECTORY /home/kayamash/working/CalcEffTool_kayamash/CalcEffTool )
+set( CTEST_BINARY_DIRECTORY /home/kayamash/working/CalcEffTool_kayamash/CalcEffTool/build )
 
 set( CTEST_CUSTOM_MAXIMUM_NUMBER_OF_ERRORS   1000000 )
 set( CTEST_CUSTOM_MAXIMUM_NUMBER_OF_WARNINGS 1000000 )
@@ -24,7 +24,7 @@ endif()
 
 # Identify the build:
 set( CTEST_BUILD_NAME x86_64-centos7-gcc62-opt )
-set( CTEST_SITE login05.icepp.jp )
+set( CTEST_SITE login01.icepp.jp )
 
 # Start an experimental build:
 ctest_start( Experimental )

@@ -4,14 +4,14 @@
 
 
 # Configuration directories and files
-SourceDirectory: /home/kayamash/working/CalcEffTool
-BuildDirectory: /home/kayamash/working/CalcEffTool/build
+SourceDirectory: /home/kayamash/working/CalcEffTool_kayamash/CalcEffTool
+BuildDirectory: /home/kayamash/working/CalcEffTool_kayamash/CalcEffTool/build
 
 # Where to place the cost data store
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: login05.icepp.jp
+Site: login01.icepp.jp
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
 BuildName: Linux-g++
@@ -36,7 +36,7 @@ ScpCommand: /usr/bin/scp
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/Cmake/3.11.0/Linux-x86_64/bin/cmake" "/home/kayamash/working/CalcEffTool"
+ConfigureCommand: "/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/Cmake/3.11.0/Linux-x86_64/bin/cmake" "/home/kayamash/working/CalcEffTool_kayamash/CalcEffTool"
 MakeCommand: /cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/Cmake/3.11.0/Linux-x86_64/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}" -- -i
 DefaultCTestConfigurationType: Release
 

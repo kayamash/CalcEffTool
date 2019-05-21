@@ -17,9 +17,9 @@ OUTDIR=${DESTDIR}/usr/WorkDir/21.0.77/InstallArea/x86_64-centos7-gcc62-opt
 /cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/Cmake/3.11.0/Linux-x86_64/bin/cmake -E make_directory ${OUTDIR}/lib
 
 # Copy the debug files into the place CPack expects to find them:
-/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/Cmake/3.11.0/Linux-x86_64/bin/cmake -E copy /home/kayamash/working/CalcEffTool/build/x86_64-centos7-gcc62-opt/bin/*.dbg \
+/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/Cmake/3.11.0/Linux-x86_64/bin/cmake -E copy /home/kayamash/working/CalcEffTool_kayamash/CalcEffTool/build/x86_64-centos7-gcc62-opt/bin/*.dbg \
     ${OUTDIR}/bin/
-/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/Cmake/3.11.0/Linux-x86_64/bin/cmake -E copy /home/kayamash/working/CalcEffTool/build/x86_64-centos7-gcc62-opt/lib/*.dbg \
+/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/Cmake/3.11.0/Linux-x86_64/bin/cmake -E copy /home/kayamash/working/CalcEffTool_kayamash/CalcEffTool/build/x86_64-centos7-gcc62-opt/lib/*.dbg \
     ${OUTDIR}/lib/
 
 # Exit gracefully:

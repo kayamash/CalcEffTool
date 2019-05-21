@@ -1,7 +1,7 @@
 #Release cmake
 
-export AtlasSetup="/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/AtlasSetup/V01-00-24/AtlasSetup"
-export AtlasSetupVersion="AtlasSetup-01-00-24"
+export AtlasSetup="/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/AtlasSetup/V01-00-30/AtlasSetup"
+export AtlasSetupVersion="AtlasSetup-01-00-30"
 export LANG="C"
 export LC_ALL="C"
 export BINARY_TAG="x86_64-slc6-gcc62-opt"
@@ -27,6 +27,7 @@ if [ $? -ne 0 ]; then
    source ${ATLAS_LOCAL_ROOT_BASE}/user/atlasLocalSetup.sh --quiet
 fi
 source $ATLAS_LOCAL_ROOT_BASE/packageSetups/localSetup.sh --quiet cmake
+export FRONTIER_LOG_LEVEL="warning"
 export ATLAS_POOLCOND_PATH="/cvmfs/atlas-condb.cern.ch/repo/conditions"
 export ATLAS_DB_AREA="/cvmfs/atlas.cern.ch/repo/sw/database"
 export DBRELEASE_OVERRIDE="current"
@@ -49,7 +50,14 @@ asetup_status=$?
 if [ ${asetup_status} -ne 0 ]; then
     \echo "AtlasSetup(ERROR): sourcing release setup script (/cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/setup.sh) failed"
 fi
-export TestArea="/home/kayamash/working/CalcEffTool"
+if [ ! -z $ATLAS_LOCAL_ROOT_BASE ]; then
+    emacs -Q --batch >/dev/null 2>&1
+    emacs_status=$?
+    if [ ${emacs_status} -ne 0 ]; then
+        export PATH="$ATLAS_LOCAL_ROOT_BASE/wrappers/linuxApp:$PATH"
+    fi
+fi
+export TestArea="/home/kayamash/working/CalcEffTool_kayamash/CalcEffTool"
 
 #Release Summary as follows:
 #Release base=/cvmfs/atlas.cern.ch/repo/sw/software/21.0

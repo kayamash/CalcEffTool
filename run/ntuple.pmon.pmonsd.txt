@@ -5,40 +5,40 @@ PMonSD === Units are milliseconds (cpu/wall) and kilobytes (vmem/malloc).       
 PMonSD === Full output inside: ntuple.pmon.gz                                      ============
 PMonSD ======================================= step ini =======================================
 PMonSD          n    cpu    vmem  malloc component
-PMonSD [ini]    1    190       0   47070 PoolSvc
-PMonSD [ini]    1    710       0   39155 GeoModelSvc
-PMonSD [ini]    1    440     120   30401 EventSelector
-PMonSD [ini]    1     70       0    4641 xAODRingSetConfWriter
-PMonSD [ini]    1     10       0     832 CalcEffAlg
-PMonSD [ini]    1     20       0     685 ClassIDSvc
-PMonSD [ini]    1     10       0     151 ToolSvc.AtlasExtrapolator
-PMonSD [ini]    1      0       0     105 DataModelCompatSvc
-PMonSD [ini]    1    150       0     100 DetectorStore
-PMonSD [ini]    1     20       0      94 AthAlgSeq
-PMonSD [ini]    1     10       0      60 ToolSvc.InDetTrackingGeometryBuilder
-PMonSD [ini]    1      0       0      54 DetDescrCnvSvc
-PMonSD [ini]    1      0       0      52 MetaDataSvc
-PMonSD [ini]    1     10       0      46 IBLParameterSvc
+PMonSD [ini]    1    750   54968   39155 GeoModelSvc
+PMonSD [ini]    1    210   45056   47590 PoolSvc
+PMonSD [ini]    1    460   23816   30401 EventSelector
+PMonSD [ini]    1     50       0    4641 xAODRingSetConfWriter
+PMonSD [ini]    1    170    4096     100 DetectorStore
+PMonSD [ini]    1     30    1024     685 ClassIDSvc
+PMonSD [ini]    1     10    1024      54 DetDescrCnvSvc
+PMonSD [ini]    1     10       0     847 CalcEffAlg
+PMonSD [ini]    1      0       0     151 ToolSvc.AtlasExtrapolator
+PMonSD [ini]    1     20       0     105 DataModelCompatSvc
+PMonSD [ini]    1     10       0      94 AthAlgSeq
+PMonSD [ini]    1      0       0      60 ToolSvc.InDetTrackingGeometryBuilder
+PMonSD [ini]    1     10       0      52 MetaDataSvc
+PMonSD [ini]    1      0       0      46 IBLParameterSvc
 PMonSD [ini]    1      0       0      35 IOVDbSvc
 PMonSD [ini]    1     10       0      34 ToolSvc.MyGRLTool
 PMonSD [ini]    1      0       0      32 TrigConfigSvc
 PMonSD [ini]    1      0       0      31 AthMasterSeq
-PMonSD [ini]    1     10       0      29 ToolSvc.AtlasGeometryBuilder
+PMonSD [ini]    1      0       0      29 ToolSvc.AtlasGeometryBuilder
 PMonSD [ini]    1     10       0      28 AthenaEventLoopMgr
 PMonSD [ini]    1      0       0      22 ToolSvc.InDetCylinderVolumeCreator
 PMonSD [ini]    1      0       0      20 GlobalEventTagBuilder
 PMonSD [ini]    1      0       0      20 AthenaPoolCnvSvc
-PMonSD [ini]    1      0       0      19 DSConfigSvc
-PMonSD [ini]    1      0       0      16 ToolSvc.TrigDecisionTool.Navigation
-PMonSD [ini]    1      0       0      16 ToolSvc.AtlasMaterialEffectsUpdator
+PMonSD [ini]    1     10       0      19 DSConfigSvc
+PMonSD [ini]    1     30       0      16 ToolSvc.TrigDecisionTool.Navigation
+PMonSD [ini]    1     10       0      16 ToolSvc.AtlasMaterialEffectsUpdator
 PMonSD [ini]    1      0       0      10 IOVSvc
 PMonSD [ini]    1     10       0       8 AtlasTrackingGeometrySvc
 PMonSD [ini]    1      0       0       8 ToolSvc.AtlasRungeKuttaPropagator
-PMonSD [ini]    1     10       0       7 ToolSvc.AtlasNavigator
 PMonSD [ini]    1      0       0       7 GlobalEventTagBuilder.GlobalEventTagTool
-PMonSD [ini]    1     10       0       6 AtlasFieldSvc
+PMonSD [ini]    1      0       0       7 ToolSvc.AtlasNavigator
+PMonSD [ini]    1     10       0       7 AtlasFieldSvc
 PMonSD [ini]    1      0       0       6 ToolSvc.TrackingVolumeHelper
-PMonSD [ini]    1     10       0       6 HistogramDataSvc
+PMonSD [ini]    1      0       0       6 HistogramDataSvc
 PMonSD [ini]    1      0       0       6 CondSvc
 PMonSD [ini]    1      0       0       6 CaloCluster2xAOD
 PMonSD [ini]    1      0       0       6 AthDictLoaderSvc
@@ -47,9 +47,9 @@ PMonSD [ini]    1      0       0       2 ToolSvc.AtlasSTEP_Propagator
 PMonSD [ini]    1      0       0       2 FileMgr
 PMonSD [ini]    1      0       0       1 THistSvc
 PMonSD [ini]    1      0       0       1 TrigConf2CoolSyncSvc
-PMonSD [ini]    1      0       0       1 CoreDumpSvc
+PMonSD [ini]    1     10       0       1 CoreDumpSvc
 PMonSD [ini]    1      0       0       1 StoreGateSvc
-PMonSD [ini]    1     10       0       1 TagInfoMgr
+PMonSD [ini]    1      0       0       1 TagInfoMgr
 PMonSD [ini]    1      0       0       1 IoComponentMgr
 PMonSD [ini]    1      0       0       1 PyComponentMgr
 PMonSD [ini]    1      0       0       1 EventPersistencySvc
@@ -57,8 +57,8 @@ PMonSD [ini]    1      0       0       1 InputMetaDataStore
 PMonSD [ini]    1      0       0       1 ToolSvc.InDetLayerArrayCreator
 PMonSD [ini]    1      0       0       1 ToolSvc.InDetTrackingVolumeArrayCreator
 PMonSD [ini]    1      0       0       1 ToolSvc.InDetTrackingVolumeHelper
+PMonSD [ini]    1     10       0       1 ToolSvc.TRT_LayerBuilder
 PMonSD [ini]    1      0       0       1 TagMetaDataStore
-PMonSD [ini]    1      0       0       1 ToolSvc.TRT_LayerBuilder
 PMonSD [ini]    1      0       0       1 MetaDataStore
 PMonSD [ini]    1      0       0       1 ConditionStore
 PMonSD [ini]    1      0       0       1 ActiveStoreSvc
@@ -67,8 +67,8 @@ PMonSD [ini]    1      0       0       1 TimelineSvc
 PMonSD [ini]    1      0       0       0 IOVSvc.StoreGateSvc
 PMonSD [ini]    1      0       0       0 ToolSvc.IOVDbMetaDataTool
 PMonSD [ini]    1      0       0       0 ToolSvc.TrigDecisionTool
-PMonSD [ini]    1      0       0       0 AthenaSealSvc
 PMonSD [ini]    1     10       0       0 DBReplicaSvc
+PMonSD [ini]    1      0       0       0 AthenaSealSvc
 PMonSD [ini]    1      0       0       0 PerfMonSvc
 PMonSD [ini]    1      0       0       0 TrigSerializeCnvSvc
 PMonSD [ini]    1      0       0       0 CaloCluster2xAOD.CaloClusterCnvTool
@@ -79,7 +79,6 @@ PMonSD [ini]    1      0       0       0 ToolSvc.AtlasMaterialEffectsUpdatorLand
 PMonSD [ini]    1      0       0       0 ToolSvc.AtlasMultipleScatteringUpdator
 PMonSD [ini]    1      0       0       0 EventCounter
 PMonSD [ini]    1      0       0       0 ToolSvc.PixelLayerBuilder
-PMonSD [ini]    1      0       0       0 ToolSvc.TrackingVolumeArrayCreator
 PMonSD [ini]    1      0       0       0 ToolSvc.Trk::TrkVKalVrtFitter
 PMonSD [ini]    1      0       0       0 AthOutSeq
 PMonSD [ini]    1      0       0       0 AthRegSeq
@@ -97,6 +96,7 @@ PMonSD [ini]    1      0       0       0 VertexCnvAlg
 PMonSD [ini]    1      0       0       0 AthenaPoolAddressProviderSvc
 PMonSD [ini]    1      0       0       0 GeoModelSvc.InDetServMatTool
 PMonSD [ini]    1      0       0       0 ToolSvc.SCT_LayerBuilder
+PMonSD [ini]    1      0       0       0 ToolSvc.TrackingVolumeArrayCreator
 PMonSD [ini]    1      0       0       0 GeoModelSvc.BeamPipeDetectorTool
 PMonSD [ini]    1      0       0       0 GeoModelSvc.PixelDetectorTool
 PMonSD [ini]    1      0       0       0 GeoModelSvc.ZDC_DetTool
@@ -104,11 +104,11 @@ PMonSD [ini]    1      0       0       0 InDetGeometryDBSvc
 PMonSD [ini]    1      0       0       0 ToolSvc.AtlasMaterialProvider
 PMonSD [ini]    1      0       0       0 ToolSvc.LumiBlockMuTool
 PMonSD [ini]    1      0       0       0 ToolSvc.xAODTrackParticleCompressorTool
-PMonSD [ini]    1   1730     120  123849 [total_for_99_comps]
+PMonSD [ini]    1   1850  129984  124384 [total_for_99_comps]
 PMonSD ======================================= step 1st =======================================
 PMonSD          n    cpu    vmem  malloc component
-PMonSD [1st]    1    370       0   37593 CalcEffAlg
-PMonSD [1st]    1     20       0    2048 GlobalEventTagBuilder
+PMonSD [1st]    1    350       0   37696 CalcEffAlg
+PMonSD [1st]    1     10       0    1792 GlobalEventTagBuilder
 PMonSD [1st]    1      0       0       3 AthAlgSeq
 PMonSD [1st]    1      0       0       1 AthMasterSeq
 PMonSD [1st]    1      0       0       0 VertexCnvAlg
@@ -119,56 +119,56 @@ PMonSD [1st]    1      0       0       0 CondInputLoader
 PMonSD [1st]    1      0       0       0 EventCounter
 PMonSD [1st]    1      0       0       0 JobInfo
 PMonSD [1st]    1      0       0       0 xAODRingSetConfWriter
-PMonSD [1st]    1    390       0   39645 [total_for_12_comps]
+PMonSD [1st]    1    360       0   39492 [total_for_12_comps]
 PMonSD ======================================= step cbk =======================================
 PMonSD          n    cpu    vmem  malloc component
-PMonSD [cbk] 1565      1     132     106 MagField::AtlasFieldSvc[0x73e5000]+2ad349575400
-PMonSD [cbk]    1   8950       0   23852 TrigConf::DSConfigSvc[0x297ec800]+2ad33f1f1420
-PMonSD [cbk]    1     90       0   10665 Trk::TrackingGeometrySvc[0x1e8a6260]+41
-PMonSD [cbk]    1     20       0    4011 TRT_DetectorTool[0x17525588]+e9
-PMonSD [cbk]    1     50       0    1246 PixelDetectorTool[0x127c2f38]+e9
-PMonSD [cbk]    1     50       0     386 SCT_DetectorTool[0x17526098]+e9
-PMonSD [cbk]    1      0       0      10 TagInfoMgr[0x271396e8]+59
-PMonSD [cbk]    1      0       0       0 GeoModelSvc[0x18f187d0]+111
-PMonSD [cbk]    1      0       0       0 GeoModelSvc[0x18f187d0]+119
-PMonSD [cbk]    1      0       0       0 MagField::AtlasFieldSvc[0x73e5000]+2ad349575ee0
-PMonSD [cbk]    1   9160       0   40169 [total_for_9_comps]
-PMonSD [cbk] 1565      1     132     106 [total_for_1_comps]
+PMonSD [cbk]   22     68   11746    7549 MagField::AtlasFieldSvc[0x22edc800]+2b6cce8a3400
+PMonSD [cbk]    1   9310   22368   23852 TrigConf::DSConfigSvc[0x278ea000]+2b6cc4497420
+PMonSD [cbk]    1     70       0   10665 Trk::TrackingGeometrySvc[0x260a7e60]+41
+PMonSD [cbk]    1     30       0    4011 TRT_DetectorTool[0x24c84188]+e9
+PMonSD [cbk]    1     50       0    1246 PixelDetectorTool[0x11bd7f38]+e9
+PMonSD [cbk]    1     50       0     386 SCT_DetectorTool[0x24c83698]+e9
+PMonSD [cbk]    1      0       0      10 TagInfoMgr[0xd6020e8]+59
+PMonSD [cbk]    1      0       0       0 GeoModelSvc[0x8d8dfd0]+119
+PMonSD [cbk]    1      0       0       0 GeoModelSvc[0x8d8dfd0]+111
+PMonSD [cbk]    1      0       0       0 MagField::AtlasFieldSvc[0x22edc800]+2b6cce8a3ee0
+PMonSD [cbk]    1   9510   22368   40169 [total_for_9_comps]
+PMonSD [cbk]   22     68   11746    7549 [total_for_1_comps]
 PMonSD ======================================= step evt =======================================
 PMonSD          n    cpu    max@evt    vmem    max@evt  malloc    max@evt  component
-PMonSD [evt] 92317      6    130@70515      2   3664@39124    494  35125@72606 CalcEffAlg
-PMonSD [evt] 92317      0     20@27494      0      0@0        30    160@62815 GlobalEventTagBuilder
-PMonSD [evt] 92317      0     20@56210      0      0@0         0      4@65182 AthAlgSeq
-PMonSD [evt] 92317      0     10@701       0      0@0         0      4@65126 AthMasterSeq
-PMonSD [evt] 92317      0     10@1300      0      0@0         0      0@0    VertexCnvAlg
-PMonSD [evt] 92317      0     10@64        0      0@0         0      0@0    CaloCluster2xAOD
-PMonSD [evt] 92317      0     10@77        0      0@0         0      2@65165 EventCounter
-PMonSD [evt] 92317      0     10@122       0      0@0         0      0@0    JobInfo
-PMonSD [evt] 92317      0     10@785       0      0@0         0      0@0    xAODRingSetConfWriter
-PMonSD [evt] 92317      0     10@568       0      0@0         0      0@0    CondInputLoader
-PMonSD [evt] 92317      0     10@5530      0      0@0         0      0@0    AthRegSeq
-PMonSD [evt] 92317      0     10@958       0      0@0         0      0@0    AthOutSeq
-PMonSD [evt] 92317      7                  2                524             [total_for_12_comps]
+PMonSD [evt] 93103      5    120@5300      2   3072@9760    498  35532@54593 CalcEffAlg
+PMonSD [evt] 93103      0     20@12563      0      0@0        30    160@29320 GlobalEventTagBuilder
+PMonSD [evt] 93103      0     10@14        0      0@0         0      4@65007 AthAlgSeq
+PMonSD [evt] 93103      0     10@126       0      0@0         0      4@64807 AthMasterSeq
+PMonSD [evt] 93103      0     10@32        0      0@0         0      0@0    VertexCnvAlg
+PMonSD [evt] 93103      0     10@1953      0      0@0         0      0@0    CaloCluster2xAOD
+PMonSD [evt] 93103      0     10@3588      0      0@0         0      2@65404 EventCounter
+PMonSD [evt] 93103      0     10@2225      0      0@0         0      0@0    AthOutSeq
+PMonSD [evt] 93103      0     10@3012      0      0@0         0      0@0    xAODRingSetConfWriter
+PMonSD [evt] 93103      0     10@5546      0      0@0         0      0@0    CondInputLoader
+PMonSD [evt] 93103      0     10@2227      0      0@0         0      0@0    JobInfo
+PMonSD [evt] 93103      0     10@4623      0      0@0         0      0@0    AthRegSeq
+PMonSD [evt] 93103      6                  2                528             [total_for_12_comps]
 PMonSD ======================================= step fin =======================================
 PMonSD          n    cpu    vmem  malloc component
-PMonSD [fin]    1     40       0  -53977 DetectorStore
-PMonSD [fin]    1     20       0  -41870 PoolSvc
+PMonSD [fin]    1     50       0  -53977 DetectorStore
+PMonSD [fin]    1     20       0  -42387 PoolSvc
 PMonSD [fin]    1     20       0   -7675 InputMetaDataStore
 PMonSD [fin]    1      0       0   -7663 MetaDataStore
-PMonSD [fin]    1     20       0   -7346 ToolSvc
-PMonSD [fin]    1     10       0   -2720 DetDescrCnvSvc
-PMonSD [fin]    1     50       0    1308 CalcEffAlg
-PMonSD [fin]    1      0       0    -828 StoreGateSvc
-PMonSD [fin]    1      0       0    -339 ToolSvc.TrigDecisionTool
+PMonSD [fin]    1     10       0   -7379 ToolSvc
+PMonSD [fin]    1      0       0   -2720 DetDescrCnvSvc
+PMonSD [fin]    1     40       0    1172 CalcEffAlg
+PMonSD [fin]    1     10       0    -891 ToolSvc.TrigDecisionTool
+PMonSD [fin]    1      0       0    -826 StoreGateSvc
 PMonSD [fin]    1      0       0    -213 IOVDbSvc
 PMonSD [fin]    1      0       0    -140 AthenaPoolCnvSvc
 PMonSD [fin]    1      0       0     -79 AthenaEventLoopMgr
 PMonSD [fin]    1      0       0     -60 RDBAccessSvc
 PMonSD [fin]    1      0       0       2 IOVSvc.StoreGateSvc
 PMonSD [fin]    1      0       0       0 EventCounter
+PMonSD [fin]    1      0       0       0 AthOutSeq
 PMonSD [fin]    1      0       0       1 ToolSvc.AtlasExtrapolator
 PMonSD [fin]    1      0       0       1 AlgContextSvc
-PMonSD [fin]    1      0       0       0 AthOutSeq
 PMonSD [fin]    1      0       0       1 ToolSvc.Trk::TrkVKalVrtFitter
 PMonSD [fin]    1      0       0       1 AppMgrRunable
 PMonSD [fin]    1      0       0       1 ChronoStatSvc
@@ -253,58 +253,64 @@ PMonSD [fin]    1      0       0       0 HistogramDataSvc
 PMonSD [fin]    1      0       0       0 EventPersistencySvc
 PMonSD [fin]    1      0       0       0 ConditionStore
 PMonSD [fin]    1      0       0       0 TagMetaDataStore
-PMonSD [fin]    1    160       0 -121574 [total_for_102_comps]
+PMonSD [fin]    1    150       0 -122811 [total_for_102_comps]
 PMonSD ======================================= step dso =======================================
 PMonSD          n    cpu    vmem  malloc component
-PMonSD [dso]    1    510   24208    3607 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrigMuonEventTPCnvDict.so
+PMonSD [dso]    1    600   30608    3735 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrigMuonEventTPCnvDict.so
 PMonSD [dso]    1    260   10808     612 libEventTagAlgs.so
-PMonSD [dso]    1     30   10788     141 libTrkVKalVrtFitter.so
-PMonSD [dso]    1    240    9092     481 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrigParticleTPCnvDict.so
-PMonSD [dso]    1     70    7776     230 libLumiBlockComps.so
-PMonSD [dso]    1     50    1776    4450 libCalcEfficiency.so
-PMonSD [dso]    1    100    3652    1369 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrkEventTPCnvDict.so
+PMonSD [dso]    1     20   10788     141 libTrkVKalVrtFitter.so
+PMonSD [dso]    1    290    9092     737 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrigParticleTPCnvDict.so
+PMonSD [dso]    1     60    7776     230 libLumiBlockComps.so
+PMonSD [dso]    1    100    4676    1753 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrkEventTPCnvDict.so
+PMonSD [dso]    1     50    1784    4450 libCalcEfficiency.so
+PMonSD [dso]    1     80    3908    1654 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODTriggerDict.so
 PMonSD [dso]    1    120    4288     154 libxAODTriggerAthenaPoolPoolCnv.so
-PMonSD [dso]    1     60    3760     636 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTileEventDict.so
-PMonSD [dso]    1     40    4280       8 libGaudiHive.so
-PMonSD [dso]    1    100    3416     278 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libOLD_MuonEventTPCnvDict.so
-PMonSD [dso]    1     80    3120     218 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libRecTPCnvDict.so
-PMonSD [dso]    1     50    2420     526 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libInDetEventTPCnvDict.so
-PMonSD [dso]    1     60    2668     256 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODMissingETDict.so
-PMonSD [dso]    1     40    2560     227 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libCaloTPCnvDict.so
-PMonSD [dso]    1     70     820    1654 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODTriggerDict.so
-PMonSD [dso]    1     20    2220       8 libGaudiSvc.so
-PMonSD [dso]    1     50    1924      51 libPixelGeoModel.so
+PMonSD [dso]    1     70    3760     636 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTileEventDict.so
+PMonSD [dso]    1     30    4280       8 libGaudiHive.so
+PMonSD [dso]    1     90    3416     534 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libOLD_MuonEventTPCnvDict.so
+PMonSD [dso]    1    110    3120     218 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libRecTPCnvDict.so
+PMonSD [dso]    1     70    2668     256 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODMissingETDict.so
+PMonSD [dso]    1     50    2560     227 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libCaloTPCnvDict.so
+PMonSD [dso]    1     60    2420     270 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libInDetEventTPCnvDict.so
+PMonSD [dso]    1     20    2516      84 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODCutFlowDict.so
+PMonSD [dso]    1     20    2428     154 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODCaloRingsDict.so
+PMonSD [dso]    1     20    2440      72 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODTrigMissingETDict.so
+PMonSD [dso]    1     80    1900     570 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODTrigL1CaloDict.so
+PMonSD [dso]    1     30    2220       8 libGaudiSvc.so
+PMonSD [dso]    1     40    1652     353 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODTauDict.so
+PMonSD [dso]    1     30    1640     349 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libMuonEventTPCnvDict.so
+PMonSD [dso]    1     30    1924      51 libPixelGeoModel.so
+PMonSD [dso]    1     30    1520      76 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODAssociationsDict.so
 PMonSD [dso]    1     20    1412     137 libTrkDetDescrTools.so
 PMonSD [dso]    1     40    1496      19 libxAODTrackingAthenaPoolPoolCnv.so
-PMonSD [dso]    1     30    1360      82 libTrkExTools.so
-PMonSD [dso]    1     80     868     570 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODTrigL1CaloDict.so
-PMonSD [dso]    1     60    1412      10 libTrigTopoEvent.so
-PMonSD [dso]    1     20     596     806 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrigCaloEventTPCnvDict.so
-PMonSD [dso]    1     30    1180     150 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTileTPCnvDict.so
-PMonSD [dso]    1     30     632     656 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODTrackingDict.so
-PMonSD [dso]    1     50    1236      33 libTrigMonitoringEvent.so
-PMonSD [dso]    1     20    1164      68 libxAODTrackingCnv.so
-PMonSD [dso]    1     20     784     430 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libCaloEventDict.so
-PMonSD [dso]    1     10    1080      77 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libIOVDbTPCnvDict.so
+PMonSD [dso]    1     20    1360      90 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODPFlowDict.so
+PMonSD [dso]    1     20    1360      82 libTrkExTools.so
+PMonSD [dso]    1     10    1272     160 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libDataModelAthenaPoolDictDict.so
+PMonSD [dso]    1     50    1412      10 libTrigTopoEvent.so
+PMonSD [dso]    1      0    1384      20 libIOVDbMetaDataTools.so
+PMonSD [dso]    1     40    1180     150 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTileTPCnvDict.so
+PMonSD [dso]    1     40    1236      33 libTrigMonitoringEvent.so
+PMonSD [dso]    1     30    1164      68 libxAODTrackingCnv.so
+PMonSD [dso]    1     40     784     430 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libCaloEventDict.so
+PMonSD [dso]    1     20    1080      77 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libIOVDbTPCnvDict.so
 PMonSD [dso]    1     30    1128      23 libTrigCombinedEvent.so
+PMonSD [dso]    1     20     596     550 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrigCaloEventTPCnvDict.so
+PMonSD [dso]    1     30     572     568 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTRT_ConditionsDataDict.so
 PMonSD [dso]    1     30     964     127 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODParticleEventDict.so
-PMonSD [dso]    1     40     544     533 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrigInDetEventTPCnvDict.so
-PMonSD [dso]    1     20    1028      37 libPoolSvc.so
-PMonSD [dso]    1     30     856     198 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODJetDict.so
-PMonSD [dso]    1     50    1024      28 libTrigBphysicsEvent.so
+PMonSD [dso]    1     50     544     533 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrigInDetEventTPCnvDict.so
+PMonSD [dso]    1     10    1028      37 libPoolSvc.so
+PMonSD [dso]    1     40     856     198 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODJetDict.so
+PMonSD [dso]    1     30    1024      28 libTrigBphysicsEvent.so
 PMonSD [dso]    1     10    1012      36 libInDetServMatGeoModel.so
 PMonSD [dso]    1     20     980      58 libInDetTrackingGeometry.so
-PMonSD [dso]    1     30     980      25 libxAODMuonAthenaPoolPoolCnv.so
-PMonSD [dso]    1     20     636     352 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrigSteeringEventTPCnvDict.so
-PMonSD [dso]    1     20     936      39 libSCT_GeoModel.so
-PMonSD [dso]    1     20     620     353 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODTauDict.so
+PMonSD [dso]    1     30     632     400 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODTrackingDict.so
+PMonSD [dso]    1     20     980      25 libxAODMuonAthenaPoolPoolCnv.so
+PMonSD [dso]    1     10     936      39 libSCT_GeoModel.so
 PMonSD [dso]    1     10     936      36 libAthenaPoolCnvSvc.so
-PMonSD [dso]    1     30     616     349 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libMuonEventTPCnvDict.so
-PMonSD [dso]    1     40     884      23 libEventTagUtils.so
-PMonSD [dso]    1     40     872      22 libTrigDecisionTool.so
-PMonSD [dso]    1     30     884      10 libxAODTrigMuonAthenaPoolPoolCnv.so
-PMonSD [dso]    1     30     572     312 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTRT_ConditionsDataDict.so
-PMonSD [dso]    1     10     848      36 libTRT_GeoModel.so
+PMonSD [dso]    1     30     884      23 libEventTagUtils.so
+PMonSD [dso]    1     30     872      22 libTrigDecisionTool.so
+PMonSD [dso]    1     20     884      10 libxAODTrigMuonAthenaPoolPoolCnv.so
+PMonSD [dso]    1     20     848      36 libTRT_GeoModel.so
 PMonSD [dso]    1     20     556     324 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODEgammaDict.so
 PMonSD [dso]    1     20     640     235 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libAtlasSTLAddReflexDict.so
 PMonSD [dso]    1     20     592     206 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libLArTPCnvDict.so
@@ -312,106 +318,100 @@ PMonSD [dso]    1     20     436     343 /cvmfs/atlas.cern.ch/repo/sw/software/2
 PMonSD [dso]    1     10     712      63 libSGComps.so
 PMonSD [dso]    1     10     740      23 libIOVDbSvc.so
 PMonSD [dso]    1     10     700      43 libxAODCaloEventCnv.so
-PMonSD [dso]    1     10     708      27 libDataModelAthenaPool.so
+PMonSD [dso]    1     20     708      27 libDataModelAthenaPool.so
+PMonSD [dso]    1     30     636      96 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrigSteeringEventTPCnvDict.so
 PMonSD [dso]    1     20     712      10 libInDetConditionsAthenaPoolPoolCnv.so
-PMonSD [dso]    1     30     416     286 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODTrigMuonDict.so
+PMonSD [dso]    1     20     416     286 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODTrigMuonDict.so
 PMonSD [dso]    1     20     692       8 libxAODCaloRingsAthenaPoolPoolCnv.so
-PMonSD [dso]    1      0     684       3 libGaudiAlg.so
-PMonSD [dso]    1     20     608      70 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODRootAccess.so
+PMonSD [dso]    1     10     684       3 libGaudiAlg.so
+PMonSD [dso]    1     10     608      70 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODRootAccess.so
 PMonSD [dso]    1     10     636      38 libEventSelectorAthenaPool.so
-PMonSD [dso]    1     30     664       7 libTrkDetDescrAthenaPoolPoolCnv.so
-PMonSD [dso]    1     10     568      92 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libEventTPCnvDict.so
+PMonSD [dso]    1     20     664       7 libTrkDetDescrAthenaPoolPoolCnv.so
+PMonSD [dso]    1     20     568      92 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libEventTPCnvDict.so
 PMonSD [dso]    1     20     644      14 libDetDescrCondAthenaPoolPoolCnv.so
-PMonSD [dso]    1     10     376     250 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODCaloEventDict.so
+PMonSD [dso]    1     20     376     250 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODCaloEventDict.so
 PMonSD [dso]    1     10     520      53 libGaudiSequencer.so
-PMonSD [dso]    1     20     268     302 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libAtlasSealCLHEPDict.so
-PMonSD [dso]    1     10     488      76 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODAssociationsDict.so
-PMonSD [dso]    1     20     532      32 libCaloRingerAlgs.so
+PMonSD [dso]    1     10     268     302 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libAtlasSealCLHEPDict.so
+PMonSD [dso]    1     10     532      32 libCaloRingerAlgs.so
 PMonSD [dso]    1     20     400     162 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODBTaggingDict.so
 PMonSD [dso]    1     20     392     161 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODTrigEgammaDict.so
-PMonSD [dso]    1     20     460      84 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODCutFlowDict.so
-PMonSD [dso]    1     20     372     154 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODCaloRingsDict.so
 PMonSD [dso]    1     10     480      35 libTrkDetDescrSvc.so
 PMonSD [dso]    1     10     480      32 libMagFieldServices.so
 PMonSD [dso]    1     20     472      38 libGoodRunsLists.so
 PMonSD [dso]    1      0     456      45 libRecAlgs.so
-PMonSD [dso]    1      0     452      44 libRDBAccessSvc.so
-PMonSD [dso]    1      0     164     318 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libGeoPrimitivesDict.so
-PMonSD [dso]    1     20     384      72 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODTrigMissingETDict.so
-PMonSD [dso]    1     10     444      11 libEventAthenaPoolPoolCnv.so
+PMonSD [dso]    1     10     452      44 libRDBAccessSvc.so
+PMonSD [dso]    1     10     164     318 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libGeoPrimitivesDict.so
+PMonSD [dso]    1     20     444      11 libEventAthenaPoolPoolCnv.so
 PMonSD [dso]    1      0     404      29 libTrkExSTEP_Propagator.so
 PMonSD [dso]    1     10     408      24 libLUCID_GeoModel.so
-PMonSD [dso]    1     10     328      90 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODPFlowDict.so
-PMonSD [dso]    1      0     248     160 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libDataModelAthenaPoolDictDict.so
-PMonSD [dso]    1     10     332      75 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrigMissingEtEventTPCnvDict.so
-PMonSD [dso]    1     10     368      27 libTrkExRungeKuttaPropagator.so
+PMonSD [dso]    1     20     332      75 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrigMissingEtEventTPCnvDict.so
+PMonSD [dso]    1      0     368      27 libTrkExRungeKuttaPropagator.so
 PMonSD [dso]    1     10     364      20 libIdDictDetDescrCnv.so
-PMonSD [dso]    1      0     360      20 libIOVDbMetaDataTools.so
-PMonSD [dso]    1     20     368       5 libxAODEventInfoAthenaPoolPoolCnv.so
+PMonSD [dso]    1     10     368       5 libxAODEventInfoAthenaPoolPoolCnv.so
 PMonSD [dso]    1     10     336      27 libBeamPipeGeoModel.so
-PMonSD [dso]    1     20     220     142 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODTrigMinBiasDict.so
-PMonSD [dso]    1     10     252     107 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODTrigRingerDict.so
+PMonSD [dso]    1     30     220     142 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODTrigMinBiasDict.so
+PMonSD [dso]    1     20     252     107 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODTrigRingerDict.so
 PMonSD [dso]    1     10     336      23 libZDC_GeoM.so
 PMonSD [dso]    1     10     192     164 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrkTrackDict.so
 PMonSD [dso]    1      0     332       3 libEventInfoMgt.so
-PMonSD [dso]    1     10     312      21 libBLM_GeoModel.so
-PMonSD [dso]    1     10     252      77 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODLuminosityDict.so
-PMonSD [dso]    1     20     236      93 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrkDetDescrTPCnvDict.so
+PMonSD [dso]    1      0     312      21 libBLM_GeoModel.so
+PMonSD [dso]    1     20     252      77 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODLuminosityDict.so
+PMonSD [dso]    1     10     236      93 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrkDetDescrTPCnvDict.so
 PMonSD [dso]    1     10     244      85 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libPersistentDataModelTPCnvDict.so
 PMonSD [dso]    1     10     188     140 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODEventInfoDict.so
-PMonSD [dso]    1      0     296      21 libBCM_GeoModel.so
+PMonSD [dso]    1     10     296      21 libBCM_GeoModel.so
 PMonSD [dso]    1     10     196     119 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODHIEventDict.so
 PMonSD [dso]    1     10     200     112 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODTrigCaloDict.so
 PMonSD [dso]    1     10     296      10 libRootCollectionComponents.so
-PMonSD [dso]    1      0     240      64 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODBaseDict.so
-PMonSD [dso]    1      0     272       8 libRootStorageSvc.so
-PMonSD [dso]    1     20     276       4 libXMLCatalog.so
-PMonSD [dso]    1     10     260      19 libGeometryDBSvc.so
-PMonSD [dso]    1      0     244      34 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libByteStreamEventTPCnvDict.so
-PMonSD [dso]    1     10     256      20 libSubDetectorEnvelopes.so
+PMonSD [dso]    1     10     240      64 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODBaseDict.so
+PMonSD [dso]    1     10     272       8 libRootStorageSvc.so
+PMonSD [dso]    1     10     276       4 libXMLCatalog.so
+PMonSD [dso]    1      0     260      19 libGeometryDBSvc.so
+PMonSD [dso]    1     10     244      34 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libByteStreamEventTPCnvDict.so
+PMonSD [dso]    1      0     256      20 libSubDetectorEnvelopes.so
 PMonSD [dso]    1     10     252       4 libDetDescrCnvSvc.so
-PMonSD [dso]    1     20     160      93 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODTrigBphysDict.so
-PMonSD [dso]    1      0     128     118 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libEventInfoDict.so
-PMonSD [dso]    1      0     212      19 libDBReplicaSvc.so
+PMonSD [dso]    1     10     160      93 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODTrigBphysDict.so
+PMonSD [dso]    1     10     128     118 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libEventInfoDict.so
+PMonSD [dso]    1     10     212      19 libDBReplicaSvc.so
 PMonSD [dso]    1     10     140      77 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libDetDescrConditionsDict.so
 PMonSD [dso]    1     10     200       7 libInDetIdCnv.so
 PMonSD [dso]    1      0     128      78 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libDetDescrDict.so
-PMonSD [dso]    1     10      88     111 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libStorageSvcDict.so
+PMonSD [dso]    1      0      88     111 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libStorageSvcDict.so
 PMonSD [dso]    1     10     148      40 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODEventShapeDict.so
 PMonSD [dso]    1     10     184       2 libCLIDComps.so
 PMonSD [dso]    1      0     164       3 libPersistentDataModelAthenaPoolPoolCnv.so
-PMonSD [dso]    1      0     120      27 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libRecEventTPCnvDict.so
-PMonSD [dso]    1     10     136       3 libIOVDbAthenaPoolPoolCnv.so
+PMonSD [dso]    1     10     120      27 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libRecEventTPCnvDict.so
+PMonSD [dso]    1      0     136       3 libIOVDbAthenaPoolPoolCnv.so
 PMonSD [dso]    1      0     120      12 libTrigSerializeCnvSvc.so
 PMonSD [dso]    1      0      72      58 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrkSegmentDict.so
-PMonSD [dso]    1      0     116      11 libIOVSvc.so
+PMonSD [dso]    1     10     116      11 libIOVSvc.so
 PMonSD [dso]    1     10     112      11 libTrigNavigation.so
-PMonSD [dso]    1     10      60      60 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libEventKernelDict.so
+PMonSD [dso]    1      0      60      60 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libEventKernelDict.so
 PMonSD [dso]    1      0      72      35 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libEventTagTPCnvDict.so
-PMonSD [dso]    1      0      48      39 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libPersistentDataModelDict.so
-PMonSD [dso]    1      0      36      35 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libDetDescrCondTPCnvDict.so
+PMonSD [dso]    1     10      48      39 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libPersistentDataModelDict.so
+PMonSD [dso]    1     10      36      35 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libDetDescrCondTPCnvDict.so
 PMonSD [dso]    1      0      32      31 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODEventFormatDict.so
 PMonSD [dso]    1      0      44       3 libStoreGate.so
-PMonSD [dso]    1     10       0     -37 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libMuonTagToolsLib.so
+PMonSD [dso]    1      0       0     -37 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libMuonTagToolsLib.so
 PMonSD [dso]    1      0       0     -14 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libGeneratorObjectsTPCnv.so
 PMonSD [dso]    1      0       0     -12 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libMuonPrepRawData.so
 PMonSD [dso]    1      0       0     -11 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTileSimEventTPCnv.so
-PMonSD [dso]    1     10       0      -9 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrigMuonEventTPCnv.so
+PMonSD [dso]    1      0       0      -9 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrigMuonEventTPCnv.so
 PMonSD [dso]    1      0       0       9 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libInDetGeoModelUtils.so
-PMonSD [dso]    1      0       0       8 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTileTPCnv.so
+PMonSD [dso]    1     10       0       8 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTileTPCnv.so
 PMonSD [dso]    1      0       0       7 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODParticleEvent.so
 PMonSD [dso]    1      0       0       6 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrackParticleTPCnv.so
-PMonSD [dso]    1      0       0       6 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libMuonEventTPCnv.so
-PMonSD [dso]    1      0       0       5 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTauTagToolsLib.so
+PMonSD [dso]    1     10       0       6 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libMuonEventTPCnv.so
+PMonSD [dso]    1     10       0       5 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTauTagToolsLib.so
 PMonSD [dso]    1      0       0       5 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTileIdentifier.so
 PMonSD [dso]    1      0       0       5 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libMissingETEvent.so
 PMonSD [dso]    1      0       0       5 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrigMuonEvent.so
 PMonSD [dso]    1      0       0       5 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrigParticleTPCnv.so
 PMonSD [dso]    1      0       0       5 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrigDecisionToolLib.so
-PMonSD [dso]    1     10       0       5 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTRT_GeoModelLib.so
-PMonSD [dso]    1     10       0       5 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTileDetDescr.so
+PMonSD [dso]    1      0       0       5 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTRT_GeoModelLib.so
+PMonSD [dso]    1      0       0       5 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTileDetDescr.so
 PMonSD [dso]    1      0       0       5 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libMuonDigitContainer.so
-PMonSD [dso]    1      0       0       5 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libVxSecVertex.so
+PMonSD [dso]    1     10       0       5 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libVxSecVertex.so
 PMonSD [dso]    1      0       0       5 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrigMissingEtEventTPCnv.so
 PMonSD [dso]    1      0       0       5 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libMuonIdHelpersLib.so
 PMonSD [dso]    1      0       0      -3 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libCaloTPCnv.so
@@ -427,46 +427,46 @@ PMonSD [dso]    1      0       0       3 /cvmfs/atlas.cern.ch/repo/sw/software/2
 PMonSD [dso]    1      0       0       3 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libCollectionUtilities.so
 PMonSD [dso]    1      0       0       3 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libMuonCompetingRIOsOnTrack.so
 PMonSD [dso]    1      0       0       3 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libMuonTrigCoinData.so
-PMonSD [dso]    1      0       0       3 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrigInDetEvent.so
+PMonSD [dso]    1     10       0       3 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrigInDetEvent.so
 PMonSD [dso]    1      0       0       3 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTileSimEvent.so
 PMonSD [dso]    1      0       0       3 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libBeamPipeGeoModelLib.so
-PMonSD [dso]    1     10       0       3 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libRecTPCnv.so
+PMonSD [dso]    1      0       0       3 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libRecTPCnv.so
 PMonSD [dso]    1      0       0       3 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODTrigMissingET.so
 PMonSD [dso]    1      0       0       3 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libElectronPhotonTagToolsLib.so
 PMonSD [dso]    1      0       0       3 libTrigDecisionEvent.so
-PMonSD [dso]    1     10       0       3 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libByteStreamEventTPCnv.so
+PMonSD [dso]    1      0       0       3 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libByteStreamEventTPCnv.so
 PMonSD [dso]    1      0       0       2 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrigMissingEtEvent.so
 PMonSD [dso]    1      0       0       2 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libPersistentDataModelTPCnv.so
 PMonSD [dso]    1      0       0       2 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTPTools.so
 PMonSD [dso]    1      0       0       2 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libEventTagUtilsLib.so
+PMonSD [dso]    1     10       0       2 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrigCaloEventTPCnv.so
 PMonSD [dso]    1      0       0       2 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libLumiBlockCoolQuery.so
-PMonSD [dso]    1      0       0       2 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrigCaloEventTPCnv.so
 PMonSD [dso]    1      0       0       2 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libInDetCompetingRIOsOnTrack.so
 PMonSD [dso]    1      0       0       2 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTileConditionsLib.so
 PMonSD [dso]    1      0       0       2 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrigCollQueryLib.so
 PMonSD [dso]    1      0       0       2 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libJetMissingEtTagToolsLib.so
 PMonSD [dso]    1      0       0       2 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libJetEvent.so
 PMonSD [dso]    1      0       0       2 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libMuonReadoutGeometry.so
-PMonSD [dso]    1     10       0       2 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODMissingET.so
+PMonSD [dso]    1      0       0       2 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODMissingET.so
 PMonSD [dso]    1      0       0       2 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libLArRecEvent.so
 PMonSD [dso]    1      0       0       2 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libLArTPCnv.so
 PMonSD [dso]    1      0       0       2 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrkEventTPCnv.so
 PMonSD [dso]    1      0       0       2 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODTrigRinger.so
-PMonSD [dso]    1     10       0       2 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libEventCommonTPCnv.so
+PMonSD [dso]    1      0       0       2 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libEventCommonTPCnv.so
 PMonSD [dso]    1      0       0       1 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libVxMultiVertex.so
 PMonSD [dso]    1      0       0       1 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libmuonEvent.so
-PMonSD [dso]    1      0       0       1 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTileEvent.so
+PMonSD [dso]    1     10       0       1 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTileEvent.so
 PMonSD [dso]    1      0       0       1 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODAssociations.so
 PMonSD [dso]    1      0       0       1 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libCaloUtilsLib.so
 PMonSD [dso]    1      0       0       1 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODBTagging.so
 PMonSD [dso]    1      0       0       1 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODCutFlow.so
-PMonSD [dso]    1      0       0       1 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libInDetRIO_OnTrack.so
+PMonSD [dso]    1     10       0       1 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libInDetRIO_OnTrack.so
 PMonSD [dso]    1      0       0       1 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libMuonPattern.so
 PMonSD [dso]    1      0       0       1 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libSCT_GeoModelLib.so
 PMonSD [dso]    1      0       0       1 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrkDetDescrTPCnv.so
 PMonSD [dso]    1      0       0       1 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libMuonRIO_OnTrack.so
-PMonSD [dso]    1     10       0       1 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libPixelGeoModelLib.so
 PMonSD [dso]    1      0       0       1 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libLumiBlockCompsLib.so
+PMonSD [dso]    1      0       0       1 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libPixelGeoModelLib.so
 PMonSD [dso]    1      0       0       1 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrkVKalVrtFitterLib.so
 PMonSD [dso]    1      0       0       1 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libVxJetVertex.so
 PMonSD [dso]    1      0       0       1 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libDataModelAthenaPoolLib.so
@@ -474,7 +474,7 @@ PMonSD [dso]    1      0       0       1 /cvmfs/atlas.cern.ch/repo/sw/software/2
 PMonSD [dso]    1      0       0       1 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrkDetDescrSvcLib.so
 PMonSD [dso]    1      0       0       1 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODTrigBphys.so
 PMonSD [dso]    1      0       0       1 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODTrigMinBias.so
-PMonSD [dso]    1      0       0       1 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libDetDescrCondTPCnv.so
+PMonSD [dso]    1     10       0       1 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libDetDescrCondTPCnv.so
 PMonSD [dso]    1      0       0       1 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libLUCID_GeoModelLib.so
 PMonSD [dso]    1      0       0       1 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libParticleEventTPCnv.so
 PMonSD [dso]    1      0       0       1 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libZDC_GeoMLib.so
@@ -504,15 +504,15 @@ PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/2
 PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libInDetLowBetaInfo.so
 PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libMuonChamberT0s.so
 PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libParticleTruth.so
-PMonSD [dso]    1     10       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrkGeometry.so
 PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libIdDictDetDescr.so
 PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libMuonSimData.so
+PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrkGeometry.so
 PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrkSpacePoint.so
 PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libDetDescrConditions.so
 PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libGeneratorObjects.so
-PMonSD [dso]    1     10       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libLumiBlockData.so
 PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libDetDescrCnvSvcLib.so
 PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libEventTPCnv.so
+PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libLumiBlockData.so
 PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libRecEventTPCnv.so
 PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrkVertexOnTrack.so
 PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libRecEvent.so
@@ -546,9 +546,9 @@ PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/2
 PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrkSpaceTimePoint.so
 PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libAGDDKernel.so
 PMonSD [dso]    1      0       0       0 libxAODCaloEvent.so
-PMonSD [dso]    1     10       0       0 libTrigCosmicEvent.so
+PMonSD [dso]    1     10       0       0 libxAODTrigMinBiasDict.so
+PMonSD [dso]    1      0       0       0 libTrigCosmicEvent.so
 PMonSD [dso]    1      0       0       0 libxAODTrigEgammaDict.so
-PMonSD [dso]    1      0       0       0 libxAODTrigMinBiasDict.so
 PMonSD [dso]    1      0       0       0 libxAODTrigMissingETDict.so
 PMonSD [dso]    1      0       0       0 libxAODBTaggingDict.so
 PMonSD [dso]    1      0       0       0 libxAODCaloEventDict.so
@@ -600,11 +600,9 @@ PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/2
 PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrkVKalVrtFitter.so
 PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libXMLCatalog.so
 PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODCaloEventCnv.so
-PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODCaloRingsAthenaPoolPoolCnv.so
 PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODRootAccessInterfaces.so
 PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODTrackingCnv.so
 PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/GAUDI/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libGaudiMP.so
-PMonSD [dso]    1      0       0       0 /home/kayamash/working/CalcEffTool/build/x86_64-centos7-gcc62-opt/lib/libCalcEfficiency.so
 PMonSD [dso]    1      0       0       0 libTrigCaloEvent.so
 PMonSD [dso]    1      0       0       0 libTrigInDetEvent.so
 PMonSD [dso]    1      0       0       0 libTrigMissingEtEvent.so
@@ -648,42 +646,44 @@ PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/2
 PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrigTopoEvent.so
 PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libTrkDetDescrSvc.so
 PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libZDC_GeoM.so
+PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/Athena/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libxAODCaloRingsAthenaPoolPoolCnv.so
 PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/GAUDI/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libGaudiAlg.so
 PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/GAUDI/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libGaudiHive.so
 PMonSD [dso]    1      0       0       0 /cvmfs/atlas.cern.ch/repo/sw/software/21.0/GAUDI/21.0.77/InstallArea/x86_64-slc6-gcc62-opt/lib/libGaudiSvc.so
-PMonSD [dso]    1   3860  158352   26989 [total_for_395_comps]
+PMonSD [dso]    1      0       0       0 /home/kayamash/working/CalcEffTool_kayamash/CalcEffTool/build/x86_64-centos7-gcc62-opt/lib/libCalcEfficiency.so
+PMonSD [dso]    1   4100  182240   27245 [total_for_395_comps]
 PMonSD ================================== step preLoadProxy ===================================
 PMonSD                   n    cpu    vmem  malloc component
-PMonSD [preLoadProxy]    1     20       0    5158 FldrSetup:/TRIGGER/HLT/Menu
-PMonSD [preLoadProxy] 1565      0       0       3 FldrSetup:/EXT/DCS/MAGNETS/SENSORDATA
-PMonSD [preLoadProxy]    1     30       0    2218 FldrCache:/TRIGGER/LVL1/BunchGroupContent
+PMonSD [preLoadProxy]    1     10       0    5158 FldrSetup:/TRIGGER/HLT/Menu
+PMonSD [preLoadProxy]    1     40       0    2218 FldrCache:/TRIGGER/LVL1/BunchGroupContent
 PMonSD [preLoadProxy]    1      0       0   -2184 loadCachesOverhead:COOLONL_TRIGGER/CONDBR2
-PMonSD [preLoadProxy]    1     40       0    1340 FldrCache:/EXT/DCS/MAGNETS/SENSORDATA
+PMonSD [preLoadProxy]    1     30       0    1340 FldrCache:/EXT/DCS/MAGNETS/SENSORDATA
 PMonSD [preLoadProxy]    1     10       0    1339 FldrSetup:/TRIGGER/HLT/Prescales
 PMonSD [preLoadProxy]    1      0       0   -1337 loadCachesOverhead:COOLOFL_DCS/CONDBR2
 PMonSD [preLoadProxy]    1      0       0    -796 loadCachesOverhead:COOLOFL_TRT/CONDBR2
-PMonSD [preLoadProxy]    1     20       0     761 FldrCache:/TRT/Align
-PMonSD [preLoadProxy]    1     10       0     577 FldrCache:/GLOBAL/TrackingGeo/LayerMaterialV2
+PMonSD [preLoadProxy]    1     30       0     761 FldrCache:/TRT/Align
+PMonSD [preLoadProxy]    1     20       0     577 FldrCache:/GLOBAL/TrackingGeo/LayerMaterialV2
 PMonSD [preLoadProxy]    1      0       0    -575 loadCachesOverhead:COOLONL_GLOBAL/CONDBR2
 PMonSD [preLoadProxy]    1      0       0    -525 loadCachesOverhead:COOLOFL_INDET/CONDBR2
 PMonSD [preLoadProxy]    1     20       0     507 FldrCache:/Indet/Align
-PMonSD [preLoadProxy]    1     10       0     227 FldrSetup:/TRIGGER/LVL1/ItemDef
+PMonSD [preLoadProxy]    1      0       0     227 FldrSetup:/TRIGGER/LVL1/ItemDef
 PMonSD [preLoadProxy]    1      0       0     192 FldrSetup:/TRIGGER/LVL1/Menu
 PMonSD [preLoadProxy]    1      0       0     133 FldrSetup:/TRIGGER/LVL1/Prescales
-PMonSD [preLoadProxy] 1566      0       0       0 UpdateAddr::/EXT/DCS/MAGNETS/SENSORDATA
-PMonSD [preLoadProxy]    1     10       0      57 FldrCache:/Indet/Beampos
-PMonSD [preLoadProxy]    1     20       0      33 FldrCache:/Indet/IBLDist
+PMonSD [preLoadProxy]    1     20       0      57 FldrCache:/Indet/Beampos
+PMonSD [preLoadProxy]   22      0       0       2 FldrSetup:/EXT/DCS/MAGNETS/SENSORDATA
+PMonSD [preLoadProxy]    1     10       0      33 FldrCache:/Indet/IBLDist
 PMonSD [preLoadProxy]    2      0       0      16 FldrSetup:/TagInfo
-PMonSD [preLoadProxy]    1     20       0      28 FldrCache:/TRT/Cond/StatusPermanent
+PMonSD [preLoadProxy]    1     30       0      28 FldrCache:/TRT/Cond/StatusPermanent
 PMonSD [preLoadProxy]    1     10       0      24 FldrCache:/TRT/Cond/Status
-PMonSD [preLoadProxy]    1     10       0      21 FldrCache:/Indet/TrkErrorScaling
-PMonSD [preLoadProxy]    1     20       0      21 FldrCache:/TRT/Cond/StatusHT
+PMonSD [preLoadProxy]    1     20       0      21 FldrCache:/Indet/TrkErrorScaling
+PMonSD [preLoadProxy]    1     10       0      21 FldrCache:/TRT/Cond/StatusHT
 PMonSD [preLoadProxy]    1      0       0      12 FldrSetup:/Indet/Align
 PMonSD [preLoadProxy]    1      0       0      10 FldrSetup:/Indet/IBLDist
 PMonSD [preLoadProxy]    1     10       0       9 FldrCache:/TRT/Calib/DX
 PMonSD [preLoadProxy]    1      0       0       8 FldrSetup:/TRIGGER/LVL1/BunchGroupContent
 PMonSD [preLoadProxy]    1     10       0       7 FldrCache:/Indet/PixelDist
-PMonSD [preLoadProxy]    1      0       0       6 FldrCache:/TRIGGER/LVL1/BunchGroupDescription
+PMonSD [preLoadProxy]    1     10       0       6 FldrCache:/TRIGGER/LVL1/BunchGroupDescription
+PMonSD [preLoadProxy]   23      0       0       0 UpdateAddr::/EXT/DCS/MAGNETS/SENSORDATA
 PMonSD [preLoadProxy]    1      0       0       3 FldrSetup:/GLOBAL/BField/Maps
 PMonSD [preLoadProxy]    1      0       0       2 FldrSetup:/TRT/Align
 PMonSD [preLoadProxy]    1      0       0       2 FldrSetup:/TRIGGER/LVL1/BunchGroupDescription
@@ -709,15 +709,15 @@ PMonSD [preLoadProxy]    4      0       0       0 UpdateAddr::/TagInfo
 PMonSD [preLoadProxy]    1      0       0       0 AlignableTransformContainer[/Indet/Align]
 PMonSD [preLoadProxy]    1      0       0       0 FldrSetup:/TRIGGER/HLT/PrescaleKey
 PMonSD [preLoadProxy]    1      0       0       0 FldrSetup:/TRIGGER/LVL1/BunchGroupKey
+PMonSD [preLoadProxy]    1      0       0       0 CondAttrListCollection[/GLOBAL/BField/Maps]
 PMonSD [preLoadProxy]    1      0       0       0 FldrSetup:/TRIGGER/LVL1/Lvl1ConfigKey
 PMonSD [preLoadProxy]    1      0       0       0 FldrSetup:/TRT/Calib/DX
 PMonSD [preLoadProxy]    1      0       0       0 FldrSetup:/GLOBAL/TrackingGeo/LayerMaterialV2
-PMonSD [preLoadProxy]    1      0       0       0 CondAttrListCollection[/GLOBAL/BField/Maps]
 PMonSD [preLoadProxy]    1      0       0       0 TagInfo[ProcessingTags]
 PMonSD [preLoadProxy]    3      0       0       0 UpdateAddr::AtlasTrackingGeometry
 PMonSD [preLoadProxy]    1      0       0       0 AthenaAttributeList[/TRIGGER/HLT/HltConfigKeys]
-PMonSD [preLoadProxy]    1      0       0       0 CondAttrListCollection[/EXT/DCS/MAGNETS/SENSORDATA]
 PMonSD [preLoadProxy]    1      0       0       0 AlignableTransformContainer[/TRT/Align]
+PMonSD [preLoadProxy]    1      0       0       0 CondAttrListCollection[/EXT/DCS/MAGNETS/SENSORDATA]
 PMonSD [preLoadProxy]    1      0       0       0 AthenaAttributeList[/TRIGGER/LVL1/BunchGroupDescription]
 PMonSD [preLoadProxy]    1      0       0       0 CondAttrListCollection[/TRIGGER/LVL1/Menu]
 PMonSD [preLoadProxy]    1      0       0       0 AthenaAttributeList[/TRIGGER/HLT/PrescaleKey]
@@ -795,28 +795,28 @@ PMonSD [preLoadProxy]    1      0       0       0 UpdateAddr::BeamPipe
 PMonSD [preLoadProxy]    1      0       0       0 CondAttrListCollection[/Indet/TrkErrorScaling]
 PMonSD [preLoadProxy]    1      0       0       0 DetCondCFloat[/Indet/PixelDist]
 PMonSD [preLoadProxy]    1      0       0       0 UpdateAddr::BCMParameters
-PMonSD [preLoadProxy]    1    270       0    7278 [total_for_81_comps]
+PMonSD [preLoadProxy]    1    290       0    7278 [total_for_81_comps]
 PMonSD [preLoadProxy]    2      0       0      19 [total_for_52_comps]
 PMonSD [preLoadProxy]    3      0       0       1 [total_for_4_comps]
 PMonSD [preLoadProxy]    4      0       0       0 [total_for_1_comps]
 PMonSD [preLoadProxy]    5      0       0       0 [total_for_1_comps]
-PMonSD [preLoadProxy] 1565      0       0       3 [total_for_1_comps]
-PMonSD [preLoadProxy] 1566      0       0       0 [total_for_1_comps]
+PMonSD [preLoadProxy]   22      0       0       2 [total_for_1_comps]
+PMonSD [preLoadProxy]   23      0       0       0 [total_for_1_comps]
 PMonSD ===================================== special info =====================================
 PMonSD          n      cpu     wall     vmem   malloc component
-PMonSD [---] 92318       11       23        -        - evtloop_time
-PMonSD [---]    1    17499   146743        -        - overhead_time
-PMonSD [---]    1        0        0  1395508   457585 snapshot_pre_ini
-PMonSD [---]    1    16740   145575  1754428   843095 snapshot_post_ini
-PMonSD [---]    1    17350   146558  1761560   879049 snapshot_post_1stevt
-PMonSD [---]    1  1052890  2305837  2086212  1179578 snapshot_post_lastevt
-PMonSD [---]    1  1053050  2306046  2086212  1058001 snapshot_post_fin
-PMonSD [---]   91        -        -        0        6 leakperevt_evt11to100
-PMonSD [---] 92217        -        -        4        4 leakperevt_evt101plus
-PMonSD [---] vmem_peak=2151836 vmem_mean=1917274 rss_mean=1281374
-PMonSD [---] jobcfg_walltime=155094 jobstart=2019-04-13T11:38:12+0000
+PMonSD [---] 93104        9       18        -        - evtloop_time
+PMonSD [---]    1    18311   147473        -        - overhead_time
+PMonSD [---]    1        0        0  1112140   447166 snapshot_pre_ini
+PMonSD [---]    1    17610   146570  1724996   833609 snapshot_post_ini
+PMonSD [---]    1    18170   147319  1732128   869812 snapshot_post_1stevt
+PMonSD [---]    1   871030  1816830  2058956  1174570 snapshot_post_lastevt
+PMonSD [---]    1   871180  1817002  2058956  1051757 snapshot_post_fin
+PMonSD [---]   91        -        -        9       44 leakperevt_evt11to100
+PMonSD [---] 93003        -        -        4        4 leakperevt_evt101plus
+PMonSD [---] vmem_peak=2058960 vmem_mean=1889266 rss_mean=1226740
+PMonSD [---] jobcfg_walltime=112424 jobstart=2019-04-16T10:45:36+0000
 PMonSD [---] cpu_bmips=4200 cpu_res=10 release=21.0.77/x86_64-slc6-gcc62-opt
 PMonSD [---] cpu_model=Intel(R)_Xeon(R)_Gold_6130_CPU_@_2.10GHz/22528_KB
 PMonSD [---] malloc=libtcmalloc_minimal.so/ok pycintex_vmemfix=0
-PMonSD [---] pmonsd_cost_onceperjob=0 pmonsd_cost_perevt=1
+PMonSD [---] pmonsd_cost_onceperjob=40 pmonsd_cost_perevt=0
 PMonSD =========================== semi-detailed perfmon info / end ===========================

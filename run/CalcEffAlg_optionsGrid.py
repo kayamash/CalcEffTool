@@ -106,7 +106,7 @@ ServiceMgr.MessageSvc.infoLimit = 99999999
 ServiceMgr.MessageSvc.debugLimit = 99999999
 
 # GRL
-ToolSvc += CfgMgr.GoodRunsListSelectionTool("MyGRLTool",GoodRunsListVec=["data18_13TeV.periodAllYear_HEAD_Unknown_PHYS_StandardGRL_All_Good_25ns.xml"])
+ToolSvc += CfgMgr.GoodRunsListSelectionTool("MyGRLTool",GoodRunsListVec=["data17_13TeV.periodAllYear_HEAD_Unknown_PHYS_StandardGRL_All_Good_25ns.xml"])
 
 from CalcEfficiency.CalcEfficiencyConf import *
 job += CalcEffAlg( 'CalcEffAlg', 

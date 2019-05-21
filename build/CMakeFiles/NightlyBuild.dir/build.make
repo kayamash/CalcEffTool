@@ -43,10 +43,10 @@ RM = /cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/Cmake/3.11.0/Linux-x86_
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kayamash/working/CalcEffTool
+CMAKE_SOURCE_DIR = /home/kayamash/working/CalcEffTool_kayamash/CalcEffTool
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kayamash/working/CalcEffTool/build
+CMAKE_BINARY_DIR = /home/kayamash/working/CalcEffTool_kayamash/CalcEffTool/build
 
 # Utility rule file for NightlyBuild.
 
@@ -71,6 +71,6 @@ CMakeFiles/NightlyBuild.dir/clean:
 .PHONY : CMakeFiles/NightlyBuild.dir/clean
 
 CMakeFiles/NightlyBuild.dir/depend:
-	cd /home/kayamash/working/CalcEffTool/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kayamash/working/CalcEffTool /home/kayamash/working/CalcEffTool /home/kayamash/working/CalcEffTool/build /home/kayamash/working/CalcEffTool/build /home/kayamash/working/CalcEffTool/build/CMakeFiles/NightlyBuild.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/kayamash/working/CalcEffTool_kayamash/CalcEffTool/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kayamash/working/CalcEffTool_kayamash/CalcEffTool /home/kayamash/working/CalcEffTool_kayamash/CalcEffTool /home/kayamash/working/CalcEffTool_kayamash/CalcEffTool/build /home/kayamash/working/CalcEffTool_kayamash/CalcEffTool/build /home/kayamash/working/CalcEffTool_kayamash/CalcEffTool/build/CMakeFiles/NightlyBuild.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/NightlyBuild.dir/depend
 

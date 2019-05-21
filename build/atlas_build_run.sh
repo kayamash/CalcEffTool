@@ -10,7 +10,7 @@
 set -e
 
 # Set up the environment:
-source /home/kayamash/working/CalcEffTool/build/x86_64-centos7-gcc62-opt/setup.sh || exit 1
+source /home/kayamash/working/CalcEffTool_kayamash/CalcEffTool/build/x86_64-centos7-gcc62-opt/setup.sh || exit 1
 
 # Run the command:
 exec $* || exit 1

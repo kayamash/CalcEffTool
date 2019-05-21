@@ -1,8 +1,8 @@
 [release_metadata]
 release:21.0.77
-nightly name:master
+nightly name:dev_kayamash
 project name:WorkDir
-nightly release:f8308e0
-date:2019-02-25T1345
+nightly release:0a8d445
+date:2019-04-25T1525
 compiler:GNU-6.2.0
 cxxpath:/cvmfs/atlas.cern.ch/repo/sw/software/21.0/sw/lcg/releases/gcc/6.2binutils/x86_64-slc6-gcc62-opt/bin/g++
