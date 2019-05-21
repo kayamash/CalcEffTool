@@ -28,5 +28,6 @@ lsetup rucio
 #asetup AtlasProduction 20.7.6.2 here
 #asetup AtlasProduction 21.0.13.1 here 
 asetup Athena,21.0.77 here
+#asetup Athena,21.5.6 here
 #asetup AtlasOffline, 21.0.14 here
 #asetup AtlasOffline, 21.0.16 here

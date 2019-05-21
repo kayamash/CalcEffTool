@@ -37,7 +37,7 @@ if not acf.EvtMax.is_locked():
   acf.EvtMax=-1
 #acf.FilesInput = InputFileList
 acf.FilesInput += [
-        #"/gpfs/fs6001/kayamash/mc16_13TeV.345100.Sherpa_221_NNPDF30NNLO_Zmumu_MAXHTPTV70_140_VBFfilt.recon.AOD.e5679_e5984_s3126_r9781/AOD.12538886._00087.pool.root.1"
+        #"/gpfs/fs7001/kayamash/mc16_13TeV.410472.PhPy8EG_A14_ttbar_hdamp258p75_dil.deriv.DAOD_MUON0.e6348_e5984_s3126_r10724_r10726_p3613/DAOD_MUON0.15084884._000599.pool.root.1"
         #"/gpfs/fs6001/kayamash/mc16_13TeV.345100.Sherpa_221_NNPDF30NNLO_Zmumu_MAXHTPTV70_140_VBFfilt.recon.AOD.e5679_e5984_s3126_r9781/AOD.12538886._000087.pool.root.1"
         "/gpfs/fs6001/kayamash/data18_13TeV.00364160.physics_Main.merge.AOD.f1002_m2037/data18_13TeV.00364160.physics_Main.merge.AOD.f1002_m2037._lb0232._0001.1"
         #"/gpfs/fs2001/yfukuhar/data/mc16_13TeV.424108.Pythia8B_A14_CTEQ6L1_Jpsimu6.merge.AOD.e5441_s3126_r9781_r9778/AOD.11857841._001391.pool.root.1"
