@@ -1,5 +1,5 @@
-#ifndef _INC_TAGANDPROBE
-#define _INC_TAGANDPROBE
+#ifndef _INC_TAGANDPROBEFCBM
+#define _INC_TAGANDPROBEFCBM
 
 // stdlib
 #include <iostream>
@@ -33,11 +33,11 @@
 
 using namespace std;
 
-class TagAndProbeForCBM {
+class TagAndProbeFCBM {
 
 	public:
-	TagAndProbeForCBM();
-	~TagAndProbeForCBM();
+	TagAndProbeFCBM();
+	~TagAndProbeFCBM();
 
     enum L1Item{ NOTHING, L1_MU4, L1_MU6, L1_MU10, L1_MU11, L1_MU20, L1_MU21 };//for data17
     //enum L1Item{ NOTHING, L1_MU4, L1_MU6, L1_MU10, L1_MU11, L1_MU15, L1_MU20 };//for data16

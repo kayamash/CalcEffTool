@@ -23,11 +23,11 @@ class ITHistSvc;
 // My class
 #include "CalcEfficiency/ParticleSelecterTool.h"
 #include "CalcEfficiency/TagAndProbe.h"
-#include "CalcEfficiency/TagAndProbeForCBM.h"
+#include "CalcEfficiency/TagAndProbeFCBM.h"
 #include "CalcEfficiency/MuonExtUtils.h"
 #include "CalcEfficiency/VrtFitUtils.h"
 #include "CalcEfficiency/EventTree.h"
-#include "CalcEfficiency/EventTreeForCBM.h"
+#include "CalcEfficiency/EventTreeFCBM.h"
 
 // forward
 class GoodRunsListSelectionTool;
@@ -91,11 +91,11 @@ class CalcEffAlg:public AthAlgorithm
     // TagAndProbe Class
     TagAndProbe m_tap; //!
     std::string m_tapmethod; //!
-    TagAndProbeForCBM m_tapfcbm;
+    TagAndProbeFCBM m_tapfcbm; //!
 
     //EventTree
     EventTree m_et;
-    EventTreeForCBM m_etfcbm;
+    EventTreeFCBM m_etfcbm; //!
 
     dk::Utils m_utils;
 };

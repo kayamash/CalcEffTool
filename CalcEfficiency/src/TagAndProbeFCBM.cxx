@@ -10,7 +10,7 @@
 #include "xAODTrigger/MuonRoIContainer.h"
 #include "xAODTracking/TrackParticleContainer.h"
 
-#include "CalcEfficiency/TagAndProbeForCBM.h"
+#include "CalcEfficiency/TagAndProbeFCBM.h"
 #include "CalcEfficiency/ParticleSelecterTool.h"
 #include "CalcEfficiency/Utils.h"
 
@@ -21,14 +21,14 @@
 
 using namespace std;
 
-TagAndProbeForCBM::TagAndProbeForCBM()
+TagAndProbeFCBM::TagAndProbeFCBM()
 : m_trigDecTool( "Trig::TrigDecisionTool/TrigDecisionTool" )
 {}
 
-TagAndProbeForCBM::~TagAndProbeForCBM() {
+TagAndProbeFCBM::~TagAndProbeFCBM() {
 }
 
-int TagAndProbeForCBM::initialize( const int& message,
+int TagAndProbeFCBM::initialize( const int& message,
                              const bool& useExt,
                              const std::string method,
                              MuonExtUtils ext,
@@ -98,7 +98,7 @@ int TagAndProbeForCBM::initialize( const int& message,
   return 0;
 }
 
-void TagAndProbeForCBM::clear() {
+void TagAndProbeFCBM::clear() {
     m_muonOfflinePt.clear();
     m_muonOfflineEta.clear();
     m_muonOfflineExtEta.clear();
@@ -258,7 +258,7 @@ void TagAndProbeForCBM::clear() {
     return;
 }
 
-int TagAndProbeForCBM::execute(const xAOD::MuonContainer* muons, const xAOD::MuonRoIContainer* rois){
+int TagAndProbeFCBM::execute(const xAOD::MuonContainer* muons, const xAOD::MuonRoIContainer* rois){
     xAOD::MuonContainer::const_iterator mu_begin = muons->begin();
     xAOD::MuonContainer::const_iterator mu_end = muons->end();
     if( m_message>1 ) cout << "NMuon : " << muons->size() << endl;
@@ -637,7 +637,7 @@ int TagAndProbeForCBM::execute(const xAOD::MuonContainer* muons, const xAOD::Muo
   return Nquality;
 }
 
-int TagAndProbeForCBM::matchL1( const L1Item& L1, const xAOD::Muon* muon, const xAOD::MuonRoIContainer* rois, const double* reqdR,  double* param) {//kayamash
+int TagAndProbeFCBM::matchL1( const L1Item& L1, const xAOD::Muon* muon, const xAOD::MuonRoIContainer* rois, const double* reqdR,  double* param) {//kayamash
 ///this function is used for Roi matching in L1. 
 ///return is matchedroinumber.
   int matchedRoINumber = -1;
@@ -680,7 +680,7 @@ int TagAndProbeForCBM::matchL1( const L1Item& L1, const xAOD::Muon* muon, const 
   return matchedRoINumber;
 }
 
-bool TagAndProbeForCBM::matchSA( const Trig::FeatureContainer& fc, int L1num, double* param, std::vector< float >& vec_param_X, std::vector< float >& vec_param_Y, std::vector< float >& vec_param_Z, std::vector< uint32_t >& vec_param_mesPhi, float* param_rpcFit, std::vector< string >& vec_param_string, std::string& mesSATEName, std::vector< std::vector < float> >& vec_param_road, vector < vector < int > >& vec_param_mdtInt, vector < vector < float > >& vec_param_mdtFloat, double* l1param)//kayamash
+bool TagAndProbeFCBM::matchSA( const Trig::FeatureContainer& fc, int L1num, double* param, std::vector< float >& vec_param_X, std::vector< float >& vec_param_Y, std::vector< float >& vec_param_Z, std::vector< uint32_t >& vec_param_mesPhi, float* param_rpcFit, std::vector< string >& vec_param_string, std::string& mesSATEName, std::vector< std::vector < float> >& vec_param_road, vector < vector < int > >& vec_param_mdtInt, vector < vector < float > >& vec_param_mdtFloat, double* l1param)//kayamash
 {
   ///this function is used for SA matching.
   bool isPassedSA = kFALSE;
@@ -1268,7 +1268,7 @@ RoIMatchingAndSAPassed:
   return isPassedSA;
 }
 
-bool TagAndProbeForCBM::matchCB( const Trig::FeatureContainer& fc, int L1num, double* param, std::string& cbTEName ) 
+bool TagAndProbeFCBM::matchCB( const Trig::FeatureContainer& fc, int L1num, double* param, std::string& cbTEName ) 
 {
   bool isPassedCB = kFALSE;
   TString tsCBTEName = cbTEName.c_str();
@@ -1324,7 +1324,7 @@ bool TagAndProbeForCBM::matchCB( const Trig::FeatureContainer& fc, int L1num, do
   return isPassedCB;
 }
 
-bool TagAndProbeForCBM::matchCB( const xAOD::Muon* muon, const Trig::FeatureContainer& fc, double* reqdR, double* param, std::string& cbTEName ) {
+bool TagAndProbeFCBM::matchCB( const xAOD::Muon* muon, const Trig::FeatureContainer& fc, double* reqdR, double* param, std::string& cbTEName ) {
   TString tsCBTEName = cbTEName.c_str();
   bool isPassedCB = kFALSE;
   const double muPt   = muon->pt();
@@ -1385,7 +1385,7 @@ bool TagAndProbeForCBM::matchCB( const xAOD::Muon* muon, const Trig::FeatureCont
   return isPassedCB;
 }
 
-int TagAndProbeForCBM::matchEF( const string& chain, const xAOD::Muon* muon, const Trig::FeatureContainer& fc, double* reqdR, double* param ) {
+int TagAndProbeFCBM::matchEF( const string& chain, const xAOD::Muon* muon, const Trig::FeatureContainer& fc, double* reqdR, double* param ) {
   int isPassedEF = -1;
   const double muPt   = muon->pt();
   const double muEta  = muon->eta();
@@ -1424,7 +1424,7 @@ int TagAndProbeForCBM::matchEF( const string& chain, const xAOD::Muon* muon, con
   return isPassedEF;
 }
 
-int TagAndProbeForCBM::matchEFFS( const string& chain, const xAOD::Muon* muon, const Trig::FeatureContainer& fc, double* reqdR, double* param, double* tagparam ) {
+int TagAndProbeFCBM::matchEFFS( const string& chain, const xAOD::Muon* muon, const Trig::FeatureContainer& fc, double* reqdR, double* param, double* tagparam ) {
   int isPassedEF = -1;
   const double muPt   = muon->pt();
   const double muEta  = muon->eta();
@@ -1466,7 +1466,7 @@ int TagAndProbeForCBM::matchEFFS( const string& chain, const xAOD::Muon* muon, c
   return isPassedEF;
 }
 
-double TagAndProbeForCBM::dRL1byPt( double mupt ) {
+double TagAndProbeFCBM::dRL1byPt( double mupt ) {
   double dR = 0.08;
   if( mupt < 10000. ) {
     dR = -0.00001*mupt + 0.18;
@@ -1477,7 +1477,7 @@ double TagAndProbeForCBM::dRL1byPt( double mupt ) {
 
 ///Functions below here is used for "int TagAndProbe::addMesChain( const string& name, const L1Item& mesL1, const string& mesHLT, const string& mesAddTag )".
 ///
-Bool_t TagAndProbeForCBM::getSATEName( const std::string& mesHLT, std::string& teName )
+Bool_t TagAndProbeFCBM::getSATEName( const std::string& mesHLT, std::string& teName )
 {
   ///This function is used in "int TagAndProbe::addMesChain ".
   ///mesHLT and teName is parameters.
@@ -1512,13 +1512,13 @@ Bool_t TagAndProbeForCBM::getSATEName( const std::string& mesHLT, std::string& t
   return 0;
 }
 
-Bool_t TagAndProbeForCBM::getSATEName( const char* mesHLT, std::string& teName )
+Bool_t TagAndProbeFCBM::getSATEName( const char* mesHLT, std::string& teName )
 {
   std::string s_mesHLT = mesHLT;
   return getSATEName( s_mesHLT, teName );
 }
 
-Bool_t TagAndProbeForCBM::getCBTEName( const std::string& mesHLT, std::string& teName )
+Bool_t TagAndProbeFCBM::getCBTEName( const std::string& mesHLT, std::string& teName )
 {
   TString hlt = mesHLT.c_str();
   TObjArray* toa = hlt . Tokenize( "_" );
@@ -1544,7 +1544,7 @@ Bool_t TagAndProbeForCBM::getCBTEName( const std::string& mesHLT, std::string& t
   return 0;
 }
 
-Bool_t TagAndProbeForCBM::getCBTEName( const char* mesHLT, std::string& teName )
+Bool_t TagAndProbeFCBM::getCBTEName( const char* mesHLT, std::string& teName )
 {
   ///THis fuction is similar to TagAndProbe::getCBTEName( const std::string& mesHLT, std::string& teName ).
   ///const char* mesHLT --->>> const std::string&.
@@ -1552,7 +1552,7 @@ Bool_t TagAndProbeForCBM::getCBTEName( const char* mesHLT, std::string& teName )
   return getCBTEName( s_mesHLT, teName );
 }
 
-bool TagAndProbeForCBM::SAHypo( double pt, int EtaRegion, int ECWeakRegion)
+bool TagAndProbeFCBM::SAHypo( double pt, int EtaRegion, int ECWeakRegion)
 {
     bool pass = kFALSE;
     double threshold = 0;
@@ -1566,7 +1566,7 @@ bool TagAndProbeForCBM::SAHypo( double pt, int EtaRegion, int ECWeakRegion)
 }
 
 
-bool TagAndProbeForCBM::CBHypo( double pt, int EtaRegion)
+bool TagAndProbeFCBM::CBHypo( double pt, int EtaRegion)
 {
     bool pass = kFALSE;
     double threshold = 0;
@@ -1575,7 +1575,7 @@ bool TagAndProbeForCBM::CBHypo( double pt, int EtaRegion)
     return pass;
 }
 
-int TagAndProbeForCBM::EtaRegion( double eta )
+int TagAndProbeFCBM::EtaRegion( double eta )
 {
     int region = -1;
     if( fabs(eta) < 1.05 ){
@@ -1590,7 +1590,7 @@ int TagAndProbeForCBM::EtaRegion( double eta )
     return region;
 }
 
-int TagAndProbeForCBM::ECWeakRegion( double eta, double phi )
+int TagAndProbeFCBM::ECWeakRegion( double eta, double phi )
 {
     int region = 0;
     double absEta = fabs( eta );

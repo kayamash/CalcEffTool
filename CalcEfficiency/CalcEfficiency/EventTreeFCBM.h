@@ -1,5 +1,5 @@
-#ifndef _TrigMuonAnalysis_EventTree
-#define _TrigMuonAnalysis_EventTree
+#ifndef _TrigMuonAnalysis_EventTreeFCBM
+#define _TrigMuonAnalysis_EventTreeFCBM
 
 #include <iostream>
 #include <fstream>
@@ -10,18 +10,17 @@
 #include "TString.h"
 #include "TLorentzVector.h"
 
-#include "CalcEfficiency/TagAndProbe.h"
-#include "CalcEfficiency/TagAndProbeForCBM.h"
+#include "CalcEfficiency/TagAndProbeFCBM.h"
 #include "CalcEfficiency/Utils.h"
 
 using namespace std;
 
-class EventTreeForCBM {
+class EventTreeFCBM {
 
 	public:
-	EventTreeForCBM();
-	EventTreeForCBM( TFile* file, TString name );
-	~EventTreeForCBM();
+	EventTreeFCBM();
+	EventTreeFCBM( TFile* file, TString name );
+	~EventTreeFCBM();
 
 	TFile* m_file; //!
 	TTree* m_tree; //!
@@ -29,7 +28,7 @@ class EventTreeForCBM {
 	int initialize( TString outfile );
 	//int initialize( TFile* outfile, TTree* outtree );
 	int clear();
-	int filltree( TagAndProbe& tap, unsigned long long int eventNumber, int runNumber, int lumiBlock, float averageInteractionsPerCrossing );
+	int filltree( TagAndProbeFCBM& tap, unsigned long long int eventNumber, int runNumber, int lumiBlock, float averageInteractionsPerCrossing );
 	int finalize();
 
     //branch variable

@@ -31,10 +31,10 @@
 // My class
 #include "CalcEfficiency/CalcEffAlg.h"
 #include "CalcEfficiency/TagAndProbe.h"
-#include "CalcEfficiency/TagAndProbeForCBM.h"
+#include "CalcEfficiency/TagAndProbeFCBM.h"
 #include "CalcEfficiency/MuonExtUtils.h"
 #include "CalcEfficiency/EventTree.h"
-#include "CalcEfficiency/EventTreeForCBM.h"
+#include "CalcEfficiency/EventTreeFCBM.h"
 
 using namespace std;
 
@@ -117,7 +117,7 @@ StatusCode CalcEffAlg::initialize() {
   ///int initialize( const int& message,const bool& useExt,const std::string method,MuonExtUtils ext,VrtFitUtils vft,ToolHandle<Trig::TrigDecisionTool> tdt,const std::string dataType ); //!
   //==============================================================
   if( m_tapmethod == "ClosebyMuon" ){
-      m_tapfcbm.initialize( 0, m_useExt, m_tapmethod, m_ext, m_vft, m_trigDecTool, m_dataType, "mu4", TagAndProbe::L1_MU4, "HLT_mu4", "none" );
+      m_tapfcbm.initialize( 0, m_useExt, m_tapmethod, m_ext, m_vft, m_trigDecTool, m_dataType, "mu4", TagAndProbeFCBM::L1_MU4, "HLT_mu4", "none" );
   } else {
     m_tap.initialize( 0, m_useExt, m_tapmethod, m_ext, m_vft, m_trigDecTool, m_dataType );
     m_tap.addMesChain( "mu4", TagAndProbe::L1_MU4, "HLT_mu4", "none" );
@@ -210,31 +210,31 @@ StatusCode CalcEffAlg::execute() {
       m_tap.clear();
   }
   cout << "end m_tap.clear()" << endl;
+  int Nquality = 0;
   if( m_tapmethod == "ClosebyMuon" ) {
-      int Nquality = m_tapfcbm.execute(mus, rois);
+      Nquality = m_tapfcbm.execute(mus, rois);
       cout << "end m_tap.execute()" << endl;
   } else {
-      vector< string > passlist;
-      bool passany = false;
-      auto cgs = m_trigDecTool->getChainGroup( "HLT.*mu.*|L1_.*MU.*|HLT_noalg_L1.*MU.*" );
-      //auto cgs = m_trigDecTool->getChainGroup( "HLT.*" );
-      for ( auto &trig : cgs->getListOfTriggers() ) {
-         auto cg = m_trigDecTool->getChainGroup( trig );
-         bool isPassedCurrent = cg->isPassed();
-         if( m_isFirstEvent ) cout << trig << " / " << isPassedCurrent << endl;
-         //cout << trig << " / " << isPassedCurrent << endl;
-         if ( isPassedCurrent ) {
-             ¦ passlist.push_back( trig );
-             ¦ //cout << "TRIGGER: " << trig << endl;
-             ¦ passany = true;
-         }
-      }
-      m_tap.setProbes( mus, rois );
-      cout << "end m_tap.setProbes()" << endl;
-      m_tap.doProbeMatching( rois, ftfs );
-      cout << "end m_tap.doProbeMatching()" << endl;
-      //cout << m_tap.tagPhi()[0] << endl;
-
+    vector< string > passlist;
+    bool passany = false;
+    auto cgs = m_trigDecTool->getChainGroup( "HLT.*mu.*|L1_.*MU.*|HLT_noalg_L1.*MU.*" );
+    //auto cgs = m_trigDecTool->getChainGroup( "HLT.*" );
+    for ( auto &trig : cgs->getListOfTriggers() ) {
+        auto cg = m_trigDecTool->getChainGroup( trig );
+        bool isPassedCurrent = cg->isPassed();
+        if( m_isFirstEvent ) cout << trig << " / " << isPassedCurrent << endl;
+        //cout << trig << " / " << isPassedCurrent << endl;
+        if ( isPassedCurrent ) {
+            passlist.push_back( trig );
+            //cout << "TRIGGER: " << trig << endl;
+            passany = true;
+        }
+    }
+    m_tap.setProbes( mus, rois );
+    cout << "end m_tap.setProbes()" << endl;
+    m_tap.doProbeMatching( rois, ftfs );
+    cout << "end m_tap.doProbeMatching()" << endl;
+    //cout << m_tap.tagPhi()[0] << endl;
       m_isFirstEvent = false;
   }
   // fill results

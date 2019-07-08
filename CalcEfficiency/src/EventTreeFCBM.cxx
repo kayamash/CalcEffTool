@@ -2,7 +2,7 @@
 #include <fstream>
 #include <vector>
 
-#include "CalcEfficiency/EventTreeForCBM.h"
+#include "CalcEfficiency/EventTreeFCBM.h"
 #include "CalcEfficiency/Utils.h"
 
 #include "TTree.h"
@@ -10,13 +10,13 @@
 #include "TString.h"
 #include "TLorentzVector.h"
 
-EventTreeForCBM::EventTreeForCBM() {
+EventTreeFCBM::EventTreeFCBM() {
 }
 
-EventTreeForCBM::~EventTreeForCBM() {
+EventTreeFCBM::~EventTreeFCBM() {
 }
 
-int EventTreeForCBM::initialize( TString outfile = "test.root" ) {
+int EventTreeFCBM::initialize( TString outfile = "test.root" ) {
 //int EventTree::initialize( TFile* outfile, TTree* outtree )
 
     //initialize the event tree
@@ -363,7 +363,7 @@ int EventTreeForCBM::initialize( TString outfile = "test.root" ) {
   return 1;
 }
 
-EventTreeForCBM::EventTreeForCBM(TFile *file, TString name )
+EventTreeFCBM::EventTreeFCBM(TFile *file, TString name )
 {
   m_tree=(TTree*)file->Get( name );
 
@@ -703,13 +703,13 @@ EventTreeForCBM::EventTreeForCBM(TFile *file, TString name )
     m_tree->Branch( "EFPhi",                          &muon_EF_phi );
 }
 
-int EventTreeForCBM::clear( ) {
+int EventTreeFCBM::clear( ) {
 	// clear the vector for branch
     //mes_name->clear();
 	return 1;
 }
 
-int EventTreeForCBM::filltree( TagAndProbe& tap, unsigned long long int eventNumber, int runNumber, int lumiBlock, float averageInteractionsPerCrossing) {
+int EventTreeFCBM::filltree( TagAndProbeFCBM& tap, unsigned long long int eventNumber, int runNumber, int lumiBlock, float averageInteractionsPerCrossing) {
     // fill the variable vectors
     EventNumber                                                         = eventNumber;
     RunNumber                                                           = runNumber;
@@ -1033,7 +1033,7 @@ int EventTreeForCBM::filltree( TagAndProbe& tap, unsigned long long int eventNum
     return 1;
 }
 
-int EventTreeForCBM::finalize() {
+int EventTreeFCBM::finalize() {
 	// write into file and close
 
 	m_file->Write();
