@@ -716,10 +716,11 @@ int EventTreeFCBM::filltree( TagAndProbeFCBM& tap, unsigned long long int eventN
     LumiBlock                                                           = lumiBlock;
     AverageInteractionsPerCrossing                                      = averageInteractionsPerCrossing;
     mes_name                                                            = tap.mesName();
-    n_muon                                                              = tap.nMuon();
+    //n_muon                                                              = tap.nMuon();
     //2step substitution
     vector < double > tmp_muon_offline_pt                               = tap.muonOfflinePt();
     muon_offline_pt                                                     = &( tmp_muon_offline_pt );
+    n_muon                                                              = tmp_muon_offline_pt.size();
     vector < double > tmp_muon_offline_eta                              = tap.muonOfflineEta();
     muon_offline_eta                                                    = &( tmp_muon_offline_eta );
     vector < double > tmp_muon_offline_exteta                           = tap.muonOfflineExtEta();
