@@ -1,7 +1,7 @@
 if 'LocalInputFileList' in locals():
     print "LocalInputFileList is already set"
 else:
-    LocalInputFileList="/home/kayamash/list/mc16_13TeV.list"
+    LocalInputFileList="/home/kayamash/CalcEffToollist/mc16_300901.list"
 LocalInputFileList="data16.list"
 #LocalInputFileList="local_valid_r9026.list"
 #LocalInputFileList="r9311.list"
@@ -115,11 +115,12 @@ from CalcEfficiency.CalcEfficiencyConf import *
 
 job += CalcEffAlg( message = "2",
                    OutputLevel = DEBUG,
-                   OutputFile = "/gpfs/fs6001/kayamash/Mywork/data16sample.root",
-                   TapMethod = "Jpsitap",
+                   OutputFile = "/gpfs/fs6001/kayamash/Mywork/CalcEffToolOutput/mc16_300901.root",
+                   #TapMethod = "Jpsitap",
+                   TapMethod = "ClosebyMuon",
                    Extrapolate = True,
                    GRL = False,
-                   DataType = "data16"
+                   DataType = "data17"
                  )
                    #GRL = True
                    #OutputLevel = ERROR,

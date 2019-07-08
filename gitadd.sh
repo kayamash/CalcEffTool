@@ -1,8 +1,8 @@
 #!/bin/bash
-branch="master"
+branch="CloseByMuon"
 #file="CalcEfficiency"
 add="git add -A"
-message="add new parameter"
+message="add new method"
 push="git push origin "
 
 eval $add

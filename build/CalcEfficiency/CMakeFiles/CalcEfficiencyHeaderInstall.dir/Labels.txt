@@ -1,5 +1,0 @@
-# Target labels
- CalcEfficiency
-# Source files and their labels
-/home/kayamash/working/CalcEffTool/build/x86_64-centos7-gcc62-opt/include/CalcEfficiency
-/home/kayamash/working/CalcEffTool/build/x86_64-centos7-gcc62-opt/include/CalcEfficiency.rule

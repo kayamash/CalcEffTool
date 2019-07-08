@@ -1,12 +1,10 @@
-#ifndef CALCEFFALG_H // Include guard
+#ifndef CALCEFFALG_H // Include gu2ard
 #define CALCEFFALG_H
 
 // Base
 #include "AthenaBaseComps/AthAlgorithm.h"
 
 class ITHistSvc;
-class TH1D;
-class TH2D;
 
 // ASG Tools
 #include "AsgTools/AsgToolsConf.h"
@@ -25,17 +23,16 @@ class TH2D;
 // My class
 #include "CalcEfficiency/ParticleSelecterTool.h"
 #include "CalcEfficiency/TagAndProbe.h"
+#include "CalcEfficiency/TagAndProbeForCBM.h"
 #include "CalcEfficiency/MuonExtUtils.h"
 #include "CalcEfficiency/VrtFitUtils.h"
 #include "CalcEfficiency/EventTree.h"
+#include "CalcEfficiency/EventTreeForCBM.h"
 
-// Number of target trigger-chains for trigger rate
-const int NChain = 4;
-
-// foaward
+// forward
 class GoodRunsListSelectionTool;
 namespace CP {
-  class MuonCalibrationAndSmearingTool; 
+  class MuonCalibrationAndSmearingTool;
 }
 namespace TrigConf {
   class xAODConfigTool;
@@ -44,9 +41,9 @@ namespace TrigConf {
 namespace Trig {
   class TrigDecisionTool;
 }
-namespace Trk { 
-  class IExtrapolator; 
-  class IVertexFitter; 
+namespace Trk {
+  class IExtrapolator;
+  class IVertexFitter;
 }
 
 
@@ -59,22 +56,12 @@ class CalcEffAlg:public AthAlgorithm
     StatusCode initialize();
     StatusCode finalize();
     StatusCode execute();
-    StatusCode FillRateHist(const xAOD::MuonContainer* muons, const xAOD::MuonRoIContainer* rois );
-    Bool_t getSATEName( const std::string& mesHLT, std::string& teName );
-    Bool_t getCBTEName( const std::string& mesHLT, std::string& teName );
-    double offlineMatching ( const xAOD::Muon *mu, const xAOD::MuonRoIContainer *rois, const TagAndProbe::L1Item trigL1, const string trigHLT);
-    
 
   private:
     std::string m_message;
     std::string m_etname;
     std::string m_dataType;
     bool m_isFirstEvent; //!
-
-    vector< TagAndProbe::L1Item > m_trigL1; //!
-    vector< string > m_trigEvent; //!
-    vector< string > m_trigHLT; //!
-    vector< double > m_trigThreshold; //!
 
     // GRL tool
     ToolHandle<IGoodRunsListSelectionTool> m_grlTool;
@@ -104,32 +91,13 @@ class CalcEffAlg:public AthAlgorithm
     // TagAndProbe Class
     TagAndProbe m_tap; //!
     std::string m_tapmethod; //!
+    TagAndProbeForCBM m_tapfcbm;
 
-    // EventTree Class
-    EventTree m_et; //!
-
-    // Rate Trigger
-    ITHistSvc *m_thistSvc;
-    //TH1F *m_h_rateL1[NChain];
-    //TH1F *m_h_rateSA[NChain];
-    //TH1F *m_h_rateOff[NChain];
-    //TH1F *m_h_rateOffPtCut[NChain];
-    vector< TH1D* > m_h_countEvent;
-    vector< TH1F* > m_h_countL1;
-    vector< TH1F* > m_h_countSA;
-    vector< TH1F* > m_h_countSA4GeV;
-    vector< TH1F* > m_h_countSA8GeV;
-    vector< TH1F* > m_h_countSA12GeV;
-    vector< TH1F* > m_h_countSA16GeV;
-    vector< TH1F* > m_h_countSA20GeV;
-    vector< TH1F* > m_h_countSA24GeV;
-    vector< TH1F* > m_h_countCB;
-    vector< TH1F* > m_h_countEF;
-    vector< TH1F* > m_h_countOff;
-    vector< TH1F* > m_h_countOffPtCut;
+    //EventTree
+    EventTree m_et;
+    EventTreeForCBM m_etfcbm;
 
     dk::Utils m_utils;
-
 };
 
 #endif // CALCALG_H
